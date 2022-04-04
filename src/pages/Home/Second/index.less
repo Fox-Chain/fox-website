@@ -1,0 +1,554 @@
+.second {
+  position: relative;
+  background-color: #e1e1e1;
+  :global {
+    // Images
+    // @leaf-url: 'https://making-the-web.com/sites/default/files/clipart/156536/green-leaf-icon-156536-2289922.png';
+    // @leaf-pattern-url: 'https://walls4u.co.uk/app/uploads/2018/10/AdobeStock_184585340.jpg';
+    // @maze-url: 'http://innou.io/beta/assets/images/maze-white.png';
+
+    // Palette
+    @color-bg: #062133;
+    @color-block-bg: lighten(@color-bg, 5);
+    @color-accent: rgb(239, 68, 68);
+    @color-text: #ffffff;
+    @color-primary: #8dae4f;
+    @color-secondary: rgb(47, 73, 209);
+
+    // Settings
+    @animation-duration: 48s;
+    @circle-radius: 6em;
+    @dot-size: 8px;
+
+    .has-content-centered {
+      justify-content: center;
+    }
+
+    .has-content-right {
+      justify-content: flex-end;
+    }
+
+    .is-flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .is-round {
+      border-radius: 50%;
+    }
+
+    .is-strong {
+      font-weight: 700;
+    }
+
+    .title,
+    .subtitle {
+      text-transform: uppercase;
+      color: @color-text;
+
+      &.is-strong {
+        font-weight: 700;
+        color: @color-primary;
+      }
+    }
+
+    .circle-graphic {
+      pointer-events: none;
+
+      &.pause {
+        .module,
+        .node {
+          animation-play-state: paused;
+        }
+      }
+    }
+
+    .layer {
+      @extend .is-flex;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    .layer-third {
+      .module {
+        h4 {
+          font-size: 1.2rem;
+          margin-left: 0.3rem;
+        }
+      }
+    }
+    .layer-third-out {
+      .module {
+        h4 {
+          font-size: 1.2rem;
+          margin-left: 3.3rem;
+        }
+      }
+    }
+    .layer-main {
+      .main-title {
+        // margin-left: 1em;
+      }
+    }
+
+    .module {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      width: @circle-radius * 5;
+      left: calc(50% - @circle-radius);
+      top: calc(50% - @circle-radius);
+      transform-origin: @circle-radius @circle-radius;
+      animation: spin @animation-duration linear infinite;
+      transition: transform 0.3s ease-out;
+
+      &:before {
+        content: '';
+        display: block;
+        width: calc(100% - @circle-radius);
+        position: absolute;
+        border-bottom: dotted @dot-size @color-secondary;
+        top: 50%;
+        left: @circle-radius;
+        margin-top: -@dot-size / 2;
+      }
+
+      &.pause .leaf {
+        opacity: 1;
+      }
+
+      .circle {
+        animation: spin @animation-duration linear infinite reverse;
+        pointer-events: all;
+        cursor: pointer;
+        transition: background 0.2s ease-out;
+
+        &.pause {
+          animation-play-state: paused;
+        }
+
+        &:hover {
+          background: @color-text;
+          border-color: @color-text;
+          box-shadow: 0px 10px 15px @color-bg;
+          .title,
+          .subtitle {
+            color: rgb(23, 23, 23);
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        animation-delay: -8s;
+
+        .circle {
+          animation-delay: -8s;
+        }
+      }
+
+      &:nth-child(2) {
+        animation-delay: -16s;
+
+        .circle {
+          animation-delay: -16s;
+        }
+      }
+      &:nth-child(3) {
+        animation-delay: -24s;
+
+        .circle {
+          animation-delay: -24s;
+        }
+      }
+      &:nth-child(4) {
+        animation-delay: -32s;
+
+        .circle {
+          animation-delay: -32s;
+        }
+      }
+      &:nth-child(5) {
+        animation-delay: -40s;
+
+        .circle {
+          animation-delay: -40s;
+        }
+      }
+      // @for @a from 1 to 7 {
+      //   &:nth-child(#{@a}) {
+      //     @b: @a*8;
+      //     animation-delay: -#{@b}s;
+
+      //     .circle {
+      //       animation-delay: -#{@b}s;
+      //     }
+      //   }
+      // }
+    }
+
+    .circle {
+      @extend .is-flex;
+      width: @circle-radius * 2;
+      height: @circle-radius * 2;
+      border-radius: 50%;
+      position: relative;
+      border: solid 3px rgb(247, 185, 28);
+      background: darken(@color-bg, 2);
+
+      &.is-main {
+        background-color: rgba(darken(@color-bg, 1), 0.95);
+        // border-width: 15px;
+        width: @circle-radius * 2.75;
+        height: @circle-radius * 2.75;
+        overflow: hidden;
+        border: solid 15px rgb(247, 185, 28);
+
+        pointer-events: all;
+        cursor: pointer;
+        transition: background 0.2s ease-out, border 0.2s ease-out;
+
+        &:before {
+          content: '';
+          // background: url(@maze-url) center;
+          background-size: 50%;
+          position: absolute;
+          animation: spin @animation-duration linear reverse infinite;
+          width: 100%;
+          height: 100%;
+          opacity: 0.25;
+          z-index: 1;
+        }
+
+        .title,
+        .subtitle {
+          position: relative;
+          z-index: 2;
+        }
+
+        .subtitle {
+          margin-top: -1em;
+        }
+
+        &:hover {
+          background-color: @color-text;
+          border-color: @color-text;
+
+          .title,
+          .subtitle {
+            color: rgb(23, 23, 23);
+          }
+        }
+      }
+
+      &.is-second {
+        background: none;
+        border: dotted 1px @color-secondary;
+        width: @circle-radius * 6;
+        height: @circle-radius * 6;
+      }
+
+      &.is-third {
+        background: none;
+        border: dashed 5px darken(@color-text, 60);
+        width: @circle-radius * 7;
+        height: @circle-radius * 7;
+        transition: border-color 0.2s ease-out;
+        animation: spin @animation-duration*4 linear infinite reverse;
+
+        .pause & {
+          border-color: @color-accent;
+        }
+      }
+    }
+    .module-out {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      width: @circle-radius * 7.5;
+      left: calc(50% - @circle-radius);
+      top: calc(50% - @circle-radius);
+      transform-origin: @circle-radius @circle-radius;
+      animation: spin @animation-duration linear infinite;
+      transition: transform 0.3s ease-out;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 20px;
+        position: absolute;
+        border-bottom: dotted @dot-size @color-secondary;
+        top: 50%;
+        left: @circle-radius;
+        margin-top: -@dot-size / 2;
+      }
+
+      &.pause .leaf {
+        opacity: 1;
+      }
+
+      .circle {
+        animation: spin @animation-duration linear infinite reverse;
+        pointer-events: all;
+        cursor: pointer;
+        transition: background 0.2s ease-out;
+
+        &.pause {
+          animation-play-state: paused;
+        }
+
+        &:hover {
+          background: @color-text;
+          border-color: @color-text;
+          box-shadow: 0px 10px 15px @color-bg;
+          .title,
+          .subtitle {
+            color: rgb(23, 23, 23);
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        animation-delay: -8s;
+
+        .circle {
+          animation-delay: -8s;
+        }
+      }
+
+      &:nth-child(2) {
+        animation-delay: -16s;
+
+        .circle {
+          animation-delay: -16s;
+        }
+      }
+      &:nth-child(3) {
+        animation-delay: -24s;
+
+        .circle {
+          animation-delay: -24s;
+        }
+      }
+      &:nth-child(4) {
+        animation-delay: -32s;
+
+        .circle {
+          animation-delay: -32s;
+        }
+      }
+      &:nth-child(5) {
+        animation-delay: -40s;
+
+        .circle {
+          animation-delay: -40s;
+        }
+      }
+      // @for @a from 1 to 7 {
+      //   &:nth-child(#{@a}) {
+      //     @b: @a*8;
+      //     animation-delay: -#{@b}s;
+
+      //     .circle {
+      //       animation-delay: -#{@b}s;
+      //     }
+      //   }
+      // }
+    }
+
+    .circle-out {
+      @extend .is-flex;
+      width: @circle-radius * 2;
+      height: @circle-radius * 2;
+      border-radius: 50%;
+      position: relative;
+      border: solid 3px rgb(247, 185, 28);
+      background: darken(@color-bg, 2);
+
+      &.is-main {
+        background-color: rgba(darken(@color-bg, 1), 0.95);
+        // border-width: 15px;
+        width: @circle-radius * 2.75;
+        height: @circle-radius * 2.75;
+        overflow: hidden;
+        border: solid 15px rgb(247, 185, 28);
+
+        pointer-events: all;
+        cursor: pointer;
+        transition: background 0.2s ease-out, border 0.2s ease-out;
+
+        &:before {
+          content: '';
+          // background: url(@maze-url) center;
+          background-size: 50%;
+          position: absolute;
+          animation: spin @animation-duration linear reverse infinite;
+          width: 100%;
+          height: 100%;
+          opacity: 0.25;
+          z-index: 1;
+        }
+
+        .title,
+        .subtitle {
+          position: relative;
+          z-index: 2;
+        }
+
+        .subtitle {
+          margin-top: -1em;
+        }
+
+        &:hover {
+          background-color: @color-text;
+          border-color: @color-text;
+
+          .title,
+          .subtitle {
+            color: rgb(23, 23, 23);
+          }
+        }
+      }
+
+      &.is-second {
+        background: none;
+        border: dotted 1px @color-secondary;
+        width: @circle-radius * 6;
+        height: @circle-radius * 6;
+      }
+
+      &.is-third {
+        background: none;
+        border: dashed 5px darken(@color-text, 60);
+        width: @circle-radius * 7;
+        height: @circle-radius * 7;
+        transition: border-color 0.2s ease-out;
+        animation: spin @animation-duration*4 linear infinite reverse;
+
+        .pause & {
+          border-color: @color-accent;
+        }
+      }
+    }
+    .leaf {
+      position: absolute;
+      width: 3em;
+      height: 3em;
+      // background: url(@leaf-url) no-repeat center;
+      background-size: contain;
+      transform: rotate(40deg);
+      top: 4em;
+      right: -4.5em;
+      opacity: 0.3;
+    }
+
+    .ellipses {
+      transform: rotate(30deg);
+
+      .ellipsis {
+        @extend .is-round;
+        // background: url(@leaf-pattern-url);
+        position: absolute;
+        width: @circle-radius * 8;
+        height: @circle-radius * 4;
+        border: solid 2px @color-primary;
+        opacity: 0.25;
+
+        &:nth-child(1) {
+          animation: spin linear infinite;
+          animation-duration: @animation-duration - 1;
+          animation-delay: 8s;
+        }
+
+        &:nth-child(2) {
+          animation: spin linear infinite;
+          animation-duration: @animation-duration - 2;
+          animation-delay: 26s;
+        }
+
+        &:nth-child(3) {
+          animation: spin linear infinite;
+          animation-duration: @animation-duration - 3;
+          animation-delay: 24s;
+        }
+
+        &:nth-child(4) {
+          animation: spin linear infinite;
+          animation-duration: @animation-duration - 4;
+          animation-delay: 32s;
+        }
+
+        // @for @a from 1 to 4 {
+        //   &:nth-child(#{@a}) {
+        //     @b: @a*8;
+        //     animation: spin linear infinite;
+        //     animation-duration: @animation-duration - @a;
+        //     animation-delay: -#{@b}s;
+        //   }
+        // }
+      }
+
+      .circle.is-cover {
+        position: absolute;
+        background: rgba(@color-bg, 0.9);
+        border: none;
+        width: @circle-radius * 7;
+        height: @circle-radius * 7;
+      }
+    }
+
+    .modal {
+      .modal-card-head {
+        background: rgb(16, 185, 129);
+        border: none;
+        text-transform: uppercase;
+      }
+
+      .modal-card-title {
+        color: @color-text;
+      }
+
+      .modal-card-body,
+      .modal-card-foot {
+        background: @color-block-bg;
+        border: none;
+        color: @color-text;
+      }
+
+      .modal-card-body {
+        p {
+          min-height: 250px;
+          // max-height: 360px;
+          padding-right: 1em;
+          padding-bottom: 1em;
+          margin: 1em;
+          margin-right: 0;
+          margin-bottom: 0;
+          overflow: auto;
+
+          &.is-overflowing {
+            border-bottom: solid 4px @color-accent;
+          }
+        }
+      }
+
+      .modal-card-foot {
+        button {
+          @extend .is-round;
+          @extend .is-flex;
+          background: @color-primary;
+          color: @color-text;
+          border: none;
+          width: 2.5em;
+          height: 2.5em;
+        }
+      }
+
+      &.is-active .modal-card {
+        animation: scaleUpBounce 0.2s ease-in-out;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.title-wrapper {
+  width: 100%;
+  @font-size-factor: 1;
+
+  h1 {
+    width: 100%;
+    font-size: 1.5em * @font-size-factor;
+    // margin-top: 20vh;
+    margin-bottom: 0;
+    opacity: 1;
+    position: relative;
+    color: #e3e3eb;
+    font-weight: 400;
+    text-align: center;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+    // border-bottom: 3px solid #e3e3eb;
+    letter-spacing: 10px;
+
+    > div {
+      position: relative;
+      display: inline-block;
+      + div {
+        display: block;
+      }
+    }
+    span {
+      letter-spacing: normal;
+      display: block;
+      margin-bottom: 10px * @font-size-factor;
+      font-size: 0.5em * @font-size-factor;
+      font-style: italic;
+      position: relative;
+      z-index: 2;
+      &:before,
+      &:after {
+        content: '';
+        width: 43%;
+        height: 3px;
+        border-radius: 5px;
+        background: #e3e3eb;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        top: 0.5em;
+      }
+      &:after {
+        left: 0;
+      }
+    }
+  }
+  p {
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 14px * @font-size-factor;
+    letter-spacing: 5px;
+    line-height: 1.2em;
+    text-align: center;
+    font-size: 0.5em * @font-size-factor;
+  }
+
+  /*ANimation stuff*/
+  .title {
+    animation-name: zoomIn;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-delay: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+
+  @keyframes zoomIn {
+    0% {
+      transform: scale(0.3);
+      filter: blur(10px);
+    }
+    40% {
+      transform: scale(1);
+    }
+    100% {
+      filter: blur(0);
+      transform: scale(1);
+    }
+  }
+}

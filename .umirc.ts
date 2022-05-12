@@ -6,8 +6,8 @@ export default defineConfig({
   },
   routes: [
     { path: '/', component: '@/pages/Home' },
-    { path: '/dashboard', component: '@/pages/Dashboard' },
+    { path: '/info', component: '@/pages/Info' },
   ],
   fastRefresh: {},
-  title: 'HAYEK - Stablecoin & Forex Protocol',
+  title: 'Fox',
 });

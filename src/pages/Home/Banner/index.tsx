@@ -233,8 +233,8 @@ const Banner = () => {
           <div data-target="2" className="slide slide--2">
             <div className="slide__text-wrapper slide--2__text-wrapper">
               <BoxMain
-                title="STARKs-based validity proofs to scale Ethereum"
-                desc="Fox scales Ethereum with zk-STARKs to implement the Ethereum-secure, fast, low marginal gas cost, and seamless user experience."
+                title="General purpose, Permissionless and Decentralized"
+                desc="On Fox, developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly."
               >
                 <Box3 />
               </BoxMain>
@@ -243,8 +243,8 @@ const Banner = () => {
           <div data-target="3" className="slide slide--3">
             <div className="slide__text-wrapper slide--3__text-wrapper">
               <BoxMain
-                title="General purpose, Permissionless and Decentralized"
-                desc="On Fox, developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly."
+                title="zk-SNARK & zk-Porter validity proofs"
+                desc="Fox scales Ethereum with zk-SNARK & zk-Porter to implement the Ethereum-secure, fast, low marginal gas cost, and seamless user experience."
               >
                 <Box1 />
               </BoxMain>

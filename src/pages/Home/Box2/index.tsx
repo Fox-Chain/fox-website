@@ -1,4 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
+import { ReactComponent as Box } from '@/assets/box.svg';
+
 import styles from './index.less';
 
 const Page = () => {
@@ -10,7 +12,7 @@ const Page = () => {
       console.log(cctx[i]);
       cc[i].width = 150;
       cc[i].height = 150;
-      cctx[i].fillStyle = 'rgba(0,0,40,.1)';
+      cctx[i].fillStyle = '#030202';
     }
     var c = document.createElement('canvas');
     var ctx = c.getContext('2d');
@@ -40,6 +42,7 @@ const Page = () => {
         o.x1 = cx + o.r1 * Math.cos(a * rad);
         o.y1 = cy + o.r1 * Math.sin(a * rad);
         o.color = 'hsl(' + a + ', 100%,50%)';
+        // o.color = '#ffffff';
         Ry.push(o);
       }
     }

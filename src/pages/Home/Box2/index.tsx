@@ -29,6 +29,7 @@ const Page = () => {
     var rotation = 0;
     ctx.lineWidth = 2;
 
+    // 彩色小方框
     function buildRy(rotation, A1) {
       for (var a = 0; a < 360; a += 3) {
         var o = {};

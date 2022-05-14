@@ -3,6 +3,8 @@ import { ReactComponent as Logo } from '@/assets/logo.svg';
 import Box1 from '../Box1';
 import Box2 from '../Box2';
 import Box3 from '../Box3';
+import BoxMain from '../BoxMain';
+
 import styles from './index.less';
 
 const Banner = () => {
@@ -220,17 +222,32 @@ const Banner = () => {
         <div className="slider">
           <div data-target="1" className="slide slide--1">
             <div className="slide__text-wrapper slide--1__text-wrapper">
-              <Box1 />
+              <BoxMain
+                title="A Fully EVM-compatible zk-Rollup Layer 2 for Ethereum"
+                desc="Fox uses ZK-EVM, which is exactly equivalent to EVM used by Ethereum L1 consensus, and is seamlessly compatible with all Ethereum DApps."
+              >
+                <Box2 />
+              </BoxMain>
             </div>
           </div>
           <div data-target="2" className="slide slide--2">
             <div className="slide__text-wrapper slide--2__text-wrapper">
-              <Box2 />
+              <BoxMain
+                title="STARKs-based validity proofs to scale Ethereum"
+                desc="Fox scales Ethereum with zk-STARKs to implement the Ethereum-secure, fast, low marginal gas cost, and seamless user experience."
+              >
+                <Box3 />
+              </BoxMain>
             </div>
           </div>
           <div data-target="3" className="slide slide--3">
             <div className="slide__text-wrapper slide--3__text-wrapper">
-              <Box3 />
+              <BoxMain
+                title="General purpose, Permissionless and Decentralized"
+                desc="On Fox, developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly."
+              >
+                <Box1 />
+              </BoxMain>
             </div>
           </div>
         </div>

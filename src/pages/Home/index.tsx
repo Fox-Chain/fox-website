@@ -11,13 +11,9 @@ export default function IndexPage() {
   };
   return (
     <div>
-      {(show && (
-        <>
-          <Banner />
-          <Nav />
-          <SvgImg />
-        </>
-      )) || <Start onComplete={onComplete} />}
+      <Banner />
+      <Nav />
+      <SvgImg />
     </div>
   );
 }

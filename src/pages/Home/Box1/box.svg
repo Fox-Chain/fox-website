@@ -1832,10 +1832,10 @@ RK5CYII=" transform="matrix(0.98 0 0 0.98 590.2817 497.2417)">
 			<g id="firstBlock">
 				<linearGradient id="SVGID_49_" x1="1299.6068" x2="1361.6029" y1="-311.3163" y2="-344.4973" gradientTransform="matrix(1 0 0 1 0 700)"
 				    gradientUnits="userSpaceOnUse">
-					<stop offset="0" style="stop-color:#A91B37" />
-					<stop offset="0.2857" style="stop-color:#B21F37" />
-					<stop offset="0.75" style="stop-color:#CA2B38" />
-					<stop offset="1" style="stop-color:#DA3239" />
+					<stop offset="0" style="stop-color:#000000" />
+					<stop offset="0.2857" style="stop-color:#000000" />
+					<stop offset="0.75" style="stop-color:#000000" />
+					<stop offset="1" style="stop-color:#000000" />
 				</linearGradient>
 				<polygon fill="url(#SVGID_49_)" points="1300.9,313.8 1300.9,391.1 1362.9,429 1362.9,355.9 			" />
 				<linearGradient id="SVGID_50_" x1="1372.5" x2="1424.6" y1="-353.6" y2="-301.5" gradientTransform="matrix(1 0 0 1 0 700)"

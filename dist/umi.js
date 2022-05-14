@@ -267,8 +267,8 @@
     var C = [],
       z = [],
       S = 1,
-      A = null,
-      j = 3,
+      j = null,
+      A = 3,
       k = !1,
       I = !1,
       D = !1;
@@ -292,32 +292,32 @@
     }
     function B(e, r) {
       (I = !1), D && ((D = !1), l()), (k = !0);
-      var n = j;
+      var n = A;
       try {
         for (
-          T(r), A = w(C);
-          null !== A &&
-          (!(A.expirationTime > r) || (e && !t.unstable_shouldYield()));
+          T(r), j = w(C);
+          null !== j &&
+          (!(j.expirationTime > r) || (e && !t.unstable_shouldYield()));
 
         ) {
-          var a = A.callback;
+          var a = j.callback;
           if ('function' === typeof a) {
-            (A.callback = null), (j = A.priorityLevel);
-            var i = a(A.expirationTime <= r);
+            (j.callback = null), (A = j.priorityLevel);
+            var i = a(j.expirationTime <= r);
             (r = t.unstable_now()),
-              'function' === typeof i ? (A.callback = i) : A === w(C) && L(C),
+              'function' === typeof i ? (j.callback = i) : j === w(C) && L(C),
               T(r);
           } else L(C);
-          A = w(C);
+          j = w(C);
         }
-        if (null !== A) var s = !0;
+        if (null !== j) var s = !0;
         else {
           var c = w(z);
           null !== c && o(N, c.startTime - r), (s = !1);
         }
         return s;
       } finally {
-        (A = null), (j = n), (k = !1);
+        (j = null), (A = n), (k = !1);
       }
     }
     var P = a;
@@ -334,27 +334,27 @@
         I || k || ((I = !0), n(B));
       }),
       (t.unstable_getCurrentPriorityLevel = function () {
-        return j;
+        return A;
       }),
       (t.unstable_getFirstCallbackNode = function () {
         return w(C);
       }),
       (t.unstable_next = function (e) {
-        switch (j) {
+        switch (A) {
           case 1:
           case 2:
           case 3:
             var t = 3;
             break;
           default:
-            t = j;
+            t = A;
         }
-        var r = j;
-        j = t;
+        var r = A;
+        A = t;
         try {
           return e();
         } finally {
-          j = r;
+          A = r;
         }
       }),
       (t.unstable_pauseExecution = function () {}),
@@ -370,12 +370,12 @@
           default:
             e = 3;
         }
-        var r = j;
-        j = e;
+        var r = A;
+        A = e;
         try {
           return t();
         } finally {
-          j = r;
+          A = r;
         }
       }),
       (t.unstable_scheduleCallback = function (e, r, a) {
@@ -420,14 +420,14 @@
         );
       }),
       (t.unstable_wrapCallback = function (e) {
-        var t = j;
+        var t = A;
         return function () {
-          var r = j;
-          j = t;
+          var r = A;
+          A = t;
           try {
             return e.apply(this, arguments);
           } finally {
-            j = r;
+            A = r;
           }
         };
       });
@@ -1739,15 +1739,15 @@
       C = r('RN6c'),
       z = r('8GlL'),
       S = r('5mdu'),
-      A = r('afO8'),
-      j = r('lMq5'),
+      j = r('afO8'),
+      A = r('lMq5'),
       k = r('tiKp'),
       I = r('LQDL'),
       D = k('species'),
       T = 'Promise',
-      N = A.get,
-      B = A.set,
-      P = A.getterFor(T),
+      N = j.get,
+      B = j.set,
+      P = j.getterFor(T),
       _ = f,
       R = c.TypeError,
       U = c.document,
@@ -1764,7 +1764,7 @@
       J = 2,
       $ = 1,
       ee = 2,
-      te = j(T, function () {
+      te = A(T, function () {
         var e = E(_) !== String(_);
         if (!e) {
           if (66 === I) return !0;
@@ -2144,15 +2144,15 @@
         Float32Array: 4,
         Float64Array: 8,
       },
-      A = function (e) {
+      j = function (e) {
         var t = c(e);
         return 'DataView' === t || s(S, t);
       },
-      j = function (e) {
+      A = function (e) {
         return i(e) && s(S, c(e));
       },
       k = function (e) {
-        if (j(e)) return e;
+        if (A(e)) return e;
         throw TypeError('Target is not a typed array');
       },
       I = function (e) {
@@ -2216,8 +2216,8 @@
       aTypedArrayConstructor: I,
       exportTypedArrayMethod: D,
       exportTypedArrayStaticMethod: T,
-      isView: A,
-      isTypedArray: j,
+      isView: j,
+      isTypedArray: A,
       TypedArray: x,
       TypedArrayPrototype: F,
     };
@@ -2388,14 +2388,14 @@
       (z.getTwoToneColors = C),
       (z.setTwoToneColors = O);
     var S = z;
-    function A(e) {
+    function j(e) {
       var t = x(e),
         r = Object(o['a'])(t, 2),
         n = r[0],
         l = r[1];
       return S.setTwoToneColors({ primaryColor: n, secondaryColor: l });
     }
-    function j() {
+    function A() {
       var e = S.getTwoToneColors();
       return e.calculated ? [e.primaryColor, e.secondaryColor] : e.primaryColor;
     }
@@ -2408,7 +2408,7 @@
       'onClick',
       'twoToneColor',
     ];
-    A('#1890ff');
+    j('#1890ff');
     var I = i['forwardRef'](function (e, t) {
       var r,
         s = e.className,
@@ -2458,8 +2458,8 @@
       );
     });
     (I.displayName = 'AntdIcon'),
-      (I.getTwoToneColor = j),
-      (I.setTwoToneColor = A);
+      (I.getTwoToneColor = A),
+      (I.setTwoToneColor = j);
     t['a'] = I;
   },
   '6VoE': function (e, t, r) {
@@ -2887,10 +2887,10 @@
         S.apply(this, arguments)
       );
     }
-    function A(e) {
+    function j(e) {
       x(e);
     }
-    function j(e) {
+    function A(e) {
       return k.apply(this, arguments);
     }
     function k() {
@@ -2907,7 +2907,7 @@
                     }
                     return e.abrupt('return', z(t));
                   case 2:
-                    A(t);
+                    j(t);
                   case 3:
                   case 'end':
                     return e.stop();
@@ -3204,9 +3204,9 @@
         C = ue(),
         z = Object(N['a'])(C, 2),
         S = z[0],
-        A = z[1],
-        j = ue(te),
-        k = Object(N['a'])(j, 2),
+        j = z[1],
+        A = ue(te),
+        k = Object(N['a'])(A, 2),
         I = k[0],
         D = k[1],
         B = ue(null),
@@ -3301,7 +3301,7 @@
       (H.current = ee),
         be(
           function () {
-            A(t);
+            j(t);
             var r,
               n = U.current;
             ((U.current = !0), e) &&
@@ -3441,16 +3441,16 @@
               : null;
         else L = null;
         if (f['isValidElement'](L) && R(L)) {
-          var A = L,
-            j = A.ref;
-          j || (L = f['cloneElement'](L, { ref: O }));
+          var j = L,
+            A = j.ref;
+          A || (L = f['cloneElement'](L, { ref: O }));
         }
         return f['createElement'](ze, { ref: h }, L);
       });
       return (n.displayName = 'CSSMotion'), n;
     }
-    var Ae = Se(X),
-      je = 'add',
+    var je = Se(X),
+      Ae = 'add',
       ke = 'keep',
       Ie = 'remove',
       De = 'removed';
@@ -3486,7 +3486,7 @@
                   return Object(a['a'])(
                     Object(a['a'])({}, e),
                     {},
-                    { status: je },
+                    { status: Ae },
                   );
                 }),
               )),
@@ -3502,7 +3502,7 @@
         n < o &&
           (r = r.concat(
             i.slice(n).map(function (e) {
-              return Object(a['a'])(Object(a['a'])({}, e), {}, { status: je });
+              return Object(a['a'])(Object(a['a'])({}, e), {}, { status: Ae });
             }),
           ));
       var s = {};
@@ -3553,7 +3553,7 @@
       ];
     function Ue(e) {
       var t =
-          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : Ae,
+          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : je,
         r = (function (e) {
           Object(c['a'])(n, e);
           var r = Object(u['a'])(n);
@@ -3615,7 +3615,7 @@
                         r.map(function (r) {
                           var n = r.status,
                             a = Object(o['a'])(r, _e),
-                            u = n === je || n === ke;
+                            u = n === Ae || n === ke;
                           return f['createElement'](
                             t,
                             Object(l['a'])({}, d, {
@@ -3875,7 +3875,7 @@
               },
               component: e,
               destroy: function () {
-                j(i), i.parentNode && i.parentNode.removeChild(i);
+                A(i), i.parentNode && i.parentNode.removeChild(i);
               },
               useNotification: function () {
                 return Object(He['a'])(e);
@@ -4117,7 +4117,7 @@
           if (n === p) throw new Error('Generator is already running');
           if (n === d) {
             if ('throw' === o) throw l;
-            return A();
+            return j();
           }
           (r.method = o), (r.arg = l);
           while (1) {
@@ -4211,9 +4211,9 @@
             return (a.next = a);
           }
         }
-        return { next: A };
+        return { next: j };
       }
-      function A() {
+      function j() {
         return { value: t, done: !0 };
       }
       return (
@@ -7079,8 +7079,8 @@
       C = Array.prototype.join,
       z = Array.prototype.slice,
       S = Math.floor,
-      A = 'function' === typeof BigInt ? BigInt.prototype.valueOf : null,
-      j = Object.getOwnPropertySymbols,
+      j = 'function' === typeof BigInt ? BigInt.prototype.valueOf : null,
+      A = Object.getOwnPropertySymbols,
       k =
         'function' === typeof Symbol && 'symbol' === typeof Symbol.iterator
           ? Symbol.prototype.toString
@@ -7181,9 +7181,9 @@
       return !1;
     }
     function Q(e) {
-      if (!e || 'object' !== typeof e || !A) return !1;
+      if (!e || 'object' !== typeof e || !j) return !1;
       try {
-        return A.call(e), !0;
+        return j.call(e), !0;
       } catch (t) {}
       return !1;
     }
@@ -7289,10 +7289,10 @@
       }
       if (V(t)) {
         if (0 === t.length) return '[]';
-        var j = he(t, h);
-        return y && !de(j)
-          ? '[' + ye(j, y) + ']'
-          : '[ ' + C.call(j, ', ') + ' ]';
+        var A = he(t, h);
+        return y && !de(A)
+          ? '[' + ye(A, y) + ']'
+          : '[ ' + C.call(A, ', ') + ' ]';
       }
       if (W(t)) {
         var P = he(t, h);
@@ -7333,7 +7333,7 @@
       if (ae(t)) return fe('WeakSet');
       if (oe(t)) return fe('WeakRef');
       if (Y(t)) return ue(h(Number(t)));
-      if (Q(t)) return ue(h(A.call(t)));
+      if (Q(t)) return ue(h(j.call(t)));
       if (K(t)) return ue(v.call(t));
       if (q(t)) return ue(h(String(t)));
       if (!G(t) && !H(t)) {
@@ -7507,7 +7507,7 @@
         for (var o = 0; o < e.length; o++) n[o] = J(e, o) ? t(e[o], e) : '';
       }
       var l,
-        a = 'function' === typeof j ? j(e) : [];
+        a = 'function' === typeof A ? A(e) : [];
       if (I) {
         l = {};
         for (var i = 0; i < a.length; i++) l['$' + a[i]] = a[i];
@@ -7519,7 +7519,7 @@
             (L.call(/[^\w$]/, s)
               ? n.push(t(s, e) + ': ' + t(e[s], e))
               : n.push(s + ': ' + t(e[s], e))));
-      if ('function' === typeof j)
+      if ('function' === typeof A)
         for (var c = 0; c < a.length; c++)
           T.call(e, a[c]) && n.push('[' + t(a[c]) + ']: ' + t(e[a[c]], e));
       return n;
@@ -7910,7 +7910,7 @@
             return 'string' === typeof e && !!e.match(z.hex);
           },
         },
-        A = function (e, t, r, n, o) {
+        j = function (e, t, r, n, o) {
           if (e.required && void 0 === t) O(e, t, r, n, o);
           else {
             var l = [
@@ -7934,7 +7934,7 @@
                 n.push(m(o.messages.types[a], e.fullField, e.type));
           }
         },
-        j = function (e, t, r, n, o) {
+        A = function (e, t, r, n, o) {
           var l = 'number' === typeof e.len,
             a = 'number' === typeof e.min,
             i = 'number' === typeof e.max,
@@ -7986,8 +7986,8 @@
         T = {
           required: O,
           whitespace: C,
-          type: A,
-          range: j,
+          type: j,
+          range: A,
           enum: I,
           pattern: D,
         },
@@ -8483,8 +8483,8 @@
       C = 'Invalid scheme',
       z = 'Invalid host',
       S = 'Invalid port',
-      A = /[A-Za-z]/,
-      j = /[\d+-.A-Za-z]/,
+      j = /[A-Za-z]/,
+      A = /[\d+-.A-Za-z]/,
       k = /\d/,
       I = /^(0x|0X)/,
       D = /^[0-7]+$/,
@@ -8668,7 +8668,7 @@
         var r;
         return (
           2 == e.length &&
-          A.test(e.charAt(0)) &&
+          j.test(e.charAt(0)) &&
           (':' == (r = e.charAt(1)) || (!t && '|' == r))
         );
       },
@@ -8746,7 +8746,7 @@
         while (u <= l.length) {
           switch (((a = l[u]), c)) {
             case ae:
-              if (!a || !A.test(a)) {
+              if (!a || !j.test(a)) {
                 if (r) return C;
                 c = se;
                 continue;
@@ -8754,7 +8754,7 @@
               (p += a.toLowerCase()), (c = ie);
               break;
             case ie:
-              if (a && (j.test(a) || '+' == a || '-' == a || '.' == a))
+              if (a && (A.test(a) || '+' == a || '-' == a || '.' == a))
                 p += a.toLowerCase();
               else {
                 if (':' != a) {
@@ -9082,8 +9082,8 @@
             i.query = String(s) || null;
           }),
           l ||
-            ((n.href = Ae.call(n)),
-            (n.origin = je.call(n)),
+            ((n.href = je.call(n)),
+            (n.origin = Ae.call(n)),
             (n.protocol = ke.call(n)),
             (n.username = Ie.call(n)),
             (n.password = De.call(n)),
@@ -9096,7 +9096,7 @@
             (n.hash = Ue.call(n)));
       },
       Se = ze.prototype,
-      Ae = function () {
+      je = function () {
         var e = M(this),
           t = e.scheme,
           r = e.username,
@@ -9120,7 +9120,7 @@
           c
         );
       },
-      je = function () {
+      Ae = function () {
         var e = M(this),
           t = e.scheme,
           r = e.port;
@@ -9179,14 +9179,14 @@
     if (
       (l &&
         s(Se, {
-          href: Ve(Ae, function (e) {
+          href: Ve(je, function (e) {
             var t = M(this),
               r = String(e),
               n = Ce(t, r);
             if (n) throw TypeError(n);
             x(t.searchParams).updateSearchParams(t.query);
           }),
-          origin: Ve(je),
+          origin: Ve(Ae),
           protocol: Ve(ke, function (e) {
             var t = M(this);
             Ce(t, String(e) + ':', ae);
@@ -9249,7 +9249,7 @@
         Se,
         'toJSON',
         function () {
-          return Ae.call(this);
+          return je.call(this);
         },
         { enumerable: !0 },
       ),
@@ -9257,7 +9257,7 @@
         Se,
         'toString',
         function () {
-          return Ae.call(this);
+          return je.call(this);
         },
         { enumerable: !0 },
       ),
@@ -10154,13 +10154,13 @@
             var S = x ? r : u(r, m.encoder, F, 'key', b);
             if ('comma' === l && x) {
               for (
-                var A = c.call(String(w), ','), j = '', k = 0;
-                k < A.length;
+                var j = c.call(String(w), ','), A = '', k = 0;
+                k < j.length;
                 ++k
               )
-                j +=
-                  (0 === k ? '' : ',') + E(u(A[k], m.encoder, F, 'value', b));
-              return [E(S) + '=' + j];
+                A +=
+                  (0 === k ? '' : ',') + E(u(j[k], m.encoder, F, 'value', b));
+              return [E(S) + '=' + A];
             }
             return [E(S) + '=' + E(u(w, m.encoder, F, 'value', b))];
           }
@@ -10404,7 +10404,6 @@
       return n(e) && (void 0 !== (t = e[a]) ? !!t : 'RegExp' == o(e));
     };
   },
-  RR51: function (e, t, r) {},
   Rm1S: function (e, t, r) {
     'use strict';
     var n = r('14Sl'),
@@ -10909,15 +10908,15 @@
         name: 'info-circle',
         theme: 'outlined',
       },
-      A = S,
-      j = function (e, t) {
+      j = S,
+      A = function (e, t) {
         return i['createElement'](
           p['a'],
-          Object(c['a'])(Object(c['a'])({}, e), {}, { ref: t, icon: A }),
+          Object(c['a'])(Object(c['a'])({}, e), {}, { ref: t, icon: j }),
         );
       };
-    j.displayName = 'InfoCircleOutlined';
-    var k = i['forwardRef'](j),
+    A.displayName = 'InfoCircleOutlined';
+    var k = i['forwardRef'](A),
       I = r('ODXe'),
       D = r('8HVG'),
       T = r('H84U');
@@ -11471,18 +11470,18 @@
             for (
               var z = String(M[0]),
                 S = f(p(i(M.index), d.length), 0),
-                A = [],
-                j = 1;
-              j < M.length;
-              j++
+                j = [],
+                A = 1;
+              A < M.length;
+              A++
             )
-              A.push(h(M[j]));
+              j.push(h(M[A]));
             var k = M.groups;
             if (m) {
-              var I = [z].concat(A, S, d);
+              var I = [z].concat(j, S, d);
               void 0 !== k && I.push(k);
               var D = String(n.apply(void 0, I));
-            } else D = E(z, d, S, A, k, n);
+            } else D = E(z, d, S, j, k, n);
             S >= O && ((L += d.slice(O, S) + D), (O = S + z.length));
           }
           return L + d.slice(O);
@@ -12727,8 +12726,8 @@
       C = 'Wrong index',
       z = n[M],
       S = z,
-      A = n[w],
-      j = A && A[L],
+      j = n[w],
+      A = j && j[L],
       k = Object.prototype,
       I = n.RangeError,
       D = d.pack,
@@ -12797,14 +12796,14 @@
           (W = Y[K++]) in S || a(S, W, z[W]);
         q.constructor = S;
       }
-      y && m(j) !== k && y(j, k);
-      var Z = new A(new S(2)),
-        Q = j.setInt8;
+      y && m(A) !== k && y(A, k);
+      var Z = new j(new S(2)),
+        Q = A.setInt8;
       Z.setInt8(0, 2147483648),
         Z.setInt8(1, 2147483649),
         (!Z.getInt8(0) && Z.getInt8(1)) ||
           i(
-            j,
+            A,
             {
               setInt8: function (e, t) {
                 Q.call(this, e, (t << 24) >> 24);
@@ -12822,8 +12821,8 @@
         F(this, { bytes: g.call(new Array(t), 0), byteLength: t }),
           o || (this.byteLength = t);
       }),
-        (A = function (e, t, r) {
-          c(this, A, w), c(e, S, w);
+        (j = function (e, t, r) {
+          c(this, j, w), c(e, S, w);
           var n = x(e).byteLength,
             l = u(t);
           if (l < 0 || l > n) throw I('Wrong offset');
@@ -12834,10 +12833,10 @@
         }),
         o &&
           (V(S, 'byteLength'),
-          V(A, 'buffer'),
-          V(A, 'byteLength'),
-          V(A, 'byteOffset')),
-        i(A[L], {
+          V(j, 'buffer'),
+          V(j, 'byteLength'),
+          V(j, 'byteOffset')),
+        i(j[L], {
           getInt8: function (e) {
             return (G(this, 1, e)[0] << 24) >> 24;
           },
@@ -12900,7 +12899,7 @@
             H(this, 8, e, U, t, arguments.length > 2 ? arguments[2] : void 0);
           },
         });
-    b(S, M), b(A, w), (e.exports = { ArrayBuffer: S, DataView: A });
+    b(S, M), b(j, w), (e.exports = { ArrayBuffer: S, DataView: j });
   },
   YlG9: function (e, t, r) {
     'use strict';
@@ -13580,7 +13579,7 @@
             e
           );
         })(),
-        A = (function (e) {
+        j = (function (e) {
           f(r, e);
           var t = E(r);
           function r(e, n) {
@@ -13600,7 +13599,7 @@
           }
           return r;
         })(v(Error)),
-        j = (function (e) {
+        A = (function (e) {
           f(r, e);
           var t = E(r);
           function r(e, n, o, l) {
@@ -13645,14 +13644,14 @@
         try {
           return JSON.parse(e);
         } catch (o) {
-          if (t) throw new j(r, 'JSON.parse fail', e, n, 'ParseError');
+          if (t) throw new A(r, 'JSON.parse fail', e, n, 'ParseError');
         }
         return e;
       }
       function D(e, t, r) {
         return new Promise(function (n, o) {
           setTimeout(function () {
-            o(new A(t || 'timeout of '.concat(e, 'ms exceeded'), r, 'Timeout'));
+            o(new j(t || 'timeout of '.concat(e, 'ms exceeded'), r, 'Timeout'));
           }, e);
         });
       }
@@ -13831,7 +13830,7 @@
                         return I(e, !1, r, l);
                       });
                   } catch (h) {
-                    throw new j(r, h.message, null, l, 'ParseError');
+                    throw new A(r, h.message, null, l, 'ParseError');
                   }
                 else if ('json' === c)
                   return n.text().then(function (e) {
@@ -13840,7 +13839,7 @@
                 try {
                   return n[c]();
                 } catch (h) {
-                  throw new j(
+                  throw new A(
                     r,
                     'responseType not support',
                     null,
@@ -13866,12 +13865,12 @@
                   return s
                     ? void (e.res = { data: t, response: r })
                     : void (e.res = t);
-                throw new j(r, 'http error', t, o, 'HttpError');
+                throw new A(r, 'http error', t, o, 'HttpError');
               }
             }
           })
           .catch(function (t) {
-            if (t instanceof A || t instanceof j) throw t;
+            if (t instanceof j || t instanceof A) throw t;
             var r = e.req,
               n = e.res;
             throw (
@@ -15652,8 +15651,8 @@
       C = r('afO8'),
       z = r('cVYH'),
       S = C.get,
-      A = C.set,
-      j = L.f,
+      j = C.set,
+      A = L.f,
       k = O.f,
       I = Math.round,
       D = o.RangeError,
@@ -15675,7 +15674,7 @@
         return o;
       },
       q = function (e, t) {
-        j(e, t, {
+        A(e, t, {
           get: function () {
             return S(this)[t];
           },
@@ -15704,7 +15703,7 @@
           r.configurable ||
           (h(r, 'writable') && !r.writable) ||
           (h(r, 'enumerable') && !r.enumerable)
-          ? j(e, t, r)
+          ? A(e, t, r)
           : ((e[t] = r.value), e);
       };
     l
@@ -15738,7 +15737,7 @@
                 o.view[u](t * l + o.byteOffset, n, !0);
             },
             k = function (e, t) {
-              j(e, t, {
+              A(e, t, {
                 get: function () {
                   return O(this, t);
                 },
@@ -15794,7 +15793,7 @@
                   } else if (((a = p(n) * l), a + f > y)) throw D(H);
                   s = a / l;
                 } else (s = d(t)), (a = s * l), (o = new T(a));
-                A(e, {
+                j(e, {
                   buffer: o,
                   byteOffset: f,
                   byteLength: a,
@@ -15814,6 +15813,9 @@
             w(i);
         }))
       : (e.exports = function () {});
+  },
+  eBwe: function (e, t, r) {
+    e.exports = { page: 'page___3PejB' };
   },
   'eDl+': function (e, t) {
     e.exports = [
@@ -16029,7 +16031,7 @@
         w,
         L,
         O = function (e) {
-          if (e === d && j) return j;
+          if (e === d && A) return A;
           if (!y && e in S) return S[e];
           switch (e) {
             case v:
@@ -16052,9 +16054,9 @@
         C = t + ' Iterator',
         z = !1,
         S = e.prototype,
-        A = S[h] || S['@@iterator'] || (d && S[d]),
-        j = (!y && A) || O(d),
-        k = ('Array' == t && S.entries) || A;
+        j = S[h] || S['@@iterator'] || (d && S[d]),
+        A = (!y && j) || O(d),
+        k = ('Array' == t && S.entries) || j;
       if (
         (k &&
           ((M = l(k.call(new e()))),
@@ -16066,17 +16068,17 @@
             i(M, C, !0, !0),
             f && (p[C] = E))),
         d == g &&
-          A &&
-          A.name !== g &&
+          j &&
+          j.name !== g &&
           ((z = !0),
-          (j = function () {
-            return A.call(this);
+          (A = function () {
+            return j.call(this);
           })),
-        (f && !F) || S[h] === j || s(S, h, j),
-        (p[t] = j),
+        (f && !F) || S[h] === A || s(S, h, A),
+        (p[t] = A),
         d)
       )
-        if (((w = { values: O(g), keys: x ? j : O(v), entries: O(b) }), F))
+        if (((w = { values: O(g), keys: x ? A : O(v), entries: O(b) }), F))
           for (L in w) (y || z || !(L in S)) && c(S, L, w[L]);
         else n({ target: t, proto: !0, forced: y || z }, w);
       return w;
@@ -17059,11 +17061,11 @@
       C = u.set,
       z = u.getterFor(L),
       S = u.getterFor(O),
-      A = /\+/g,
-      j = Array(4),
+      j = /\+/g,
+      A = Array(4),
       k = function (e) {
         return (
-          j[e - 1] || (j[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
+          A[e - 1] || (A[e - 1] = RegExp('((?:%[\\da-f]{2}){' + e + '})', 'gi'))
         );
       },
       I = function (e) {
@@ -17074,7 +17076,7 @@
         }
       },
       D = function (e) {
-        var t = e.replace(A, ' '),
+        var t = e.replace(j, ' '),
           r = 4;
         try {
           return decodeURIComponent(t);
@@ -17918,7 +17920,7 @@
             : ((e.done = !0), { value: n, done: !1 });
         },
       ),
-      A = function (e) {
+      j = function (e) {
         var t,
           r,
           n,
@@ -17961,7 +17963,7 @@
             if (C) return O.apply(a, arguments);
             if (
               ((n = e[b]),
-              void 0 === n && g && 'RegExp' == c(e) && (n = A),
+              void 0 === n && g && 'RegExp' == c(e) && (n = j),
               null != n)
             )
               return i(n).call(e, a);
@@ -17969,12 +17971,12 @@
           return (
             (r = String(a)),
             (o = new RegExp(e, 'g')),
-            g ? A.call(o, r) : o[b](r)
+            g ? j.call(o, r) : o[b](r)
           );
         },
       },
     ),
-      g || b in w || p(w, b, A);
+      g || b in w || p(w, b, j);
   },
   or9q: function (e, t, r) {
     'use strict';
@@ -18170,8 +18172,8 @@
       C = r('kRJp'),
       z = r('busE'),
       S = r('VpIT'),
-      A = r('93I0'),
-      j = r('0BK2'),
+      j = r('93I0'),
+      A = r('0BK2'),
       k = r('kOOl'),
       I = r('tiKp'),
       D = r('5Tg+'),
@@ -18179,7 +18181,7 @@
       N = r('1E5z'),
       B = r('afO8'),
       P = r('tycR').forEach,
-      _ = A('hidden'),
+      _ = j('hidden'),
       R = 'Symbol',
       U = 'prototype',
       V = I('toPrimitive'),
@@ -18282,7 +18284,7 @@
           r = [];
         return (
           P(t, function (e) {
-            f(J, e) || f(j, e) || r.push(e);
+            f(J, e) || f(A, e) || r.push(e);
           }),
           r
         );
@@ -18423,7 +18425,7 @@
         },
       );
     }
-    q[U][V] || C(q[U], V, q[U].valueOf), N(q, R), (j[_] = !0);
+    q[U][V] || C(q[U], V, q[U].valueOf), N(q, R), (A[_] = !0);
   },
   pevA: function (e, t, r) {
     'use strict';
@@ -19099,7 +19101,7 @@
         S = function (e) {
           return I(e, h.ON_CHANGE_CLIENT_STATE) || function () {};
         },
-        A = function (e, t) {
+        j = function (e, t) {
           return t
             .filter(function (t) {
               return 'undefined' !== typeof t[e];
@@ -19111,7 +19113,7 @@
               return M({}, e, t);
             }, {});
         },
-        j = function (e, t) {
+        A = function (e, t) {
           return t
             .filter(function (e) {
               return 'undefined' !== typeof e[d.BASE];
@@ -19201,11 +19203,11 @@
         },
         D = function (e) {
           return {
-            baseTag: j([m.HREF, m.TARGET], e),
-            bodyAttributes: A(p.BODY, e),
+            baseTag: A([m.HREF, m.TARGET], e),
+            bodyAttributes: j(p.BODY, e),
             defer: I(e, h.DEFER),
             encode: I(e, h.ENCODE_SPECIAL_CHARACTERS),
-            htmlAttributes: A(p.HTML, e),
+            htmlAttributes: j(p.HTML, e),
             linkTags: k(d.LINK, [m.REL, m.HREF], e),
             metaTags: k(
               d.META,
@@ -19217,7 +19219,7 @@
             scriptTags: k(d.SCRIPT, [m.SRC, m.INNER_HTML], e),
             styleTags: k(d.STYLE, [m.CSS_TEXT], e),
             title: z(e),
-            titleAttributes: A(p.TITLE, e),
+            titleAttributes: j(p.TITLE, e),
           };
         },
         T = (function () {
@@ -20542,11 +20544,11 @@
         t
       );
     }
-    function A(e) {
+    function j(e) {
       return e && e.__esModule ? e.default : e;
     }
-    function j(e, t) {
-      return Object(l['createElement'])(A(e), t);
+    function A(e, t) {
+      return Object(l['createElement'])(j(e), t);
     }
     function k(e, t) {
       var r = Object.assign(
@@ -20555,7 +20557,7 @@
             loading: null,
             delay: 200,
             timeout: null,
-            render: j,
+            render: A,
             webpack: null,
             modules: null,
           },
@@ -21339,7 +21341,7 @@
         O(1);
       }
       var S = 0;
-      function A(e) {
+      function j(e) {
         (S += e),
           1 === S && 1 === e
             ? (window.addEventListener(he, h),
@@ -21348,23 +21350,23 @@
               (window.removeEventListener(he, h),
               n && window.removeEventListener(ve, v));
       }
-      var j = !1;
+      var A = !1;
       function k(e) {
         void 0 === e && (e = !1);
         var t = m.setPrompt(e);
         return (
-          j || (A(1), (j = !0)),
+          A || (j(1), (A = !0)),
           function () {
-            return j && ((j = !1), A(-1)), t();
+            return A && ((A = !1), j(-1)), t();
           }
         );
       }
       function I(e) {
         var t = m.appendListener(e);
         return (
-          A(1),
+          j(1),
           function () {
-            A(-1), t();
+            j(-1), t();
           }
         );
       }
@@ -21532,8 +21534,8 @@
       );
     }
     r('WmNS'), r('ZqBY'), r('9Baz');
-    var Ae = r('9/5/'),
-      je = r.n(Ae),
+    var je = r('9/5/'),
+      Ae = r.n(je),
       ke = r('hKI/'),
       Ie = r.n(ke);
     function De() {
@@ -21694,7 +21696,7 @@
           (this.subscribe = r),
           n && (this.state = Ze(Ze({}, this.state), n)),
           (this.debounceRun = this.config.debounceInterval
-            ? je()(this._run, this.config.debounceInterval)
+            ? Ae()(this._run, this.config.debounceInterval)
             : void 0),
           (this.throttleRun = this.config.throttleInterval
             ? Ie()(this._run, this.config.throttleInterval)
@@ -22059,8 +22061,8 @@
       });
     }
     var St = {},
-      At = 1e4,
-      jt = 0;
+      jt = 1e4,
+      At = 0;
     function kt(e, t) {
       var r = '' + t.end + t.strict + t.sensitive,
         n = St[r] || (St[r] = {});
@@ -22068,7 +22070,7 @@
       var o = [],
         l = yt()(e, o, t),
         a = { regexp: l, keys: o };
-      return jt < At && ((n[e] = a), jt++), a;
+      return At < jt && ((n[e] = a), At++), a;
     }
     function It(e, t) {
       void 0 === t && (t = {}),
@@ -22815,10 +22817,10 @@
         );
       });
     }
-    var Ar = ['component'];
-    function jr(e, t) {
+    var jr = ['component'];
+    function Ar(e, t) {
       e.component;
-      var r = br(e, Ar),
+      var r = br(e, jr),
         n = e.component;
       function o(o) {
         var i = Object(l['useState'])(function () {
@@ -22970,7 +22972,7 @@
               !(null === (n = o.component) || void 0 === n
                 ? void 0
                 : n.preload)) ||
-            (o.component = jr(o, i)),
+            (o.component = Ar(o, i)),
           a.a.createElement(
             Cr,
             vr({}, s, {
@@ -23626,8 +23628,8 @@
         );
       };
     S.displayName = 'InfoCircleFilled';
-    var A = l['forwardRef'](S),
-      j = r('ODXe'),
+    var j = l['forwardRef'](S),
+      A = r('ODXe'),
       k = r('8HVG'),
       I = r('H84U');
     function D(e, t) {
@@ -23641,7 +23643,7 @@
             },
           },
           s = Object(k['a'])(i),
-          c = Object(j['a'])(s, 2),
+          c = Object(A['a'])(s, 2),
           u = c[0],
           f = c[1];
         function p(l) {
@@ -23764,7 +23766,7 @@
         });
       }
     }
-    var Z = { info: A, success: O, error: F, warning: g, loading: m },
+    var Z = { info: j, success: O, error: F, warning: g, loading: m },
       Q = Object.keys(Z);
     function X(e, t, r) {
       var n,
@@ -24379,7 +24381,7 @@
         ? C('' + e.key)
         : t.toString(36);
     }
-    function A(e, t, r, n, a) {
+    function j(e, t, r, n, a) {
       var i = typeof e;
       ('undefined' !== i && 'boolean' !== i) || (e = null);
       var s = !1;
@@ -24405,7 +24407,7 @@
           Array.isArray(a)
             ? ((r = ''),
               null != e && (r = e.replace(z, '$&/') + '/'),
-              A(a, t, r, '', function (e) {
+              j(a, t, r, '', function (e) {
                 return e;
               }))
             : null != a &&
@@ -24425,11 +24427,11 @@
         for (var c = 0; c < e.length; c++) {
           i = e[c];
           var u = n + S(i, c);
-          s += A(i, t, r, u, a);
+          s += j(i, t, r, u, a);
         }
       else if (((u = d(e)), 'function' === typeof u))
         for (e = u.call(e), c = 0; !(i = e.next()).done; )
-          (i = i.value), (u = n + S(i, c++)), (s += A(i, t, r, u, a));
+          (i = i.value), (u = n + S(i, c++)), (s += j(i, t, r, u, a));
       else if ('object' === i)
         throw (
           ((t = '' + e),
@@ -24444,12 +24446,12 @@
         );
       return s;
     }
-    function j(e, t, r) {
+    function A(e, t, r) {
       if (null == e) return e;
       var n = [],
         o = 0;
       return (
-        A(e, n, '', '', function (e) {
+        j(e, n, '', '', function (e) {
           return t.call(r, e, o++);
         }),
         n
@@ -24488,9 +24490,9 @@
       assign: n,
     };
     (t.Children = {
-      map: j,
+      map: A,
       forEach: function (e, t, r) {
-        j(
+        A(
           e,
           function () {
             t.apply(this, arguments);
@@ -24501,7 +24503,7 @@
       count: function (e) {
         var t = 0;
         return (
-          j(e, function () {
+          A(e, function () {
             t++;
           }),
           t
@@ -24509,7 +24511,7 @@
       },
       toArray: function (e) {
         return (
-          j(e, function (e) {
+          A(e, function (e) {
             return e;
           }) || []
         );
@@ -24881,8 +24883,8 @@
         },
         pattern: { mismatch: "'${name}' does not match pattern ${pattern}" },
       },
-      A = r('U8pU');
-    function j(e, t) {
+      j = r('U8pU');
+    function A(e, t) {
       for (var r = e, n = 0; n < t.length; n += 1) {
         if (null === r || void 0 === r) return;
         r = r[t[n]];
@@ -24922,14 +24924,14 @@
     }
     function P(e, t, r) {
       var n = arguments.length > 3 && void 0 !== arguments[3] && arguments[3];
-      return t.length && n && void 0 === r && !j(e, t.slice(0, -1))
+      return t.length && n && void 0 === r && !A(e, t.slice(0, -1))
         ? e
         : B(e, t, r, n);
     }
     function _(e) {
       return Array.isArray(e)
         ? U(e)
-        : 'object' === Object(A['a'])(e) && null !== e
+        : 'object' === Object(j['a'])(e) && null !== e
         ? R(e)
         : e;
     }
@@ -24951,7 +24953,7 @@
       return M(e);
     }
     function H(e, t) {
-      var r = j(e, t);
+      var r = A(e, t);
       return r;
     }
     function W(e, t, r) {
@@ -24979,7 +24981,7 @@
     }
     function K(e) {
       return (
-        'object' === Object(A['a'])(e) &&
+        'object' === Object(j['a'])(e) &&
         null !== e &&
         Object.getPrototypeOf(e) === Object.prototype
       );
@@ -25021,8 +25023,8 @@
       if (
         !e ||
         !t ||
-        'object' !== Object(A['a'])(e) ||
-        'object' !== Object(A['a'])(t)
+        'object' !== Object(j['a'])(e) ||
+        'object' !== Object(j['a'])(t)
       )
         return !1;
       var r = Object.keys(e),
@@ -25038,7 +25040,7 @@
       var t = arguments.length <= 1 ? void 0 : arguments[1];
       return t &&
         t.target &&
-        'object' === Object(A['a'])(t.target) &&
+        'object' === Object(j['a'])(t.target) &&
         e in t.target
         ? t.target[e]
         : t;
@@ -25929,7 +25931,7 @@
     function we(e) {
       return e
         .map(function (e) {
-          return ''.concat(Object(A['a'])(e), ':').concat(e);
+          return ''.concat(Object(j['a'])(e), ':').concat(e);
         })
         .join(Me);
     }
@@ -26696,8 +26698,8 @@
         }
       return [t.current];
     }
-    var Ae = Se,
-      je = o['createContext']({
+    var je = Se,
+      Ae = o['createContext']({
         triggerFormChange: function () {},
         triggerFormFinish: function () {},
         registerForm: function () {},
@@ -26708,10 +26710,10 @@
           r = e.onFormChange,
           n = e.onFormFinish,
           l = e.children,
-          a = o['useContext'](je),
+          a = o['useContext'](Ae),
           i = o['useRef']({});
         return o['createElement'](
-          je.Provider,
+          Ae.Provider,
           {
             value: Object(c['a'])(
               Object(c['a'])({}, a),
@@ -26748,7 +26750,7 @@
           l,
         );
       },
-      Ie = je,
+      Ie = Ae,
       De = [
         'name',
         'initialValues',
@@ -26782,13 +26784,13 @@
           x = e.onFinishFailed,
           M = Object(i['a'])(e, De),
           w = o['useContext'](Ie),
-          L = Ae(s),
+          L = je(s),
           O = Object(xe['a'])(L, 1),
           C = O[0],
           z = C.getInternalHooks(b),
           S = z.useSubscribe,
-          A = z.setInitialValues,
-          j = z.setCallbacks,
+          j = z.setInitialValues,
+          A = z.setCallbacks,
           k = z.setValidateMessages,
           I = z.setPreserve,
           D = z.destroyForm;
@@ -26807,7 +26809,7 @@
             [w, C, r],
           ),
           k(Object(c['a'])(Object(c['a'])({}, w.validateMessages), m)),
-          j({
+          A({
             onValuesChange: v,
             onFieldsChange: function (e) {
               if ((w.triggerFormChange(r, e), g)) {
@@ -26830,7 +26832,7 @@
           I(u);
         var T,
           N = o['useRef'](null);
-        A(l, !N.current),
+        j(l, !N.current),
           N.current || (N.current = !0),
           o['useEffect'](function () {
             return D;
@@ -26933,7 +26935,7 @@
     (Ue.FormProvider = ke),
       (Ue.Field = he),
       (Ue.List = Ee),
-      (Ue.useForm = Ae),
+      (Ue.useForm = je),
       (Ue.useWatch = _e);
     var Ve = r('YrtM'),
       Ge =
@@ -27741,7 +27743,7 @@
     'use strict';
     r.r(t),
       r.d(t, 'default', function () {
-        return Xl;
+        return Bl;
       });
     var n,
       o,
@@ -27807,8 +27809,8 @@
       C,
       z,
       S,
-      A,
       j,
+      A,
       k,
       I,
       D,
@@ -27860,8 +27862,8 @@
       Ce,
       ze,
       Se,
-      Ae,
       je,
+      Ae,
       ke,
       Ie,
       De,
@@ -27914,8 +27916,8 @@
       Ct,
       zt,
       St,
-      At,
       jt,
+      At,
       kt,
       It,
       Dt,
@@ -27968,8 +27970,8 @@
       Cr,
       zr,
       Sr,
-      Ar,
       jr,
+      Ar,
       kr,
       Ir,
       Dr,
@@ -28021,8 +28023,8 @@
       Cn,
       zn,
       Sn,
-      An,
       jn,
+      An,
       kn,
       In,
       Dn,
@@ -28074,8 +28076,8 @@
       Co,
       zo,
       So,
-      Ao,
       jo,
+      Ao,
       ko,
       Io,
       Do,
@@ -28167,12 +28169,7 @@
       Jo,
       $o,
       el,
-      tl,
-      rl,
-      nl,
-      ol,
-      ll,
-      al = function (e) {
+      tl = function (e) {
         var t = e.svgRef,
           r = e.title,
           n = Zo(e, ['svgRef', 'title']);
@@ -28811,15 +28808,15 @@
                     style: { stopColor: '#FFFFFF', stopOpacity: 0 },
                   }),
                 ),
-                A ||
-                  (A = i.a.createElement('path', {
+                j ||
+                  (j = i.a.createElement('path', {
                     opacity: 0.25,
                     fill: 'url(#SVGID_13_)',
                     enableBackground: 'new    ',
                     d: 'M612.2,401.4l-0.4-91.4H497.1l0.5,91.2 c0,3.4,0.3,5,3.6,6.7l46.4,27.5c0,0,7.1,4,14.6,0.1l47.6-28.6C609.8,406.9,612.7,405.4,612.2,401.4z',
                   })),
-                j ||
-                  (j = i.a.createElement(
+                A ||
+                  (A = i.a.createElement(
                     'g',
                     null,
                     i.a.createElement('circle', {
@@ -30931,8 +30928,8 @@
                   style: { stopColor: '#FFFFFF' },
                 }),
               ),
-              Ae ||
-                (Ae = i.a.createElement('polygon', {
+              je ||
+                (je = i.a.createElement('polygon', {
                   className: 'particlespoly',
                   fill: 'url(#SVGID_43_)',
                   points: '672,693.7 672,760.4 492.3,643.8  492.7,577.2  ',
@@ -30960,8 +30957,8 @@
                   style: { stopColor: '#FFFFFF' },
                 }),
               ),
-              je ||
-                (je = i.a.createElement('polygon', {
+              Ae ||
+                (Ae = i.a.createElement('polygon', {
                   className: 'particlespoly',
                   fill: 'url(#SVGID_44_)',
                   points: '672,717 672,736.3 492.3,619.6 492.7,600.5  ',
@@ -32046,19 +32043,19 @@
                 },
                 i.a.createElement('stop', {
                   offset: 0,
-                  style: { stopColor: '#A91B37' },
+                  style: { stopColor: '#000000' },
                 }),
                 i.a.createElement('stop', {
                   offset: 0.2857,
-                  style: { stopColor: '#B21F37' },
+                  style: { stopColor: '#000000' },
                 }),
                 i.a.createElement('stop', {
                   offset: 0.75,
-                  style: { stopColor: '#CA2B38' },
+                  style: { stopColor: '#000000' },
                 }),
                 i.a.createElement('stop', {
                   offset: 1,
-                  style: { stopColor: '#DA3239' },
+                  style: { stopColor: '#000000' },
                 }),
               ),
               Xe ||
@@ -33247,8 +33244,8 @@
                     style: { stopColor: '#F8613A' },
                   }),
                 ),
-                At ||
-                  (At = i.a.createElement('polygon', {
+                jt ||
+                  (jt = i.a.createElement('polygon', {
                     fill: 'url(#SVGID_65_)',
                     points: '1044,543.9 1044,545.4 982,503.3 982,501.8  ',
                   })),
@@ -33288,8 +33285,8 @@
                     style: { stopColor: '#F8613A' },
                   }),
                 ),
-                jt ||
-                  (jt = i.a.createElement('polygon', {
+                At ||
+                  (At = i.a.createElement('polygon', {
                     fill: 'url(#SVGID_66_)',
                     points: '1045,544.6 1044,544.8 1044,617 1045,616.5  ',
                   })),
@@ -35137,8 +35134,8 @@
                         '1107.2,767.2 1106.4,767.3 1106.4,816.8 1107.2,816.5  ',
                     })),
                 ),
-                Ar ||
-                  (Ar = i.a.createElement('line', {
+                jr ||
+                  (jr = i.a.createElement('line', {
                     fill: 'none',
                     stroke: '#B3B3B3',
                     strokeWidth: 3.2211,
@@ -35153,8 +35150,8 @@
                 i.a.createElement(
                   'g',
                   null,
-                  jr ||
-                    (jr = i.a.createElement('image', {
+                  Ar ||
+                    (Ar = i.a.createElement('image', {
                       overflow: 'visible',
                       opacity: 0.2,
                       enableBackground: 'new    ',
@@ -35923,8 +35920,8 @@
               i.a.createElement(
                 'circle',
                 { r: 1, style: { fill: '#fff' }, opacity: '04gf2' },
-                An ||
-                  (An = i.a.createElement(
+                jn ||
+                  (jn = i.a.createElement(
                     'animateMotion',
                     { begin: '-8200ms', dur: '10s', repeatCount: 'indefinite' },
                     i.a.createElement('mpath', { xlinkHref: '#bottomline' }),
@@ -35933,8 +35930,8 @@
               i.a.createElement(
                 'circle',
                 { r: 1, style: { fill: '#fff' }, opacity: '04gf2' },
-                jn ||
-                  (jn = i.a.createElement(
+                An ||
+                  (An = i.a.createElement(
                     'animateMotion',
                     { begin: '-8400ms', dur: '10s', repeatCount: 'indefinite' },
                     i.a.createElement('mpath', { xlinkHref: '#bottomline' }),
@@ -37164,8 +37161,8 @@
                   style: { stopColor: '#BFBFBF' },
                 }),
               ),
-              Ao ||
-                (Ao = i.a.createElement('path', {
+              jo ||
+                (jo = i.a.createElement('path', {
                   fill: 'url(#SVGID_146_)',
                   d: 'M1587.1,677.9l0.8-1.2l2.8,1.8l-0.8,1.2L1587.1,677.9z M1585.7,677l0.8-1.2l-2.8-1.8l-0.8,1.2 L1585.7,677z M1581.6,674.4l0.8-1.2l-2.8-1.8l-0.8,1.2L1581.6,674.4z M1577.4,671.7l0.8-1.2l-2.8-1.8l-0.8,1.2L1577.4,671.7z  M1602.5,687.7l0.8-1.2l-2.8-1.8l-0.8,1.2L1602.5,687.7z M1598.3,685.1l0.8-1.2l-2.8-1.8l-0.8,1.2L1598.3,685.1z M1594.1,682.4 l0.8-1.2l-2.8-1.8l-0.8,1.2L1594.1,682.4z M1573.2,669.1l0.8-1.2l-2.8-1.8l-0.8,1.2L1573.2,669.1z M1569,666.4l0.8-1.2l-2.8-1.8 l-0.8,1.2L1569,666.4z M1564.8,663.8l0.8-1.2l-2.8-1.8l-0.8,1.2L1564.8,663.8z M1631.9,706.1l0.8-1.2l-2.8-1.8l-0.8,1.2 L1631.9,706.1z M1627.8,703.5l0.8-1.2l-2.8-1.8l-0.8,1.2L1627.8,703.5z M1623.6,700.8l0.8-1.2l-2.8-1.8l-0.8,1.2L1623.6,700.8z  M1619.4,698.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1619.4,698.2z M1644.5,714.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1644.5,714.2z M1640.3,711.5 l0.8-1.2l-2.8-1.8l-0.8,1.2L1640.3,711.5z M1636.1,708.9l0.8-1.2l-2.8-1.8l-0.8,1.2L1636.1,708.9z M1653,719.8l0.8-1.2l-2.8-1.8 l-0.8,1.2L1653,719.8z M1648.8,717.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1648.8,717.2z M1615.2,695.5l0.8-1.2l-2.8-1.8l-0.8,1.2 L1615.2,695.5z M1611,692.9l0.8-1.2l-2.8-1.8l-0.8,1.2L1611,692.9z M1606.9,690.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1606.9,690.2z  M1560.7,661.1l0.8-1.2l-2.8-1.8l-0.8,1.2L1560.7,661.1z M1556.5,658.5l0.8-1.2l-2.8-1.8l-0.8,1.2L1556.5,658.5z M1552.2,655.6 l0.8-1.2l-2.8-1.8l-0.8,1.2L1552.2,655.6z M1484.9,612.8l0.8-1.2l-2.8-1.8l-0.8,1.2L1484.9,612.8z M1480.7,610.1l0.8-1.2l-2.8-1.8 l-0.8,1.2L1480.7,610.1z M1476.6,607.5l0.8-1.2l-2.8-1.8l-0.8,1.2L1476.6,607.5z M1472.4,604.8l0.8-1.2l-2.8-1.8l-0.8,1.2 L1472.4,604.8z M1497.5,620.8l0.8-1.2l-2.8-1.8l-0.8,1.2L1497.5,620.8z M1493.3,618.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1493.3,618.2z  M1489.1,615.5l0.8-1.2l-2.8-1.8l-0.8,1.2L1489.1,615.5z M1468.2,602.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1468.2,602.2z M1464,599.5 l0.8-1.2l-2.8-1.8l-0.8,1.2L1464,599.5z M1459.8,596.9l0.8-1.2l-2.8-1.8l-0.8,1.2L1459.8,596.9z M1526.9,639.2l0.8-1.2l-2.8-1.8 l-0.8,1.2L1526.9,639.2z M1522.8,636.6l0.8-1.2l-2.8-1.8l-0.8,1.2L1522.8,636.6z M1518.6,633.9l0.8-1.2l-2.8-1.8l-0.8,1.2 L1518.6,633.9z M1514.4,631.3l0.8-1.2l-2.8-1.8l-0.8,1.2L1514.4,631.3z M1539.5,647.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1539.5,647.2z  M1535.3,644.6l0.8-1.2l-2.8-1.8l-0.8,1.2L1535.3,644.6z M1531.1,642l0.8-1.2l-2.8-1.8l-0.8,1.2L1531.1,642z M1548,652.9l0.8-1.2 l-2.8-1.8l-0.8,1.2L1548,652.9z M1543.8,650.3l0.8-1.2l-2.8-1.8l-0.8,1.2L1543.8,650.3z M1510.2,628.6l0.8-1.2l-2.8-1.8l-0.8,1.2 L1510.2,628.6z M1506,626l0.8-1.2l-2.8-1.8l-0.8,1.2L1506,626z M1501.9,623.3l0.8-1.2l-2.8-1.8l-0.8,1.2L1501.9,623.3z  M1455.7,594.2l0.8-1.2l-2.8-1.8l-0.8,1.2L1455.7,594.2z M1451.5,591.6l0.8-1.2l-2.8-1.8l-0.8,1.2L1451.5,591.6z M1447.2,588.7             l0.8-1.2l-2.8-1.8l-0.8,1.2L1447.2,588.7z',
                 })),
@@ -37203,8 +37200,8 @@
                   style: { stopColor: '#FFFFFF', stopOpacity: 0 },
                 }),
               ),
-              jo ||
-                (jo = i.a.createElement('polygon', {
+              Ao ||
+                (Ao = i.a.createElement('polygon', {
                   className: 'particlespoly',
                   opacity: 0.25,
                   fill: 'url(#SVGID_147_)',
@@ -37732,24 +37729,24 @@
           ),
         );
       },
-      il = i.a.forwardRef(function (e, t) {
-        return i.a.createElement(al, Ko({ svgRef: t }, e));
+      rl = i.a.forwardRef(function (e, t) {
+        return i.a.createElement(tl, Ko({ svgRef: t }, e));
       }),
-      sl = (r.p, r('5I3b')),
-      cl = r.n(sl),
-      ul = r('nKUr'),
-      fl = () =>
-        Object(ul['jsx'])('div', {
-          className: cl.a.page,
-          children: Object(ul['jsx'])('div', {
+      nl = (r.p, r('5I3b')),
+      ol = r.n(nl),
+      ll = r('nKUr'),
+      al = () =>
+        Object(ll['jsx'])('div', {
+          className: ol.a.page,
+          children: Object(ll['jsx'])('div', {
             className: 'container',
-            children: Object(ul['jsx'])(il, {}),
+            children: Object(ll['jsx'])(rl, {}),
           }),
         }),
-      pl = fl,
-      dl = r('pns5'),
-      ml = r.n(dl),
-      yl = () => (
+      il = al,
+      sl = r('pns5'),
+      cl = r.n(sl),
+      ul = () => (
         Object(a['useLayoutEffect'])(() => {
           for (
             var e = document.querySelectorAll('.cvs'), t = [], r = 0;
@@ -37811,433 +37808,425 @@
           l.lineWidth = 2;
           window.requestAnimationFrame(g);
         }, []),
-        Object(ul['jsx'])('div', {
-          className: ml.a.page,
-          children: Object(ul['jsxs'])('div', {
+        Object(ll['jsx'])('div', {
+          className: cl.a.page,
+          children: Object(ll['jsxs'])('div', {
             className: 'cube',
             children: [
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face back',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face left',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face right',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face top',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face bottom',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'face front',
-                children: Object(ul['jsx'])('canvas', { className: 'cvs' }),
+                children: Object(ll['jsx'])('canvas', { className: 'cvs' }),
               }),
             ],
           }),
         })
       ),
-      hl = yl;
-    function vl() {
-      return (
-        (vl =
-          Object.assign ||
-          function (e) {
-            for (var t = 1; t < arguments.length; t++) {
-              var r = arguments[t];
-              for (var n in r)
-                Object.prototype.hasOwnProperty.call(r, n) && (e[n] = r[n]);
-            }
-            return e;
-          }),
-        vl.apply(this, arguments)
-      );
-    }
-    function gl(e, t) {
-      if (null == e) return {};
-      var r,
-        n,
-        o = bl(e, t);
-      if (Object.getOwnPropertySymbols) {
-        var l = Object.getOwnPropertySymbols(e);
-        for (n = 0; n < l.length; n++)
-          (r = l[n]),
-            t.indexOf(r) >= 0 ||
-              (Object.prototype.propertyIsEnumerable.call(e, r) &&
-                (o[r] = e[r]));
-      }
-      return o;
-    }
-    function bl(e, t) {
-      if (null == e) return {};
-      var r,
-        n,
-        o = {},
-        l = Object.keys(e);
-      for (n = 0; n < l.length; n++)
-        (r = l[n]), t.indexOf(r) >= 0 || (o[r] = e[r]);
-      return o;
-    }
-    var El,
-      xl,
-      Fl,
-      Ml,
-      wl = function (e) {
-        var t = e.svgRef,
-          r = e.title,
-          n = gl(e, ['svgRef', 'title']);
-        return i.a.createElement(
-          'svg',
-          vl({ id: 'grid', ref: t }, n),
-          r ? i.a.createElement('title', null, r) : null,
-          Xo ||
-            (Xo = i.a.createElement('rect', {
-              x: 1,
-              y: 1,
-              width: 998,
-              height: 998,
-            })),
-          Jo ||
-            (Jo = i.a.createElement('line', {
-              x1: 200,
-              y1: 2,
-              x2: 200,
-              y2: 998,
-            })),
-          $o ||
-            ($o = i.a.createElement('line', {
-              x1: 400,
-              y1: 2,
-              x2: 400,
-              y2: 998,
-            })),
-          el ||
-            (el = i.a.createElement('line', {
-              x1: 600,
-              y1: 2,
-              x2: 600,
-              y2: 998,
-            })),
-          tl ||
-            (tl = i.a.createElement('line', {
-              x1: 800,
-              y1: 2,
-              x2: 800,
-              y2: 998,
-            })),
-          rl ||
-            (rl = i.a.createElement('line', {
-              x1: 2,
-              y1: 200,
-              x2: 998,
-              y2: 200,
-            })),
-          nl ||
-            (nl = i.a.createElement('line', {
-              x1: 2,
-              y1: 400,
-              x2: 998,
-              y2: 400,
-            })),
-          ol ||
-            (ol = i.a.createElement('line', {
-              x1: 2,
-              y1: 600,
-              x2: 998,
-              y2: 600,
-            })),
-          ll ||
-            (ll = i.a.createElement('line', {
-              x1: 2,
-              y1: 800,
-              x2: 998,
-              y2: 800,
-            })),
-        );
-      },
-      Ll = i.a.forwardRef(function (e, t) {
-        return i.a.createElement(wl, vl({ svgRef: t }, e));
-      }),
-      Ol = (r.p, r('isoZ')),
-      Cl = r.n(Ol),
-      zl = () =>
-        Object(ul['jsxs'])('div', {
-          className: Cl.a.page,
+      fl = ul,
+      pl = r('isoZ'),
+      dl = r.n(pl),
+      ml = () =>
+        Object(ll['jsxs'])('div', {
+          className: dl.a.page,
           children: [
-            Object(ul['jsx'])(Ll, {}),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsx'])('div', { className: 'rotateview' }),
-            Object(ul['jsxs'])('div', {
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsx'])('div', { className: 'rotateview' }),
+            Object(ll['jsxs'])('div', {
               className: 'container',
               children: [
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'box',
                   children: [
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
-                    Object(ul['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
+                    Object(ll['jsx'])('div', { className: 'face' }),
                   ],
                 }),
               ],
             }),
           ],
         }),
-      Sl = zl,
-      Al = r('1yYR'),
-      jl = r.n(Al),
-      kl = () => (
+      yl = ml,
+      hl = r('eBwe'),
+      vl = r.n(hl),
+      gl = (e) => {
+        var t = e.title,
+          r = e.desc;
+        return (
+          Object(a['useLayoutEffect'])(() => {
+            var e = document.querySelector('.toggle'),
+              t = document.querySelector('.showcase');
+            e.addEventListener('click', () => {
+              e.classList.toggle('active'), t.classList.toggle('active');
+            });
+          }, []),
+          Object(ll['jsxs'])('div', {
+            className: vl.a.page,
+            children: [
+              Object(ll['jsxs'])('section', {
+                className: 'showcase',
+                children: [
+                  Object(ll['jsxs'])('header', {
+                    children: [
+                      Object(ll['jsx'])('h2', { className: 'logo' }),
+                      Object(ll['jsx'])('div', { className: 'toggle' }),
+                    ],
+                  }),
+                  Object(ll['jsxs'])('div', {
+                    className: 'text',
+                    children: [
+                      Object(ll['jsx'])('h3', { children: t }),
+                      Object(ll['jsx'])('p', { children: r }),
+                      Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'Explore',
+                      }),
+                    ],
+                  }),
+                  e.children,
+                  Object(ll['jsxs'])('ul', {
+                    className: 'social',
+                    children: [
+                      Object(ll['jsx'])('li', {
+                        children: Object(ll['jsx'])('a', {
+                          href: '#',
+                          children: Object(ll['jsx'])('img', {
+                            width: 30,
+                            src: 'https://i.ibb.co/x7P24fL/facebook.png',
+                          }),
+                        }),
+                      }),
+                      Object(ll['jsx'])('li', {
+                        children: Object(ll['jsx'])('a', {
+                          href: '#',
+                          children: Object(ll['jsx'])('img', {
+                            width: 30,
+                            src: 'https://i.ibb.co/Wnxq2Nq/twitter.png',
+                          }),
+                        }),
+                      }),
+                      Object(ll['jsx'])('li', {
+                        children: Object(ll['jsx'])('a', {
+                          href: '#',
+                          children: Object(ll['jsx'])('img', {
+                            width: 30,
+                            src: 'https://i.ibb.co/ySwtH4B/instagram.png',
+                          }),
+                        }),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+              Object(ll['jsx'])('div', {
+                className: 'menu',
+                children: Object(ll['jsxs'])('ul', {
+                  children: [
+                    Object(ll['jsx'])('li', {
+                      children: Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'Home',
+                      }),
+                    }),
+                    Object(ll['jsx'])('li', {
+                      children: Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'News',
+                      }),
+                    }),
+                    Object(ll['jsx'])('li', {
+                      children: Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'Destination',
+                      }),
+                    }),
+                    Object(ll['jsx'])('li', {
+                      children: Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'Blog',
+                      }),
+                    }),
+                    Object(ll['jsx'])('li', {
+                      children: Object(ll['jsx'])('a', {
+                        href: '#',
+                        children: 'Contact',
+                      }),
+                    }),
+                  ],
+                }),
+              }),
+            ],
+          })
+        );
+      },
+      bl = gl,
+      El = r('1yYR'),
+      xl = r.n(El),
+      Fl = () => (
         Object(a['useLayoutEffect'])(() => {
           $(document).ready(function () {
             $('.cont');
@@ -38307,7 +38296,7 @@
                   );
                   n.append(p),
                     t.append(n),
-                    a.find('.slide--'.concat(o, '__text-wrapper')).append(pl),
+                    a.find('.slide--'.concat(o, '__text-wrapper')).append(il),
                     c[e].length <= 4 &&
                       $('.slide--' + o)
                         .find('.slide__text')
@@ -38420,52 +38409,67 @@
               });
           });
         }, []),
-        Object(ul['jsxs'])('div', {
-          className: jl.a.banner,
+        Object(ll['jsxs'])('div', {
+          className: xl.a.banner,
           children: [
-            Object(ul['jsx'])(Yo, { className: jl.a.logo }),
-            Object(ul['jsxs'])('div', {
+            Object(ll['jsx'])(Yo, { className: xl.a.logo }),
+            Object(ll['jsxs'])('div', {
               className: 'cont',
               children: [
-                Object(ul['jsxs'])('div', {
+                Object(ll['jsxs'])('div', {
                   className: 'slider',
                   children: [
-                    Object(ul['jsx'])('div', {
+                    Object(ll['jsx'])('div', {
                       'data-target': '1',
                       className: 'slide slide--1',
-                      children: Object(ul['jsx'])('div', {
+                      children: Object(ll['jsx'])('div', {
                         className: 'slide__text-wrapper slide--1__text-wrapper',
-                        children: Object(ul['jsx'])(pl, {}),
+                        children: Object(ll['jsx'])(bl, {
+                          title:
+                            'A Fully EVM-compatible zk-Rollup Layer 2 for Ethereum',
+                          desc: 'Fox uses ZK-EVM, which is exactly equivalent to EVM used by Ethereum L1 consensus, and is seamlessly compatible with all Ethereum DApps.',
+                          children: Object(ll['jsx'])(fl, {}),
+                        }),
                       }),
                     }),
-                    Object(ul['jsx'])('div', {
+                    Object(ll['jsx'])('div', {
                       'data-target': '2',
                       className: 'slide slide--2',
-                      children: Object(ul['jsx'])('div', {
+                      children: Object(ll['jsx'])('div', {
                         className: 'slide__text-wrapper slide--2__text-wrapper',
-                        children: Object(ul['jsx'])(hl, {}),
+                        children: Object(ll['jsx'])(bl, {
+                          title:
+                            'STARKs-based validity proofs to scale Ethereum',
+                          desc: 'Fox scales Ethereum with zk-STARKs to implement the Ethereum-secure, fast, low marginal gas cost, and seamless user experience.',
+                          children: Object(ll['jsx'])(yl, {}),
+                        }),
                       }),
                     }),
-                    Object(ul['jsx'])('div', {
+                    Object(ll['jsx'])('div', {
                       'data-target': '3',
                       className: 'slide slide--3',
-                      children: Object(ul['jsx'])('div', {
+                      children: Object(ll['jsx'])('div', {
                         className: 'slide__text-wrapper slide--3__text-wrapper',
-                        children: Object(ul['jsx'])(Sl, {}),
+                        children: Object(ll['jsx'])(bl, {
+                          title:
+                            'General purpose, Permissionless and Decentralized',
+                          desc: 'On Fox, developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly.',
+                          children: Object(ll['jsx'])(il, {}),
+                        }),
                       }),
                     }),
                   ],
                 }),
-                Object(ul['jsx'])('ul', { className: 'nav' }),
+                Object(ll['jsx'])('ul', { className: 'nav' }),
               ],
             }),
           ],
         })
       ),
-      Il = kl,
-      Dl = r('ecDV'),
-      Tl = r.n(Dl),
-      Nl = () => (
+      Ml = Fl,
+      wl = r('ecDV'),
+      Ll = r.n(wl),
+      Ol = () => (
         Object(a['useLayoutEffect'])(() => {
           console.clear();
           var e = document.querySelector('.features'),
@@ -38478,84 +38482,84 @@
             });
           });
         }, []),
-        Object(ul['jsx'])('div', {
-          className: Tl.a.page,
-          children: Object(ul['jsxs'])('div', {
+        Object(ll['jsx'])('div', {
+          className: Ll.a.page,
+          children: Object(ll['jsxs'])('div', {
             className: 'features',
             children: [
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
                 }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
                 }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
                 }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
                 }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
                 }),
               }),
-              Object(ul['jsx'])('div', {
+              Object(ll['jsx'])('div', {
                 className: 'feature',
-                children: Object(ul['jsxs'])('a', {
+                children: Object(ll['jsxs'])('a', {
                   href: '#',
                   className: 'feature-content',
                   children: [
-                    Object(ul['jsx'])('strong', { children: 'Some feature' }),
-                    Object(ul['jsx'])('span', {
+                    Object(ll['jsx'])('strong', { children: 'Some feature' }),
+                    Object(ll['jsx'])('span', {
                       children: 'Description of the awesome feature',
                     }),
                   ],
@@ -38565,10 +38569,10 @@
           }),
         })
       ),
-      Bl = Nl;
-    function Pl() {
+      Cl = Ol;
+    function zl() {
       return (
-        (Pl =
+        (zl =
           Object.assign ||
           function (e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -38578,14 +38582,14 @@
             }
             return e;
           }),
-        Pl.apply(this, arguments)
+        zl.apply(this, arguments)
       );
     }
-    function _l(e, t) {
+    function Sl(e, t) {
       if (null == e) return {};
       var r,
         n,
-        o = Rl(e, t);
+        o = jl(e, t);
       if (Object.getOwnPropertySymbols) {
         var l = Object.getOwnPropertySymbols(e);
         for (n = 0; n < l.length; n++)
@@ -38596,7 +38600,7 @@
       }
       return o;
     }
-    function Rl(e, t) {
+    function jl(e, t) {
       if (null == e) return {};
       var r,
         n,
@@ -38606,16 +38610,16 @@
         (r = l[n]), t.indexOf(r) >= 0 || (o[r] = e[r]);
       return o;
     }
-    var Ul = function (e) {
+    var Al = function (e) {
         var t = e.svgRef,
           r = e.title,
-          n = _l(e, ['svgRef', 'title']);
+          n = Sl(e, ['svgRef', 'title']);
         return i.a.createElement(
           'svg',
-          Pl({ viewBox: '0 0 185.5 185.5', ref: t }, n),
+          zl({ viewBox: '0 0 185.5 185.5', ref: t }, n),
           r ? i.a.createElement('title', null, r) : null,
-          El ||
-            (El = i.a.createElement(
+          Xo ||
+            (Xo = i.a.createElement(
               'g',
               { className: 'lvl-1' },
               i.a.createElement('path', {
@@ -38659,8 +38663,8 @@
               ),
               i.a.createElement('text', { x: '12%', y: '51.5%' }, 'good at'),
             )),
-          xl ||
-            (xl = i.a.createElement(
+          Jo ||
+            (Jo = i.a.createElement(
               'g',
               { className: 'lvl-2' },
               i.a.createElement('path', {
@@ -38684,8 +38688,8 @@
               }),
               i.a.createElement('text', { x: '31%', y: '31%' }, 'Passion'),
             )),
-          Fl ||
-            (Fl = i.a.createElement(
+          $o ||
+            ($o = i.a.createElement(
               'g',
               { className: 'lvl-3' },
               i.a.createElement(
@@ -38741,8 +38745,8 @@
               ),
               i.a.createElement('text', { x: '33%', y: '50%' }, 'click'),
             )),
-          Ml ||
-            (Ml = i.a.createElement(
+          el ||
+            (el = i.a.createElement(
               'g',
               { className: 'lvl-4' },
               i.a.createElement('path', {
@@ -38753,12 +38757,12 @@
             )),
         );
       },
-      Vl = i.a.forwardRef(function (e, t) {
-        return i.a.createElement(Ul, Pl({ svgRef: t }, e));
+      kl = i.a.forwardRef(function (e, t) {
+        return i.a.createElement(Al, zl({ svgRef: t }, e));
       }),
-      Gl = (r.p, r('zYdB')),
-      Hl = r.n(Gl),
-      Wl = () => (
+      Il = (r.p, r('zYdB')),
+      Dl = r.n(Il),
+      Tl = () => (
         Object(a['useLayoutEffect'])(() => {
           var e = document.querySelectorAll('.lvl-3 path');
           e.forEach((e) => {
@@ -38766,151 +38770,22 @@
             e.addEventListener('click', () => alert(t));
           });
         }, []),
-        Object(ul['jsx'])('div', {
-          className: Hl.a.page,
-          children: Object(ul['jsx'])(Vl, {}),
+        Object(ll['jsx'])('div', {
+          className: Dl.a.page,
+          children: Object(ll['jsx'])(kl, {}),
         })
       ),
-      ql = Wl,
-      Yl = r('RR51'),
-      Kl = r.n(Yl),
-      Zl = (e) => {
-        var t = e.onComplete;
-        return (
-          Object(a['useLayoutEffect'])(() => {
-            var e = new SplitText('#hulu-text'),
-              r = new SplitText('#originals-text'),
-              n = new gsap.timeline({ onComplete: () => t() });
-            n.from(['#top-gradient', '#bottom-gradient'], 1, {
-              ease: 'power3.inOut',
-              filter: 'blur(0px)',
-              opacity: 0,
-            })
-              .from('#green-filter', 1.1, { opacity: 0, scale: 3 }, '-=50%')
-              .to('#green-filter', 0.3, { opacity: 0, scale: 3 })
-              .to(
-                ['#top-gradient', '#bottom-gradient'],
-                0.3,
-                { filter: 'blur(0px)', opacity: 0 },
-                '-=100%',
-              )
-              .set('#logo', { opacity: 1 })
-              .from(e.chars, 0.2, {
-                ease: 'back',
-                filter: 'blur(0.3em)',
-                opacity: 0,
-                scale: 1.5,
-                stagger: 0.02,
-              })
-              .from(r.chars, 0.2, {
-                delay: 0.25,
-                filter: 'blur(0.3em)',
-                opacity: 0,
-                scale: 0.5,
-                stagger: 0.02,
-                xPercent: -25,
-              })
-              .from(
-                '#logo-border',
-                0.4,
-                { ease: 'power3.out', opacity: 0, scale: 0.75 },
-                '-=100%',
-              )
-              .from(
-                '#logo-border-inner',
-                0.4,
-                { ease: 'power3.out', scale: 0.75 },
-                '-=100%',
-              )
-              .to('#logo', 1.5, { scale: 1.1 }, '-=20%')
-              .to(
-                ['#logo-border', '#logo-border-inner'],
-                1.5,
-                { ease: 'power3.out', scale: 1.1 },
-                '-=100%',
-              )
-              .to(
-                '#logo-border',
-                1.25,
-                { ease: 'power4.in', scale: 8 },
-                '-=50%',
-              )
-              .to(
-                '#logo-border-inner',
-                0.5,
-                { ease: 'power4.in', scale: 8 },
-                '-=60%',
-              )
-              .to('#logo', 0.25, { opacity: 0, scale: 1.2 }, '-=50%');
-          }, []),
-          Object(ul['jsxs'])('div', {
-            className: Kl.a.page,
-            children: [
-              Object(ul['jsx'])('div', { id: 'green-filter' }),
-              Object(ul['jsx'])('div', {
-                id: 'top-gradient',
-                className: 'gradient',
-              }),
-              Object(ul['jsx'])('div', {
-                id: 'bottom-gradient',
-                className: 'gradient',
-              }),
-              Object(ul['jsx'])('div', {
-                id: 'logo-wrapper',
-                children: Object(ul['jsxs'])('div', {
-                  id: 'logo',
-                  children: [
-                    Object(ul['jsx'])('div', {
-                      id: 'logo-border',
-                      className: 'absolute-centered',
-                    }),
-                    Object(ul['jsx'])('div', {
-                      id: 'logo-border-inner',
-                      className: 'absolute-centered',
-                    }),
-                    Object(ul['jsxs'])('div', {
-                      id: 'logo-text',
-                      children: [
-                        Object(ul['jsx'])('div', {
-                          id: 'hulu-text',
-                          className: 'zen-dots-font',
-                          children: 'Fox',
-                        }),
-                        Object(ul['jsx'])('div', {
-                          id: 'originals-text',
-                          className: 'jakarta-sans-font',
-                          children: 'ORIGINALS',
-                        }),
-                      ],
-                    }),
-                  ],
-                }),
-              }),
-              '    ',
-            ],
-          })
-        );
-      },
-      Ql = Zl;
-    function Xl() {
+      Nl = Tl;
+    function Bl() {
       var e = Object(a['useState'])(!1),
-        t = Object(l['a'])(e, 2),
-        r = t[0],
-        n = t[1],
-        o = () => {
-          n(!0);
-        };
-      return Object(ul['jsx'])('div', {
-        children:
-          (r &&
-            Object(ul['jsxs'])(ul['Fragment'], {
-              children: [
-                Object(ul['jsx'])(Il, {}),
-                Object(ul['jsx'])(Bl, {}),
-                Object(ul['jsx'])(ql, {}),
-              ],
-            })) ||
-          Object(ul['jsx'])(Ql, { onComplete: o }),
+        t = Object(l['a'])(e, 2);
+      t[0], t[1];
+      return Object(ll['jsxs'])('div', {
+        children: [
+          Object(ll['jsx'])(Ml, {}),
+          Object(ll['jsx'])(Cl, {}),
+          Object(ll['jsx'])(Nl, {}),
+        ],
       });
     }
   },
@@ -39122,8 +38997,8 @@
       C = 60107,
       z = 60108,
       S = 60114,
-      A = 60109,
-      j = 60110,
+      j = 60109,
+      A = 60110,
       k = 60112,
       I = 60113,
       D = 60120,
@@ -39141,8 +39016,8 @@
         (C = V('react.fragment')),
         (z = V('react.strict_mode')),
         (S = V('react.profiler')),
-        (A = V('react.provider')),
-        (j = V('react.context')),
+        (j = V('react.provider')),
+        (A = V('react.context')),
         (k = V('react.forward_ref')),
         (I = V('react.suspense')),
         (D = V('react.suspense_list')),
@@ -39284,9 +39159,9 @@
       }
       if ('object' === typeof e)
         switch (e.$$typeof) {
-          case j:
-            return (e.displayName || 'Context') + '.Consumer';
           case A:
+            return (e.displayName || 'Context') + '.Consumer';
+          case j:
             return (e._context.displayName || 'Context') + '.Provider';
           case k:
             var t = e.render;
@@ -39712,24 +39587,24 @@
         3 === e.nodeType ? e.parentNode : e
       );
     }
-    var Ae = null,
-      je = null,
+    var je = null,
+      Ae = null,
       ke = null;
     function Ie(e) {
       if ((e = Oo(e))) {
-        if ('function' !== typeof Ae) throw Error(a(280));
+        if ('function' !== typeof je) throw Error(a(280));
         var t = e.stateNode;
-        t && ((t = zo(t)), Ae(e.stateNode, e.type, t));
+        t && ((t = zo(t)), je(e.stateNode, e.type, t));
       }
     }
     function De(e) {
-      je ? (ke ? ke.push(e) : (ke = [e])) : (je = e);
+      Ae ? (ke ? ke.push(e) : (ke = [e])) : (Ae = e);
     }
     function Te() {
-      if (je) {
-        var e = je,
+      if (Ae) {
+        var e = Ae,
           t = ke;
-        if (((ke = je = null), Ie(e), t))
+        if (((ke = Ae = null), Ie(e), t))
           for (e = 0; e < t.length; e++) Ie(t[e]);
       }
     }
@@ -39744,7 +39619,7 @@
       Re = !1,
       Ue = !1;
     function Ve() {
-      (null === je && null === ke) || (Pe(), Te());
+      (null === Ae && null === ke) || (Pe(), Te());
     }
     function Ge(e, t, r) {
       if (Ue) return e(t, r);
@@ -40106,7 +39981,7 @@
       for (; 0 < gt.length && ((r = gt[0]), null === r.blockedOn); )
         wt(r), null === r.blockedOn && gt.shift();
     }
-    function At(e, t) {
+    function jt(e, t) {
       var r = {};
       return (
         (r[e.toLowerCase()] = t.toLowerCase()),
@@ -40115,29 +39990,29 @@
         r
       );
     }
-    var jt = {
-        animationend: At('Animation', 'AnimationEnd'),
-        animationiteration: At('Animation', 'AnimationIteration'),
-        animationstart: At('Animation', 'AnimationStart'),
-        transitionend: At('Transition', 'TransitionEnd'),
+    var At = {
+        animationend: jt('Animation', 'AnimationEnd'),
+        animationiteration: jt('Animation', 'AnimationIteration'),
+        animationstart: jt('Animation', 'AnimationStart'),
+        transitionend: jt('Transition', 'TransitionEnd'),
       },
       kt = {},
       It = {};
     function Dt(e) {
       if (kt[e]) return kt[e];
-      if (!jt[e]) return e;
+      if (!At[e]) return e;
       var t,
-        r = jt[e];
+        r = At[e];
       for (t in r) if (r.hasOwnProperty(t) && t in It) return (kt[e] = r[t]);
       return e;
     }
     f &&
       ((It = document.createElement('div').style),
       'AnimationEvent' in window ||
-        (delete jt.animationend.animation,
-        delete jt.animationiteration.animation,
-        delete jt.animationstart.animation),
-      'TransitionEvent' in window || delete jt.transitionend.transition);
+        (delete At.animationend.animation,
+        delete At.animationiteration.animation,
+        delete At.animationstart.animation),
+      'TransitionEvent' in window || delete At.transitionend.transition);
     var Tt = Dt('animationend'),
       Nt = Dt('animationiteration'),
       Bt = Dt('animationstart'),
@@ -40558,8 +40433,8 @@
       Cr = gr(Or),
       zr = o({}, Or, { dataTransfer: 0 }),
       Sr = gr(zr),
-      Ar = o({}, wr, { relatedTarget: 0 }),
-      jr = gr(Ar),
+      jr = o({}, wr, { relatedTarget: 0 }),
+      Ar = gr(jr),
       kr = o({}, Fr, { animationName: 0, elapsedTime: 0, pseudoElement: 0 }),
       Ir = gr(kr),
       Dr = o({}, Fr, {
@@ -40869,13 +40744,13 @@
     function Sn(e, t) {
       if ('input' === e || 'change' === e) return gn(t);
     }
-    function An(e, t) {
+    function jn(e, t) {
       return (e === t && (0 !== e || 1 / e === 1 / t)) || (e !== e && t !== t);
     }
-    var jn = 'function' === typeof Object.is ? Object.is : An,
+    var An = 'function' === typeof Object.is ? Object.is : jn,
       kn = Object.prototype.hasOwnProperty;
     function In(e, t) {
-      if (jn(e, t)) return !0;
+      if (An(e, t)) return !0;
       if (
         'object' !== typeof e ||
         null === e ||
@@ -40887,7 +40762,7 @@
         n = Object.keys(t);
       if (r.length !== n.length) return !1;
       for (n = 0; n < r.length; n++)
-        if (!kn.call(t, r[n]) || !jn(e[r[n]], t[r[n]])) return !1;
+        if (!kn.call(t, r[n]) || !An(e[r[n]], t[r[n]])) return !1;
       return !0;
     }
     function Dn(e) {
@@ -41186,14 +41061,14 @@
                 s = Hr;
                 break;
               case 'focusin':
-                (c = 'focus'), (s = jr);
+                (c = 'focus'), (s = Ar);
                 break;
               case 'focusout':
-                (c = 'blur'), (s = jr);
+                (c = 'blur'), (s = Ar);
                 break;
               case 'beforeblur':
               case 'afterblur':
-                s = jr;
+                s = Ar;
                 break;
               case 'click':
                 if (2 === r.button) break e;
@@ -41575,16 +41450,16 @@
       var t = e[wo];
       return void 0 === t && (t = e[wo] = new Set()), t;
     }
-    var Ao = [],
-      jo = -1;
+    var jo = [],
+      Ao = -1;
     function ko(e) {
       return { current: e };
     }
     function Io(e) {
-      0 > jo || ((e.current = Ao[jo]), (Ao[jo] = null), jo--);
+      0 > Ao || ((e.current = jo[Ao]), (jo[Ao] = null), Ao--);
     }
     function Do(e, t) {
-      jo++, (Ao[jo] = e.current), (e.current = t);
+      Ao++, (jo[Ao] = e.current), (e.current = t);
     }
     var To = {},
       No = ko(To),
@@ -41793,8 +41668,8 @@
         } else Ml = Ml.next = t;
       return e._currentValue;
     }
-    var Al = !1;
-    function jl(e) {
+    var jl = !1;
+    function Al(e) {
       e.updateQueue = {
         baseState: e.memoizedState,
         firstBaseUpdate: null,
@@ -41869,7 +41744,7 @@
     }
     function Nl(e, t, r, n) {
       var l = e.updateQueue;
-      Al = !1;
+      jl = !1;
       var a = l.firstBaseUpdate,
         i = l.lastBaseUpdate,
         s = l.shared.pending;
@@ -41926,7 +41801,7 @@
                   p = o({}, p, s);
                   break e;
                 case 2:
-                  Al = !0;
+                  jl = !0;
               }
             }
             null !== a.callback &&
@@ -42061,7 +41936,7 @@
     }
     function Hl(e, t, r, n) {
       var o = e.stateNode;
-      (o.props = r), (o.state = e.memoizedState), (o.refs = Pl), jl(e);
+      (o.props = r), (o.state = e.memoizedState), (o.refs = Pl), Al(e);
       var l = t.contextType;
       'object' === typeof l && null !== l
         ? (o.context = Sl(l))
@@ -42615,7 +42490,7 @@
     function za(e, t) {
       if (null === t) return !1;
       for (var r = 0; r < t.length && r < e.length; r++)
-        if (!jn(e[r], t[r])) return !1;
+        if (!An(e[r], t[r])) return !1;
       return !0;
     }
     function Sa(e, t, r, n, o, l) {
@@ -42650,7 +42525,7 @@
         throw Error(a(300));
       return e;
     }
-    function Aa() {
+    function ja() {
       var e = {
         memoizedState: null,
         baseState: null,
@@ -42660,7 +42535,7 @@
       };
       return null === wa ? (Fa.memoizedState = wa = e) : (wa = wa.next = e), wa;
     }
-    function ja() {
+    function Aa() {
       if (null === Ma) {
         var e = Fa.alternate;
         e = null !== e ? e.memoizedState : null;
@@ -42685,7 +42560,7 @@
       return 'function' === typeof t ? t(e) : t;
     }
     function Ia(e) {
-      var t = ja(),
+      var t = Aa(),
         r = t.queue;
       if (null === r) throw Error(a(311));
       r.lastRenderedReducer = e;
@@ -42731,7 +42606,7 @@
           c = c.next;
         } while (null !== c && c !== o);
         null === s ? (l = n) : (s.next = i),
-          jn(n, t.memoizedState) || (li = !0),
+          An(n, t.memoizedState) || (li = !0),
           (t.memoizedState = n),
           (t.baseState = l),
           (t.baseQueue = s),
@@ -42740,7 +42615,7 @@
       return [t.memoizedState, r.dispatch];
     }
     function Da(e) {
-      var t = ja(),
+      var t = Aa(),
         r = t.queue;
       if (null === r) throw Error(a(311));
       r.lastRenderedReducer = e;
@@ -42753,7 +42628,7 @@
         do {
           (l = e(l, i.action)), (i = i.next);
         } while (i !== o);
-        jn(l, t.memoizedState) || (li = !0),
+        An(l, t.memoizedState) || (li = !0),
           (t.memoizedState = l),
           null === t.baseQueue && (t.baseState = l),
           (r.lastRenderedState = l);
@@ -42799,9 +42674,9 @@
           function () {
             (d.getSnapshot = r), (d.setSnapshot = u);
             var e = l(t._source);
-            if (!jn(i, e)) {
+            if (!An(i, e)) {
               (e = r(t._source)),
-                jn(f, e) ||
+                An(f, e) ||
                   (u(e),
                   (e = Ns(h)),
                   (o.mutableReadLanes |= e & o.pendingLanes)),
@@ -42834,7 +42709,7 @@
           },
           [t, n],
         ),
-        (jn(m, r) && jn(y, t) && jn(p, n)) ||
+        (An(m, r) && An(y, t) && An(p, n)) ||
           ((e = {
             pending: null,
             dispatch: null,
@@ -42850,11 +42725,11 @@
       );
     }
     function Ba(e, t, r) {
-      var n = ja();
+      var n = Aa();
       return Na(n, e, t, r);
     }
     function Pa(e) {
-      var t = Aa();
+      var t = ja();
       return (
         'function' === typeof e && (e = e()),
         (t.memoizedState = t.baseState = e),
@@ -42885,19 +42760,19 @@
       );
     }
     function Ra(e) {
-      var t = Aa();
+      var t = ja();
       return (e = { current: e }), (t.memoizedState = e);
     }
     function Ua() {
-      return ja().memoizedState;
+      return Aa().memoizedState;
     }
     function Va(e, t, r, n) {
-      var o = Aa();
+      var o = ja();
       (Fa.flags |= e),
         (o.memoizedState = _a(1 | t, r, void 0, void 0 === n ? null : n));
     }
     function Ga(e, t, r, n) {
-      var o = ja();
+      var o = Aa();
       n = void 0 === n ? null : n;
       var l = void 0;
       if (null !== Ma) {
@@ -42939,7 +42814,7 @@
     }
     function Za() {}
     function Qa(e, t) {
-      var r = ja();
+      var r = Aa();
       t = void 0 === t ? null : t;
       var n = r.memoizedState;
       return null !== n && null !== t && za(t, n[1])
@@ -42947,7 +42822,7 @@
         : ((r.memoizedState = [e, t]), e);
     }
     function Xa(e, t) {
-      var r = ja();
+      var r = Aa();
       t = void 0 === t ? null : t;
       var n = r.memoizedState;
       return null !== n && null !== t && za(t, n[1])
@@ -42996,7 +42871,7 @@
           try {
             var i = t.lastRenderedState,
               s = a(i, r);
-            if (((l.eagerReducer = a), (l.eagerState = s), jn(s, i))) return;
+            if (((l.eagerReducer = a), (l.eagerState = s), An(s, i))) return;
           } catch (c) {}
         Bs(e, o, n);
       }
@@ -43022,7 +42897,7 @@
       ti = {
         readContext: Sl,
         useCallback: function (e, t) {
-          return (Aa().memoizedState = [e, void 0 === t ? null : t]), e;
+          return (ja().memoizedState = [e, void 0 === t ? null : t]), e;
         },
         useContext: Sl,
         useEffect: Ha,
@@ -43036,7 +42911,7 @@
           return Va(4, 2, e, t);
         },
         useMemo: function (e, t) {
-          var r = Aa();
+          var r = ja();
           return (
             (t = void 0 === t ? null : t),
             (e = e()),
@@ -43045,7 +42920,7 @@
           );
         },
         useReducer: function (e, t, r) {
-          var n = Aa();
+          var n = ja();
           return (
             (t = void 0 !== r ? r(t) : t),
             (n.memoizedState = n.baseState = t),
@@ -43089,7 +42964,7 @@
           return (e = Ja.bind(null, e[1])), Ra(e), [e, t];
         },
         useMutableSource: function (e, t, r) {
-          var n = Aa();
+          var n = ja();
           return (
             (n.memoizedState = {
               refs: { getSnapshot: t, setSnapshot: null },
@@ -43342,15 +43217,15 @@
           ('function' !== typeof a.UNSAFE_componentWillReceiveProps &&
             'function' !== typeof a.componentWillReceiveProps) ||
           ((i !== n || s !== c) && Gl(t, a, n, c)),
-          (Al = !1);
+          (jl = !1);
         var p = t.memoizedState;
         (a.state = p),
           Nl(t, n, a, o),
           (s = t.memoizedState),
-          i !== n || p !== s || Bo.current || Al
+          i !== n || p !== s || Bo.current || jl
             ? ('function' === typeof u &&
                 (_l(t, r, u, n), (s = t.memoizedState)),
-              (i = Al || Ul(t, r, i, n, p, s, c))
+              (i = jl || Ul(t, r, i, n, p, s, c))
                 ? (f ||
                     ('function' !== typeof a.UNSAFE_componentWillMount &&
                       'function' !== typeof a.componentWillMount) ||
@@ -43387,14 +43262,14 @@
           ('function' !== typeof a.UNSAFE_componentWillReceiveProps &&
             'function' !== typeof a.componentWillReceiveProps) ||
           ((i !== f || p !== s) && Gl(t, a, n, s)),
-          (Al = !1),
+          (jl = !1),
           (p = t.memoizedState),
           (a.state = p),
           Nl(t, n, a, o);
         var m = t.memoizedState;
-        i !== f || p !== m || Bo.current || Al
+        i !== f || p !== m || Bo.current || jl
           ? ('function' === typeof d && (_l(t, r, d, n), (m = t.memoizedState)),
-            (c = Al || Ul(t, r, c, n, p, m, s))
+            (c = jl || Ul(t, r, c, n, p, m, s))
               ? (u ||
                   ('function' !== typeof a.UNSAFE_componentWillUpdate &&
                     'function' !== typeof a.componentWillUpdate) ||
@@ -43685,7 +43560,7 @@
               : (n.sibling = null);
         }
     }
-    function Ai(e, t, r) {
+    function ji(e, t, r) {
       var n = t.pendingProps;
       switch (t.tag) {
         case 2:
@@ -44064,7 +43939,7 @@
       }
       throw Error(a(156, t.tag));
     }
-    function ji(e) {
+    function Ai(e) {
       switch (e.tag) {
         case 1:
           Ro(e.type) && Uo();
@@ -44780,19 +44655,19 @@
       Cs = null,
       zs = 0,
       Ss = null,
-      As = -1,
-      js = 0,
+      js = -1,
+      As = 0,
       ks = 0,
       Is = null,
       Ds = !1;
     function Ts() {
-      return 0 !== (48 & ts) ? pl() : -1 !== As ? As : (As = pl());
+      return 0 !== (48 & ts) ? pl() : -1 !== js ? js : (js = pl());
     }
     function Ns(e) {
       if (((e = e.mode), 0 === (2 & e))) return 1;
       if (0 === (4 & e)) return 99 === dl() ? 1 : 2;
-      if ((0 === js && (js = cs), 0 !== bl.transition)) {
-        0 !== ks && (ks = null !== ds ? ds.pendingLanes : 0), (e = js);
+      if ((0 === As && (As = cs), 0 !== bl.transition)) {
+        0 !== ks && (ks = null !== ds ? ds.pendingLanes : 0), (e = As);
         var t = 4186112 & ~ks;
         return (
           (t &= -t),
@@ -44803,8 +44678,8 @@
       return (
         (e = dl()),
         0 !== (4 & ts) && 98 === e
-          ? (e = Qt(12, js))
-          : ((e = qt(e)), (e = Qt(e, js))),
+          ? (e = Qt(12, As))
+          : ((e = qt(e)), (e = Qt(e, As))),
         e
       );
     }
@@ -44878,7 +44753,7 @@
       }
     }
     function Rs(e) {
-      if (((As = -1), (ks = js = 0), 0 !== (48 & ts))) throw Error(a(327));
+      if (((js = -1), (ks = As = 0), 0 !== (48 & ts))) throw Error(a(327));
       var t = e.callbackNode;
       if (lc() && e.callbackNode !== t) return null;
       var r = Kt(e, e === rs ? os : 0);
@@ -45269,7 +45144,7 @@
       do {
         var r = t.alternate;
         if (((e = t.return), 0 === (2048 & t.flags))) {
-          if (((r = Ai(r, t, ls)), null !== r)) return void (ns = r);
+          if (((r = ji(r, t, ls)), null !== r)) return void (ns = r);
           if (
             ((r = t),
             (24 !== r.tag && 23 !== r.tag) ||
@@ -45294,7 +45169,7 @@
                 : (e.firstEffect = t),
               (e.lastEffect = t)));
         } else {
-          if (((r = ji(t)), null !== r))
+          if (((r = Ai(t)), null !== r))
             return (r.flags &= 2047), void (ns = r);
           null !== e &&
             ((e.firstEffect = e.lastEffect = null), (e.flags |= 2048));
@@ -45702,8 +45577,8 @@
             ? (t = 1)
             : 0 === (4 & t)
             ? (t = 99 === dl() ? 1 : 2)
-            : (0 === js && (js = cs),
-              (t = Xt(62914560 & ~js)),
+            : (0 === As && (As = cs),
+              (t = Xt(62914560 & ~As)),
               0 === t && (t = 4194304))),
         (r = Ts()),
         (e = Ps(e, t)),
@@ -45817,10 +45692,10 @@
           default:
             if ('object' === typeof e && null !== e)
               switch (e.$$typeof) {
-                case A:
+                case j:
                   i = 10;
                   break e;
-                case j:
+                case A:
                   i = 9;
                   break e;
                 case k:
@@ -45969,7 +45844,7 @@
     function Sc() {
       return null;
     }
-    function Ac(e, t, r) {
+    function jc(e, t, r) {
       var n =
         (null != r &&
           null != r.hydrationOptions &&
@@ -45980,7 +45855,7 @@
         (t = mc(3, null, null, 2 === t ? 7 : 1 === t ? 3 : 0)),
         (r.current = t),
         (t.stateNode = r),
-        jl(t),
+        Al(t),
         (e[Mo] = r.current),
         $n(8 === e.nodeType ? e.parentNode : e),
         n)
@@ -45995,7 +45870,7 @@
         }
       this._internalRoot = r;
     }
-    function jc(e) {
+    function Ac(e) {
       return !(
         !e ||
         (1 !== e.nodeType &&
@@ -46016,7 +45891,7 @@
         !t)
       )
         for (var r; (r = e.lastChild); ) e.removeChild(r);
-      return new Ac(e, 0, t ? { hydrate: !0 } : void 0);
+      return new jc(e, 0, t ? { hydrate: !0 } : void 0);
     }
     function Ic(e, t, r, n, o) {
       var l = r._reactRootContainer;
@@ -46051,7 +45926,7 @@
     function Dc(e, t) {
       var r =
         2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
-      if (!jc(t)) throw Error(a(200));
+      if (!Ac(t)) throw Error(a(200));
       return wc(e, t, null, r);
     }
     (vs = function (e, t, r) {
@@ -46139,7 +46014,7 @@
             } else l = !1;
             (t.memoizedState =
               null !== o.state && void 0 !== o.state ? o.state : null),
-              jl(t);
+              Al(t);
             var i = n.getDerivedStateFromProps;
             'function' === typeof i && _l(t, n, i, e),
               (o.updater = Rl),
@@ -46273,7 +46148,7 @@
             if ((Do(xl, s._currentValue), (s._currentValue = l), null !== i))
               if (
                 ((s = i.value),
-                (l = jn(s, l)
+                (l = An(s, l)
                   ? 0
                   : 0 |
                     ('function' === typeof n._calculateChangedBits
@@ -46366,10 +46241,10 @@
       }
       throw Error(a(156, t.tag));
     }),
-      (Ac.prototype.render = function (e) {
+      (jc.prototype.render = function (e) {
         Lc(e, this._internalRoot, null, null);
       }),
-      (Ac.prototype.unmount = function () {
+      (jc.prototype.unmount = function () {
         var e = this._internalRoot,
           t = e.containerInfo;
         Lc(null, e, null, function () {
@@ -46398,7 +46273,7 @@
       (ut = function (e, t) {
         return t();
       }),
-      (Ae = function (e, t, r) {
+      (je = function (e, t, r) {
         switch (t) {
           case 'input':
             if ((ae(e, r), (t = r.name), 'radio' === r.type && null != t)) {
@@ -46510,15 +46385,15 @@
         }
       }),
       (t.hydrate = function (e, t, r) {
-        if (!jc(t)) throw Error(a(200));
+        if (!Ac(t)) throw Error(a(200));
         return Ic(null, e, t, !0, r);
       }),
       (t.render = function (e, t, r) {
-        if (!jc(t)) throw Error(a(200));
+        if (!Ac(t)) throw Error(a(200));
         return Ic(null, e, t, !1, r);
       }),
       (t.unmountComponentAtNode = function (e) {
-        if (!jc(e)) throw Error(a(40));
+        if (!Ac(e)) throw Error(a(40));
         return (
           !!e._reactRootContainer &&
           (Ws(function () {
@@ -46538,7 +46413,7 @@
         );
       }),
       (t.unstable_renderSubtreeIntoContainer = function (e, t, r, n) {
-        if (!jc(r)) throw Error(a(200));
+        if (!Ac(r)) throw Error(a(200));
         if (null == e || void 0 === e._reactInternals) throw Error(a(38));
         return Ic(e, t, r, !1, n);
       }),

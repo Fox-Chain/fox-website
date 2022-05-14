@@ -5,7 +5,7 @@ import styles from './index.less';
 const Page = () => {
   return (
     <div className={styles.page}>
-      <Box />
+      {/* <Box /> */}
       <div className="rotateview"></div>
       <div className="rotateview"></div>
       <div className="rotateview"></div>

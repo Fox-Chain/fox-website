@@ -242,7 +242,7 @@
 
     .nav {
       position: absolute;
-      bottom: 25px;
+      bottom: 110px;
       left: 50%;
       transform: translateX(-50%);
       list-style-type: none;
@@ -318,6 +318,34 @@
         rgba(255, 255, 255, 0) 0%,
         #eed7ff 100%
       );
+    }
+    .social {
+      position: absolute;
+      z-index: 10;
+      bottom: 20px;
+      right: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .social li {
+      list-style: none;
+    }
+    .social li a {
+      display: inline-block;
+      margin-right: 10px;
+      // filter: invert(1);
+      // transform: scale(0.5);
+      transition: 0.5s;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
+        fill: #fff;
+      }
+    }
+    .social li a:hover {
+      transform: scale(1.2) translateY(-10px);
     }
   }
 }

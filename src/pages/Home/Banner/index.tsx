@@ -1,8 +1,17 @@
 import { useLayoutEffect, useRef } from 'react';
 import { ReactComponent as Logo } from '@/assets/logo.svg';
+import { ReactComponent as Github } from '@/assets/github.svg';
+import { ReactComponent as Twitter } from '@/assets/twitter.svg';
+import { ReactComponent as Discord } from '@/assets/discord.svg';
+import { ReactComponent as Medium } from '@/assets/medium.svg';
+import { ReactComponent as Telegram } from '@/assets/telegram.svg';
+import { ReactComponent as Youtube } from '@/assets/youtube.svg';
+import { ReactComponent as Paper } from '@/assets/paper.svg';
 import Box1 from '../Box1';
 import Box2 from '../Box2';
 import Box3 from '../Box3';
+import Menu from '../Menu';
+import Button from '../Button';
 import BoxMain from '../BoxMain';
 
 import styles from './index.less';
@@ -218,6 +227,7 @@ const Banner = () => {
   return (
     <div className={styles.banner}>
       <Logo className={styles.logo} />
+      <Menu />
       <div className="cont">
         <div className="slider">
           <div data-target="1" className="slide slide--1">
@@ -233,8 +243,8 @@ const Banner = () => {
           <div data-target="2" className="slide slide--2">
             <div className="slide__text-wrapper slide--2__text-wrapper">
               <BoxMain
-                title="General purpose, Permissionless and Decentralized"
-                desc="On Fox, developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly."
+                title="General Purpose, Permissionless, and Developer-friendly"
+                desc="The developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
               >
                 <Box3 />
               </BoxMain>
@@ -243,8 +253,9 @@ const Banner = () => {
           <div data-target="3" className="slide slide--3">
             <div className="slide__text-wrapper slide--3__text-wrapper">
               <BoxMain
-                title="zk-SNARK & zk-Porter validity proofs"
-                desc="Fox scales Ethereum with zk-SNARK & zk-Porter to implement the Ethereum-secure, fast, low marginal gas cost, and seamless user experience."
+                title="Fast, Low Gas Cost, and Seamless User Experience"
+                desc="Fox securely scales Ethereum and gets the above advantages based on zk-Rollup & zk-Porter, and other cutting-edge technology."
+                btn={<Button></Button>}
               >
                 <Box1 />
               </BoxMain>
@@ -252,6 +263,36 @@ const Banner = () => {
           </div>
         </div>
         <ul className="nav"></ul>
+        <ul className="social">
+          <li>
+            <a href="#" title="Github">
+              <Github />
+            </a>
+            <a href="#" title="Twitter">
+              <Twitter />
+            </a>{' '}
+          </li>
+          <li>
+            <a href="#" title="Telegram">
+              <Telegram />
+            </a>{' '}
+          </li>
+          <li>
+            <a href="#" title="Discord">
+              <Discord />
+            </a>{' '}
+          </li>
+          <li>
+            <a href="#" title="Medium">
+              <Medium />
+            </a>{' '}
+          </li>
+          <li>
+            <a href="#" title="Youtube">
+              <Youtube />
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

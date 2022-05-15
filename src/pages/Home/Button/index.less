@@ -1,0 +1,36 @@
+.page {
+  :global {
+    .desc button {
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      background: transparent;
+      margin-top: 20px;
+      padding: 10px 40px;
+      font-size: 13px;
+      position: relative;
+      transition: 0.3s;
+      outline: none;
+      cursor: pointer;
+      border-radius: 0 20px;
+      overflow: hidden;
+    }
+    .desc button:after {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0;
+      content: '';
+      background: #ffffff;
+      transition: 0.3s;
+      z-index: -1;
+    }
+    .desc button:hover {
+      color: #000000;
+      letter-spacing: 2px;
+    }
+    .desc button:hover:after {
+      height: 100%;
+    }
+  }
+}

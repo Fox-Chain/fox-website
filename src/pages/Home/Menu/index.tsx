@@ -9,10 +9,13 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Develop</a>
+            <a href="#">Developers</a>
           </div>
           <div className="sub-menu triple">
-            <div className="top-container gb c icon-box">
+            <div
+              className="top-container gb c icon-box"
+              style={{ height: '3em' }}
+            >
               <div className="icon big">
                 <i className="far fa-book"></i>
               </div>
@@ -26,14 +29,12 @@ const Page = () => {
               <a href="#">Get Started</a>
               <a href="#">Learn the Basics</a>
               <a href="#">Get Advanced</a>
-              <a href="#">Start Teaching</a>
             </div>
             <div className="box">
               <h3>Your Tools</h3>
               <a href="#">Turbo Editor</a>
               <a href="#">Time Stopper</a>
               <a href="#">Brain Enhancer</a>
-              <a href="#">Network Maker</a>
             </div>
             <div className="icon-box flat">
               <div className="icon">
@@ -82,15 +83,27 @@ const Page = () => {
             <a href="#">Ecosystem</a>
           </div>
           <div className="sub-menu double">
+            <div className="top-container gb c icon-box">
+              <div className="icon big">
+                <i className="far fa-book"></i>
+              </div>
+              <div className="text">
+                <div className="title">Where to start</div>
+                <div className="sub-text">Get Started</div>
+              </div>
+            </div>
             <div className="icon-box gb a">
               <div className="icon">
                 <i className="far fa-question-circle"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Consult <i className="far fa-arrow-right"></i>
+                  DeFi <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">From Professionals</div>
+                <div className="sub-text">
+                  {' '}
+                  DEX, Lending, Stablecoin, Derivatives, Payment, Wallets
+                </div>
               </div>
             </div>
             <div className="icon-box gb b">
@@ -99,9 +112,9 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Teach <i className="far fa-arrow-right"></i>
+                  DEX <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">In Classroom</div>
+                <div className="sub-text">AMM, Orderbook</div>
               </div>
             </div>
             <div className="icon-box gb c">
@@ -110,9 +123,11 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Learn <i className="far fa-arrow-right"></i>
+                  NFT <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">By Video</div>
+                <div className="sub-text">
+                  Art, Collectibles, Virtual Worlds
+                </div>
               </div>
             </div>
             <div className="icon-box gb d">
@@ -121,9 +136,9 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Keep <i className="far fa-arrow-right"></i>
+                  Game <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">The Castle</div>
+                <div className="sub-text">P2E, GameFi, Metaverse</div>
               </div>
             </div>
             <div className="icon-box gb e">
@@ -132,9 +147,9 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Become <i className="far fa-arrow-right"></i>
+                  Web3.0 <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">A Creator</div>
+                <div className="sub-text">Social Media, Music, Sports</div>
               </div>
             </div>
             <div className="icon-box gb f">
@@ -143,18 +158,20 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Understand <i className="far fa-arrow-right"></i>
+                  Infrastructure <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Our Journey</div>
+                <div className="sub-text">DAO, Bridge, Oracle, Tools</div>
               </div>
             </div>
-            <div className="bottom-container"></div>
-            <div className="sub-menu-holder"></div>
+            {/* <div className="sub-menu-holder ecosys">
+              <div><span> Ready to dive in?</span></div>
+              <div><a className='gs' href="#">Get Started</a> </div>
+            </div> */}
           </div>
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Products</a>
+            <a href="#">Community</a>
           </div>
           <div className="sub-menu">
             <div className="icon-box">
@@ -163,10 +180,10 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Turbo Editor <i className="far fa-arrow-right"></i>
+                  Events <i className="far fa-arrow-right"></i>
                 </div>
                 <div className="sub-text">
-                  Edit your code while slowing down time.
+                  Online and spot events for developers and users
                 </div>
               </div>
             </div>
@@ -176,25 +193,26 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">
-                  Idea Creator <i className="far fa-arrow-right"></i>
+                  News<i className="far fa-arrow-right"></i>
                 </div>
                 <div className="sub-text">
-                  Think of an idea, and have an AI create it.
+                  Broadcasting the latest message and activity
                 </div>
               </div>
             </div>
-            <div className="icon-box">
+            <div className="icon-box" style={{ height: '4.3em' }}>
               <div className="icon">
                 <i className="fal fa-bomb"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Super Collider <i className="far fa-arrow-right"></i>
+                  Socials <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Remove mass from any object.</div>
+                <div className="sub-text">
+                  Twitter, Discord, Telegram, Youtube, Medium
+                </div>
               </div>
             </div>
-            <div className="sub-menu-holder"></div>
           </div>
         </div>
       </nav>

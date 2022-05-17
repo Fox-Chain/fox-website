@@ -38658,7 +38658,7 @@
                     className: 'menu-text',
                     children: Object(da['jsx'])('a', {
                       href: '#',
-                      children: 'Develop',
+                      children: 'Developers',
                     }),
                   }),
                   Object(da['jsxs'])('div', {
@@ -38666,6 +38666,7 @@
                     children: [
                       Object(da['jsxs'])('div', {
                         className: 'top-container gb c icon-box',
+                        style: { height: '3em' },
                         children: [
                           Object(da['jsx'])('div', {
                             className: 'icon big',
@@ -38704,10 +38705,6 @@
                             href: '#',
                             children: 'Get Advanced',
                           }),
-                          Object(da['jsx'])('a', {
-                            href: '#',
-                            children: 'Start Teaching',
-                          }),
                         ],
                       }),
                       Object(da['jsxs'])('div', {
@@ -38725,10 +38722,6 @@
                           Object(da['jsx'])('a', {
                             href: '#',
                             children: 'Brain Enhancer',
-                          }),
-                          Object(da['jsx'])('a', {
-                            href: '#',
-                            children: 'Network Maker',
                           }),
                         ],
                       }),
@@ -38842,6 +38835,30 @@
                     className: 'sub-menu double',
                     children: [
                       Object(da['jsxs'])('div', {
+                        className: 'top-container gb c icon-box',
+                        children: [
+                          Object(da['jsx'])('div', {
+                            className: 'icon big',
+                            children: Object(da['jsx'])('i', {
+                              className: 'far fa-book',
+                            }),
+                          }),
+                          Object(da['jsxs'])('div', {
+                            className: 'text',
+                            children: [
+                              Object(da['jsx'])('div', {
+                                className: 'title',
+                                children: 'Where to start',
+                              }),
+                              Object(da['jsx'])('div', {
+                                className: 'sub-text',
+                                children: 'Get Started',
+                              }),
+                            ],
+                          }),
+                        ],
+                      }),
+                      Object(da['jsxs'])('div', {
                         className: 'icon-box gb a',
                         children: [
                           Object(da['jsx'])('div', {
@@ -38856,7 +38873,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Consult ',
+                                  'DeFi ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -38864,7 +38881,8 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'From Professionals',
+                                children:
+                                  ' DEX, Lending, Stablecoin, Derivatives, Payment, Wallets',
                               }),
                             ],
                           }),
@@ -38885,7 +38903,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Teach ',
+                                  'DEX ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -38893,7 +38911,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'In Classroom',
+                                children: 'AMM, Orderbook',
                               }),
                             ],
                           }),
@@ -38914,7 +38932,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Learn ',
+                                  'NFT ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -38922,7 +38940,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'By Video',
+                                children: 'Art, Collectibles, Virtual Worlds',
                               }),
                             ],
                           }),
@@ -38943,7 +38961,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Keep ',
+                                  'Game ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -38951,7 +38969,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'The Castle',
+                                children: 'P2E, GameFi, Metaverse',
                               }),
                             ],
                           }),
@@ -38972,7 +38990,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Become ',
+                                  'Web3.0 ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -38980,7 +38998,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'A Creator',
+                                children: 'Social Media, Music, Sports',
                               }),
                             ],
                           }),
@@ -39001,7 +39019,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Understand ',
+                                  'Infrastructure ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -39009,17 +39027,11 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'Our Journey',
+                                children: 'DAO, Bridge, Oracle, Tools',
                               }),
                             ],
                           }),
                         ],
-                      }),
-                      Object(da['jsx'])('div', {
-                        className: 'bottom-container',
-                      }),
-                      Object(da['jsx'])('div', {
-                        className: 'sub-menu-holder',
                       }),
                     ],
                   }),
@@ -39032,7 +39044,7 @@
                     className: 'menu-text',
                     children: Object(da['jsx'])('a', {
                       href: '#',
-                      children: 'Products',
+                      children: 'Community',
                     }),
                   }),
                   Object(da['jsxs'])('div', {
@@ -39053,7 +39065,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Turbo Editor ',
+                                  'Events ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -39062,7 +39074,7 @@
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
                                 children:
-                                  'Edit your code while slowing down time.',
+                                  'Online and spot events for developers and users',
                               }),
                             ],
                           }),
@@ -39083,7 +39095,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Idea Creator ',
+                                  'News',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -39092,7 +39104,7 @@
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
                                 children:
-                                  'Think of an idea, and have an AI create it.',
+                                  'Broadcasting the latest message and activity',
                               }),
                             ],
                           }),
@@ -39100,6 +39112,7 @@
                       }),
                       Object(da['jsxs'])('div', {
                         className: 'icon-box',
+                        style: { height: '4.3em' },
                         children: [
                           Object(da['jsx'])('div', {
                             className: 'icon',
@@ -39113,7 +39126,7 @@
                               Object(da['jsxs'])('div', {
                                 className: 'title',
                                 children: [
-                                  'Super Collider ',
+                                  'Socials ',
                                   Object(da['jsx'])('i', {
                                     className: 'far fa-arrow-right',
                                   }),
@@ -39121,14 +39134,12 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'Remove mass from any object.',
+                                children:
+                                  'Twitter, Discord, Telegram, Youtube, Medium',
                               }),
                             ],
                           }),
                         ],
-                      }),
-                      Object(da['jsx'])('div', {
-                        className: 'sub-menu-holder',
                       }),
                     ],
                   }),

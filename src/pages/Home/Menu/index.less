@@ -3,8 +3,10 @@
   margin: 0 auto;
   left: 0;
   right: 0;
-  width: 41%;
+  width: unset;
+  max-width: 800px;
   font-family: 'Karla' !important;
+
   :global {
     :root {
       --menu-width: 37.5em;
@@ -30,7 +32,6 @@
     nav .menu-item {
       color: #fff;
       transform-style: preserve-3d;
-      flex-grow: 1;
       display: flex;
       flex-basis: var(--item-width);
       box-sizing: border-box;
@@ -186,18 +187,6 @@
     .menu-item:hover ~ #sub-menu-container #sub-menu-holder {
       transition: transform 0.25s ease-out, opacity 0.25s ease-out,
         clip-path 0.25s ease-out;
-    }
-
-    @keyframes clipPath {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        transform: rotateX(0deg) scale(1);
-        top: 4.5em;
-        opacity: 1;
-      }
     }
 
     /* Menu specific */
@@ -408,5 +397,67 @@
     #info-box a:hover {
       color: rgba(255, 255, 255, 0.5);
     }
+
+    @media (max-width: 800px) {
+      nav {
+        padding-left: 80px;
+      }
+
+      .sub-menu {
+        top: 4em !important;
+      }
+
+      .menu-item {
+        padding: 0 !important;
+
+        .menu-text:after {
+          bottom: 50px !important;
+        }
+
+        &:last-child {
+          display: none;
+        }
+
+        &:nth-child(1) {
+          .sub-menu {
+            left: -107px;
+            min-width: unset;
+            width: 100vw;
+          }
+        }
+
+        &:nth-child(2) {
+          .sub-menu {
+            left: -191px;
+            min-width: unset;
+            width: 100vw;
+          }
+        }
+
+        &:nth-child(3) {
+          .sub-menu {
+            width: 100%;
+            left: -296px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1150px) {
+  .page {
+    width: unset;
+    max-width: unset;
+
+    nav {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  nav {
+    justify-content: space-evenly !important;
   }
 }

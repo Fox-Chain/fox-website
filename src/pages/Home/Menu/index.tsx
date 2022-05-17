@@ -9,52 +9,77 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Products</a>
+            <a href="#">Develop</a>
           </div>
-          <div className="sub-menu">
-            <div className="icon-box">
+          <div className="sub-menu triple">
+            <div className="top-container gb c icon-box">
+              <div className="icon big">
+                <i className="far fa-book"></i>
+              </div>
+              <div className="text">
+                <div className="title">Where to start</div>
+                <div className="sub-text">Find out where to begin below</div>
+              </div>
+            </div>
+            <div className="box">
+              <h3>Your Journey</h3>
+              <a href="#">Get Started</a>
+              <a href="#">Learn the Basics</a>
+              <a href="#">Get Advanced</a>
+              <a href="#">Start Teaching</a>
+            </div>
+            <div className="box">
+              <h3>Your Tools</h3>
+              <a href="#">Turbo Editor</a>
+              <a href="#">Time Stopper</a>
+              <a href="#">Brain Enhancer</a>
+              <a href="#">Network Maker</a>
+            </div>
+            <div className="icon-box flat">
               <div className="icon">
-                <i className="fal fa-wind-turbine"></i>
+                <i className="fal fa-plug"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Turbo Editor <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">
-                  Edit your code while slowing down time.
+                  API Guide <i className="far fa-arrow-right"></i>
                 </div>
               </div>
             </div>
-            <div className="icon-box">
+            <div className="icon-box flat">
               <div className="icon">
-                <i className="fal fa-lightbulb-on"></i>
+                <i className="fal fa-comments"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Idea Creator <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">
-                  Think of an idea, and have an AI create it.
+                  Support Line <i className="far fa-arrow-right"></i>
                 </div>
               </div>
             </div>
-            <div className="icon-box">
+            <div className="icon-box flat">
               <div className="icon">
-                <i className="fal fa-bomb"></i>
+                <i className="fal fa-phone-volume"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Super Collider <i className="far fa-arrow-right"></i>
+                  Live Chat <i className="far fa-arrow-right"></i>
                 </div>
-                <div className="sub-text">Remove mass from any object.</div>
               </div>
             </div>
-            <div className="sub-menu-holder"></div>
+            <div className="icon-box flat">
+              <div className="icon">
+                <i className="fal fa-book-spells"></i>
+              </div>
+              <div className="text">
+                <div className="title">
+                  Documentation <i className="far fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="menu-item highlight">
+        <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Services</a>
+            <a href="#">Ecosystem</a>
           </div>
           <div className="sub-menu double">
             <div className="icon-box gb a">
@@ -127,74 +152,49 @@ const Page = () => {
             <div className="sub-menu-holder"></div>
           </div>
         </div>
-        <div className="menu-item highlight">
+        <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Support</a>
+            <a href="#">Products</a>
           </div>
-          <div className="sub-menu triple">
-            <div className="top-container gb c icon-box">
-              <div className="icon big">
-                <i className="far fa-book"></i>
-              </div>
-              <div className="text">
-                <div className="title">Where to start</div>
-                <div className="sub-text">Find out where to begin below</div>
-              </div>
-            </div>
-            <div className="box">
-              <h3>Your Journey</h3>
-              <a href="#">Get Started</a>
-              <a href="#">Learn the Basics</a>
-              <a href="#">Get Advanced</a>
-              <a href="#">Start Teaching</a>
-            </div>
-            <div className="box">
-              <h3>Your Tools</h3>
-              <a href="#">Turbo Editor</a>
-              <a href="#">Time Stopper</a>
-              <a href="#">Brain Enhancer</a>
-              <a href="#">Network Maker</a>
-            </div>
-            <div className="icon-box flat">
+          <div className="sub-menu">
+            <div className="icon-box">
               <div className="icon">
-                <i className="fal fa-plug"></i>
+                <i className="fal fa-wind-turbine"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  API Guide <i className="far fa-arrow-right"></i>
+                  Turbo Editor <i className="far fa-arrow-right"></i>
+                </div>
+                <div className="sub-text">
+                  Edit your code while slowing down time.
                 </div>
               </div>
             </div>
-            <div className="icon-box flat">
+            <div className="icon-box">
               <div className="icon">
-                <i className="fal fa-comments"></i>
+                <i className="fal fa-lightbulb-on"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Support Line <i className="far fa-arrow-right"></i>
+                  Idea Creator <i className="far fa-arrow-right"></i>
+                </div>
+                <div className="sub-text">
+                  Think of an idea, and have an AI create it.
                 </div>
               </div>
             </div>
-            <div className="icon-box flat">
+            <div className="icon-box">
               <div className="icon">
-                <i className="fal fa-phone-volume"></i>
+                <i className="fal fa-bomb"></i>
               </div>
               <div className="text">
                 <div className="title">
-                  Live Chat <i className="far fa-arrow-right"></i>
+                  Super Collider <i className="far fa-arrow-right"></i>
                 </div>
+                <div className="sub-text">Remove mass from any object.</div>
               </div>
             </div>
-            <div className="icon-box flat">
-              <div className="icon">
-                <i className="fal fa-book-spells"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Documentation <i className="far fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
+            <div className="sub-menu-holder"></div>
           </div>
         </div>
         <div className="menu-item">
@@ -236,11 +236,6 @@ const Page = () => {
               </div>
             </div>
             <div className="sub-menu-holder"></div>
-          </div>
-        </div>
-        <div id="sub-menu-container">
-          <div id="sub-menu-holder">
-            <div id="sub-menu-bottom"></div>
           </div>
         </div>
       </nav>

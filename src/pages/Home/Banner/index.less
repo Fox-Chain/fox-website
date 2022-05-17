@@ -6,6 +6,13 @@
     left: 100px;
     z-index: 1;
   }
+  @media screen and (max-width: 800px) {
+    .logo {
+      top: 30px;
+      left: 30px;
+      width: 40px;
+    }
+  }
   :global {
     .cont {
       position: relative;
@@ -247,6 +254,11 @@
       transform: translateX(-50%);
       list-style-type: none;
       z-index: 10;
+    }
+    @media screen and (max-width: 400px) {
+      .nav {
+        bottom: 60px;
+      }
     }
     .nav__slide {
       position: relative;

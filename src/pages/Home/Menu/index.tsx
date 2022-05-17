@@ -107,7 +107,7 @@ const Page = () => {
                 </div>
                 <div className="sub-text">
                   {' '}
-                  DEX, Lending, Stablecoin, Derivatives, Payment, Wallets
+                  DEX, Lending, Stablecoin, Derivatives, Payment
                 </div>
               </div>
             </div>

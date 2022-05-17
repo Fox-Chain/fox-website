@@ -38892,7 +38892,7 @@
                                 className: 'sub-text',
                                 children: [
                                   ' ',
-                                  'DEX, Lending, Stablecoin, Derivatives, Payment, Wallets',
+                                  'DEX, Lending, Stablecoin, Derivatives, Payment',
                                 ],
                               }),
                             ],
@@ -39624,7 +39624,7 @@
                         className: 'slide__text-wrapper slide--2__text-wrapper',
                         children: Object(da['jsx'])(Xa, {
                           title:
-                            'General Purpose, Permissionless, and Developer-friendly',
+                            'General Purpose, Composability, and Developer-friendly',
                           desc: 'The developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox.',
                           children: Object(da['jsx'])(Ma, {}),
                         }),

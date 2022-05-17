@@ -243,7 +243,7 @@ const Banner = () => {
           <div data-target="2" className="slide slide--2">
             <div className="slide__text-wrapper slide--2__text-wrapper">
               <BoxMain
-                title="General Purpose, Permissionless, and Developer-friendly"
+                title="General Purpose, Composability, and Developer-friendly"
                 desc="The developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
               >
                 <Box3 />

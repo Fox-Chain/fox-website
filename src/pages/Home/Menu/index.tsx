@@ -11,7 +11,7 @@ const Page = () => {
           <div className="menu-text">
             <a href="#">Developers</a>
           </div>
-          <div className="sub-menu triple">
+          <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
               className="top-container gb c icon-box"
               style={{ height: '3em' }}
@@ -21,7 +21,7 @@ const Page = () => {
               </div>
               <div className="text">
                 <div className="title">Where to start</div>
-                <div className="sub-text">Find out where to begin below</div>
+                <div className="sub-text">How to start the development</div>
               </div>
             </div>
             <div className="box">
@@ -36,6 +36,8 @@ const Page = () => {
               <a href="#">Time Stopper</a>
               <a href="#">Brain Enhancer</a>
             </div>
+            <div style={{ width: '100%', height: '1em' }}></div>
+            <div style={{ width: '100%', height: '1em' }}></div>
             <div className="icon-box flat">
               <div className="icon">
                 <i className="fal fa-plug"></i>
@@ -82,14 +84,17 @@ const Page = () => {
           <div className="menu-text">
             <a href="#">Ecosystem</a>
           </div>
-          <div className="sub-menu double">
-            <div className="top-container gb c icon-box">
+          <div className="sub-menu double" style={{ height: '20em' }}>
+            <div
+              className="top-container gb c icon-box"
+              style={{ height: '4.5em' }}
+            >
               <div className="icon big">
                 <i className="far fa-book"></i>
               </div>
               <div className="text">
                 <div className="title">Where to start</div>
-                <div className="sub-text">Get Started</div>
+                <div className="sub-text">Get started to find projects</div>
               </div>
             </div>
             <div className="icon-box gb a">

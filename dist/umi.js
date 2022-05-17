@@ -38663,6 +38663,7 @@
                   }),
                   Object(da['jsxs'])('div', {
                     className: 'sub-menu triple',
+                    style: { height: '20em' },
                     children: [
                       Object(da['jsxs'])('div', {
                         className: 'top-container gb c icon-box',
@@ -38683,7 +38684,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'Find out where to begin below',
+                                children: 'How to start the development',
                               }),
                             ],
                           }),
@@ -38724,6 +38725,12 @@
                             children: 'Brain Enhancer',
                           }),
                         ],
+                      }),
+                      Object(da['jsx'])('div', {
+                        style: { width: '100%', height: '1em' },
+                      }),
+                      Object(da['jsx'])('div', {
+                        style: { width: '100%', height: '1em' },
                       }),
                       Object(da['jsxs'])('div', {
                         className: 'icon-box flat',
@@ -38833,9 +38840,11 @@
                   }),
                   Object(da['jsxs'])('div', {
                     className: 'sub-menu double',
+                    style: { height: '20em' },
                     children: [
                       Object(da['jsxs'])('div', {
                         className: 'top-container gb c icon-box',
+                        style: { height: '4.5em' },
                         children: [
                           Object(da['jsx'])('div', {
                             className: 'icon big',
@@ -38852,7 +38861,7 @@
                               }),
                               Object(da['jsx'])('div', {
                                 className: 'sub-text',
-                                children: 'Get Started',
+                                children: 'Get started to find projects',
                               }),
                             ],
                           }),
@@ -38879,10 +38888,12 @@
                                   }),
                                 ],
                               }),
-                              Object(da['jsx'])('div', {
+                              Object(da['jsxs'])('div', {
                                 className: 'sub-text',
-                                children:
-                                  ' DEX, Lending, Stablecoin, Derivatives, Payment, Wallets',
+                                children: [
+                                  ' ',
+                                  'DEX, Lending, Stablecoin, Derivatives, Payment, Wallets',
+                                ],
                               }),
                             ],
                           }),

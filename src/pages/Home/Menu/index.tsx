@@ -197,47 +197,6 @@ const Page = () => {
             <div className="sub-menu-holder"></div>
           </div>
         </div>
-        <div className="menu-item">
-          <div className="menu-text">
-            <a href="#">Community</a>
-          </div>
-          <div className="sub-menu">
-            <div className="icon-box">
-              <div className="icon">
-                <i className="far fa-satellite"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Forum <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">Join our passionate community.</div>
-              </div>
-            </div>
-            <div className="icon-box">
-              <div className="icon">
-                <i className="fab fa-twitter-square"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Twitter <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">Follow us on twitter.</div>
-              </div>
-            </div>
-            <div className="icon-box">
-              <div className="icon">
-                <i className="fab fa-twitch"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Live Stream <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">We stream content every day.</div>
-              </div>
-            </div>
-            <div className="sub-menu-holder"></div>
-          </div>
-        </div>
       </nav>
     </div>
   );

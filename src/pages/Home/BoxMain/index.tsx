@@ -25,7 +25,7 @@ const Page = (props) => {
 
                   <h3>{title}</h3>
                   <p>{desc}</p>
-                  {btn || <a href="#">Explore</a>}
+                  <a href="#">Explore</a>
                 </div>
                 {props.children}
               </>

@@ -39441,8 +39441,8 @@
       Za = r.n(Ka),
       Qa = (e) => {
         var t = e.title,
-          r = e.desc,
-          n = e.btn;
+          r = e.desc;
+        e.btn;
         return Object(da['jsx'])('div', {
           className: Za.a.page,
           children: Object(da['jsxs'])('section', {
@@ -39453,8 +39453,8 @@
               }),
               Object(da['jsx'])(Ya, {
                 queries: { big: '(min-width: 1000px)' },
-                children: (o) =>
-                  (o.big &&
+                children: (n) =>
+                  (n.big &&
                     Object(da['jsxs'])(da['Fragment'], {
                       children: [
                         Object(da['jsxs'])('div', {
@@ -39462,11 +39462,10 @@
                           children: [
                             Object(da['jsx'])('h3', { children: t }),
                             Object(da['jsx'])('p', { children: r }),
-                            n ||
-                              Object(da['jsx'])('a', {
-                                href: '#',
-                                children: 'Explore',
-                              }),
+                            Object(da['jsx'])('a', {
+                              href: '#',
+                              children: 'Explore',
+                            }),
                           ],
                         }),
                         e.children,

@@ -39367,7 +39367,7 @@
                 children: Object(da['jsx'])('h2', { className: 'logo' }),
               }),
               Object(da['jsx'])(Ya, {
-                queries: { big: '(min-width: 1000px)' },
+                queries: { big: '(min-width: 800px)' },
                 children: (n) =>
                   (n.big &&
                     Object(da['jsxs'])(da['Fragment'], {

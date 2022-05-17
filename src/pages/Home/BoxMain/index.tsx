@@ -14,7 +14,7 @@ const Page = (props) => {
         </header>
         <Media
           queries={{
-            big: '(min-width: 1000px)',
+            big: '(min-width: 800px)',
           }}
         >
           {(matches) =>

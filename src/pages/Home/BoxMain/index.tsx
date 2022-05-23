@@ -25,7 +25,12 @@ const Page = (props) => {
 
                   <h3>{title}</h3>
                   <p>{desc}</p>
-                  <a href="#">Explore</a>
+                  <button
+                    onClick={props.onClick}
+                    className="btn btn-4 hover-border-7"
+                  >
+                    <span>View the code</span>
+                  </button>
                 </div>
                 {props.children}
               </>

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { ReactComponent as Logo } from '@/assets/logo.svg';
 import { ReactComponent as Github } from '@/assets/github.svg';
 import { ReactComponent as Twitter } from '@/assets/twitter.svg';
@@ -7,6 +7,8 @@ import { ReactComponent as Medium } from '@/assets/medium.svg';
 import { ReactComponent as Telegram } from '@/assets/telegram.svg';
 import { ReactComponent as Youtube } from '@/assets/youtube.svg';
 import { ReactComponent as Paper } from '@/assets/paper.svg';
+import { ReactComponent as Arrow } from '@/assets/arrow.svg';
+
 import Box1 from '../Box1';
 import Box2 from '../Box2';
 import Box3 from '../Box3';
@@ -14,9 +16,14 @@ import Menu from '../Menu';
 import Button from '../Button';
 import BoxMain from '../BoxMain';
 
+import { CopyBlock } from 'react-code-blocks';
+import { Drawer } from 'antd';
 import styles from './index.less';
+import theme from './theme';
+import codeData from './code';
 
 const Banner = () => {
+  const [visible, setVisible] = useState(false);
   useLayoutEffect(() => {
     $(document).ready(function () {
       const $cont = $('.cont');
@@ -235,6 +242,7 @@ const Banner = () => {
               <BoxMain
                 title="A Fully EVM-compatible zk-Rollup Layer 2 for Ethereum"
                 desc="Fox uses ZK-EVM, which is exactly equivalent to EVM used by Ethereum L1 consensus, and is seamlessly compatible with all Ethereum DApps."
+                onClick={() => setVisible(true)}
               >
                 <Box2 />
               </BoxMain>
@@ -294,6 +302,44 @@ const Banner = () => {
           </li>
         </ul>
       </div>
+      <Drawer
+        title={
+          <a>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <span>View On Github</span>&nbsp;&nbsp;
+              <Arrow />
+            </div>
+          </a>
+        }
+        placement={'bottom'}
+        size="large"
+        visible={visible}
+        onClose={() => setVisible(false)}
+      >
+        <h1>Send Messages</h1>
+        <p>
+          To send a message, call the Endpoint's send() function. Initiate
+          thesend() function in your contracts (similar to the CounterMock) to
+          send a cross chain message.
+        </p>
+        <CopyBlock
+          language="go"
+          wrapLines={true}
+          text={codeData.f1.code}
+          codeBlock
+          theme={theme}
+          showLineNumbers={true}
+        />
+        <p>Here is an explanation of the endpoint.send() interface:</p>
+        <CopyBlock
+          language="go"
+          wrapLines={true}
+          text={codeData.f2.code}
+          codeBlock
+          theme={theme}
+          showLineNumbers={true}
+        />
+      </Drawer>
     </div>
   );
 };

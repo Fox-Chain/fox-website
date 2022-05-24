@@ -9,5 +9,5 @@ export default defineConfig({
     { path: '/info', component: '@/pages/Info' },
   ],
   fastRefresh: {},
-  title: 'Fox',
+  title: 'Fox Tech',
 });

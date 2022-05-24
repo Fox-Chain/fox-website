@@ -253,6 +253,7 @@ const Banner = () => {
               <BoxMain
                 title="General Purpose, Composability, and Developer-friendly"
                 desc="The developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
+                onClick={() => setVisible(true)}
               >
                 <Box3 />
               </BoxMain>
@@ -263,7 +264,7 @@ const Banner = () => {
               <BoxMain
                 title="Fast, Low Gas Cost, and Seamless User Experience"
                 desc="Fox securely scales Ethereum and gets the above advantages based on zk-Rollup & zk-Porter, and other cutting-edge technology."
-                btn={<Button></Button>}
+                onClick={() => setVisible(true)}
               >
                 <Box1 />
               </BoxMain>

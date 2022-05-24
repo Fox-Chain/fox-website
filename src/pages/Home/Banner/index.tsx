@@ -16,7 +16,7 @@ import Menu from '../Menu';
 import Button from '../Button';
 import BoxMain from '../BoxMain';
 
-import { CopyBlock } from 'react-code-blocks';
+import { CopyBlock } from '@/react-code-blocks';
 import { Drawer } from 'antd';
 import styles from './index.less';
 import theme from './theme';

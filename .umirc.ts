@@ -5,11 +5,18 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-    { path: '/', component: '@/pages/Home' },
     { path: '/info', component: '@/pages/Info' },
     { path: '/ecosystem', component: '@/pages/Ecosystem' },
-    { path: '/develop', component: '@/pages/Develop' },
+    { path: '/developers', component: '@/pages/Developers' },
     { path: '/developc', component: '@/pages/DevelopC' },
+    {
+      path: '/',
+      component: '../layouts/BasicLayout',
+      routes: [
+        { path: '/', component: '@/pages/Home' },
+      ],
+    },
+    
   ],
   fastRefresh: {},
   title: 'Fox Tech',

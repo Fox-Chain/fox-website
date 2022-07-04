@@ -12,7 +12,6 @@ import { ReactComponent as Arrow } from '@/assets/arrow.svg';
 import Box1 from '../Box1';
 import Box2 from '../Box2';
 import Box3 from '../Box3';
-import Menu from '../Menu';
 import Button from '../Button';
 import BoxMain from '../BoxMain';
 
@@ -234,7 +233,6 @@ const Banner = () => {
   return (
     <div className={styles.banner}>
       <Logo className={styles.logo} />
-      <Menu />
       <div className="cont">
         <div className="slider">
           <div data-target="1" className="slide slide--1">

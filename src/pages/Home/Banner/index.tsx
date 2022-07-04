@@ -1,5 +1,4 @@
 import { useLayoutEffect, useState } from 'react';
-import { ReactComponent as Logo } from '@/assets/logo.svg';
 import { ReactComponent as Github } from '@/assets/github.svg';
 import { ReactComponent as Twitter } from '@/assets/twitter.svg';
 import { ReactComponent as Discord } from '@/assets/discord.svg';
@@ -232,7 +231,6 @@ const Banner = () => {
 
   return (
     <div className={styles.banner}>
-      <Logo className={styles.logo} />
       <div className="cont">
         <div className="slider">
           <div data-target="1" className="slide slide--1">

@@ -4,20 +4,20 @@ import styles from './index.less';
 
 const Page = () => {
   useLayoutEffect(()=>{
-    const wrapper = document.querySelector(".wrapper");
-    const header = document.querySelector(".header");
+    // const wrapper = document.querySelector(".wrapper");
+    // const header = document.querySelector(".header");
     
-    wrapper.addEventListener("scroll", (e) => {
-     e.target.scrollTop > 30
-      ? header.classList.add("header-shadow")
-      : header.classList.remove("header-shadow");
-    });
+    // wrapper.addEventListener("scroll", (e) => {
+    //  e.target.scrollTop > 30
+    //   ? header.classList.add("header-shadow")
+    //   : header.classList.remove("header-shadow");
+    // });
     
-    const toggleButton = document.querySelector(".dark-light");
+    // const toggleButton = document.querySelector(".dark-light");
     
-    toggleButton.addEventListener("click", () => {
-     document.body.classList.toggle("dark-mode");
-    });
+    // toggleButton.addEventListener("click", () => {
+    //  document.body.classList.toggle("dark-mode");
+    // });
     
     const jobCards = document.querySelectorAll(".job-card");
     const logo = document.querySelector(".logo");
@@ -45,19 +45,19 @@ const Page = () => {
      });
     });
     
-    logo.addEventListener("click", () => {
-     wrapper.classList.remove("detail-page");
-     wrapper.scrollTop = 0;
-       jobBg.style.background = bg;
-    });
+    // logo.addEventListener("click", () => {
+    //  wrapper.classList.remove("detail-page");
+    //  wrapper.scrollTop = 0;
+    //    jobBg.style.background = bg;
+    // });
   },[]);
   return (
     <div className={styles.page}>
       <div className='dark-mode'>
       <div className="job">
-        <div className="header">
+        {/* <div className="header">
           <div className="logo">
-            <Logo />
+           <a href="/"> <Logo /></a>
           </div>
           <div className="header-menu">
             <a href="#" className="active">Find Job</a>
@@ -76,7 +76,7 @@ const Page = () => {
             <img className="user-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" />
               <div className="user-name">Suhayel Nasim</div>
           </div>
-        </div>
+        </div> */}
         <div className="wrapper">
           <div className="search-menu">
             <div className="search-bar">

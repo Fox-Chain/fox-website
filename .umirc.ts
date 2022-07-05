@@ -5,7 +5,7 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-   
+
     {
       path: '/',
       component: '../layouts/BasicLayout',
@@ -17,8 +17,11 @@ export default defineConfig({
         { path: '/developc', component: '@/pages/DevelopC' },
       ],
     },
-    
+
   ],
   fastRefresh: {},
   title: 'Fox Tech',
+  history: {
+    type: 'hash'
+  }
 });

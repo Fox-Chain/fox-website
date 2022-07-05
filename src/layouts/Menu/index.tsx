@@ -82,7 +82,7 @@ const Page = () => {
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a href="/ecosystem">Ecosystem</a>
+            <a href="/#/ecosystem">Ecosystem</a>
           </div>
           <div className="sub-menu double" style={{ height: '20em' }}>
             <div

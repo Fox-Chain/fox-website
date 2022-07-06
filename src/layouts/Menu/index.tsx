@@ -1,9 +1,12 @@
 import { useLayoutEffect, useRef } from 'react';
 import { ReactComponent as Box } from '@/assets/box.svg';
+import { useLocation } from 'umi';
 
 import styles from './index.less';
 
 const Page = () => {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div className={styles.page}>
       <nav id="menu">
@@ -82,7 +85,7 @@ const Page = () => {
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a href="/#/ecosystem">Ecosystem</a>
+            <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="/#/ecosystem">Ecosystem</a>
           </div>
           <div className="sub-menu double" style={{ height: '20em' }}>
             <div

@@ -12,7 +12,7 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="">Developers</a>
+            <a href="/#/developers">Developers</a>
           </div>
           <div className="sub-menu triple" style={{ height: '20em' }}>
             <div

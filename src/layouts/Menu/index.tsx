@@ -12,7 +12,7 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="/#/developers">Developers</a>
+            <a href="#">Developers</a>
           </div>
           <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
@@ -85,7 +85,8 @@ const Page = () => {
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="/#/ecosystem">Ecosystem</a>
+            {/* <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="/#/ecosystem">Ecosystem</a> */}
+            <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="#">Ecosystem</a>
           </div>
           <div className="sub-menu double" style={{ height: '20em' }}>
             <div

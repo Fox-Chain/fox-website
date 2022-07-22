@@ -19,6 +19,13 @@ export default defineConfig({
     },
 
   ],
+  proxy:{
+     '/api': {
+      target: 'http://localhost:8972',
+      changeOrigin: true,
+      cookieDomainRewrite: 'localhost',
+    },
+  },
   fastRefresh: {},
   title: 'Fox Tech',
   history: {

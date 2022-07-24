@@ -4,16 +4,16 @@ import styles from './index.less';
 
 const Page = (props ) => {
   const [teamList, setTeamList] = useState([])
+  const [f, setF] = useState(false)
   useEffect(()=>{
     getTeam();
   });
-  useLayoutEffect(() => {
+  useEffect(() => {
     
     var bgColor;
     var effect = 'animated bounceInLeft'; /* bounceIn, bounceInUp, bounceInDown, bounceInLeft,
 										 bounceInRight, rotateIn, rotateInUpLeft, rotateInDownLeft,
 										 rotateInUpRight, rotateInDownRight  */
-
     $('.all-content').hide();
 
     $('.content li').click(function () {
@@ -40,7 +40,7 @@ const Page = (props ) => {
       $('.card-front, .card-back').show();
       $('.content').css('background-color', bgColor);
     });
-  }, [teamList])
+  }, [f])
 
   const getTeam = () => {
     const { dispatch } = props;
@@ -53,6 +53,7 @@ const Page = (props ) => {
       callback: response => {
         if (response.code == 0)
           setTeamList(response.data);
+          setF(true)
       }
     });
   };

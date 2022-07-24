@@ -180,7 +180,7 @@ const Page = () => {
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Community</a>
+            <a href="#">Team</a>
           </div>
           <div className="sub-menu">
             <div className="icon-box">

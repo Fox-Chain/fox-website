@@ -15,13 +15,14 @@ export default defineConfig({
         { path: '/ecosystem', component: '@/pages/Ecosystem' },
         { path: '/developers', component: '@/pages/Developers' },
         { path: '/developc', component: '@/pages/DevelopC' },
+        { path: '/team', component: '@/pages/Team' },
       ],
     },
 
   ],
   proxy:{
      '/api': {
-      target: 'https://fox.tech',
+      target: 'http://localhost:8972',
       changeOrigin: true,
       cookieDomainRewrite: 'localhost',
     },

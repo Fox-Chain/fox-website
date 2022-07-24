@@ -31,3 +31,7 @@ export async function getSubCategory(params) {
   return request(`/api/getSubCategory?${stringify(params)}`);
 }
 
+// Team
+export async function getTeam(params) {
+  return request(`/api/getTeam?${stringify(params)}`);
+}

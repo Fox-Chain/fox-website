@@ -12,9 +12,9 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Developers</a>
+            <a href="#">Docs</a>
           </div>
-          <div className="sub-menu triple" style={{ height: '20em' }}>
+          {/* <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
               className="top-container gb c icon-box"
               style={{ height: '3em' }}
@@ -81,14 +81,14 @@ const Page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="menu-item">
           <div className="menu-text">
             {/* <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="/#/ecosystem">Ecosystem</a> */}
             <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="#">Ecosystem</a>
           </div>
-          <div className="sub-menu double" style={{ height: '20em' }}>
+          {/* <div className="sub-menu double" style={{ height: '20em' }}>
             <div
               className="top-container gb c icon-box"
               style={{ height: '4.5em' }}
@@ -172,17 +172,13 @@ const Page = () => {
                 <div className="sub-text">DAO, Bridge, Oracle, Tools</div>
               </div>
             </div>
-            {/* <div className="sub-menu-holder ecosys">
-              <div><span> Ready to dive in?</span></div>
-              <div><a className='gs' href="#">Get Started</a> </div>
-            </div> */}
-          </div>
+          </div> */}
         </div>
         <div className="menu-item">
           <div className="menu-text">
             <a href="#">Team</a>
           </div>
-          <div className="sub-menu">
+          {/* <div className="sub-menu">
             <div className="icon-box">
               <div className="icon">
                 <i className="fal fa-wind-turbine"></i>
@@ -192,7 +188,7 @@ const Page = () => {
                   Events <i className="far fa-arrow-right"></i>
                 </div>
                 <div className="sub-text">
-                  Online and spot events for developers and users
+                  Online and spot events for Docs and users
                 </div>
               </div>
             </div>
@@ -222,7 +218,7 @@ const Page = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>

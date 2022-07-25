@@ -248,7 +248,7 @@ const Banner = () => {
             <div className="slide__text-wrapper slide--2__text-wrapper">
               <BoxMain
                 title="General Purpose, Composability, and Developer-friendly"
-                desc="The developers can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
+                desc="The Docs can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
                 onClick={() => setVisible(true)}
               >
                 <Box3 />

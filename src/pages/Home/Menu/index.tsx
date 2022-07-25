@@ -9,7 +9,7 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Developers</a>
+            <a href="#">Docs</a>
           </div>
           <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
@@ -188,7 +188,7 @@ const Page = () => {
                   Events <i className="far fa-arrow-right"></i>
                 </div>
                 <div className="sub-text">
-                  Online and spot events for developers and users
+                  Online and spot events for Docs and users
                 </div>
               </div>
             </div>

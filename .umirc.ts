@@ -13,7 +13,7 @@ export default defineConfig({
         { path: '/', component: '@/pages/Home' },
         { path: '/info', component: '@/pages/Info' },
         { path: '/ecosystem', component: '@/pages/Ecosystem' },
-        { path: '/developers', component: '@/pages/Developers' },
+        { path: '/Docs', component: '@/pages/Docs' },
         { path: '/developc', component: '@/pages/DevelopC' },
         { path: '/team', component: '@/pages/Team' },
       ],

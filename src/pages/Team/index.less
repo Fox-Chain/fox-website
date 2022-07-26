@@ -202,7 +202,7 @@
     }
 
     .active {
-      width:  100vw !important;
+      width: 100vw !important;
       height: ~'calc(100vh - 148px)' !important;
     }
 
@@ -258,6 +258,43 @@
 
       .content li {
         width: 33%;
+      }
+    }
+
+    .moreinfo {
+      display: flex;
+      padding-left: 80px;
+
+      .moreinfo_left {
+        min-width: 400px;
+
+        h1 {
+          font-size: 50px;
+          font-weight: bold;
+        }
+      }
+
+      .moreinfo_right {
+        padding-top: 20px;
+        p{
+          margin-bottom: 36px;
+          display:flex;
+          font-size: 32px;
+          align-items: center;
+        }
+      }
+      .il {
+        display: inline-block;
+        color: #ffffff
+      }
+
+      .icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        fill: #ffffff;
+        width:140px;
+        font-size: 18px;
       }
     }
   }

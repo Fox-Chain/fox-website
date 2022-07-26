@@ -12,7 +12,7 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Docs</a>
+            <a href="#/docs">Docs</a>
           </div>
           {/* <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
@@ -176,7 +176,7 @@ const Page = () => {
         </div>
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#">Team</a>
+            <a href="#/team">Team</a>
           </div>
           {/* <div className="sub-menu">
             <div className="icon-box">

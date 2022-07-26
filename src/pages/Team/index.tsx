@@ -1,8 +1,15 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
+import { ReactComponent as Location } from '@/assets/location_on.svg';
+import { ReactComponent as Nationality } from '@/assets/flag_circle.svg';
+import { ReactComponent as University } from '@/assets/location_city.svg';
+import { ReactComponent as Major } from '@/assets/history_edu.svg';
+import { ReactComponent as Degree } from '@/assets/school.svg';
+import { ReactComponent as TechStack } from '@/assets/dvr.svg';
+
 import { connect } from 'umi';
 import styles from './index.less';
 const colors = [
-  '#D71718',
+  '#FFC000',
   '#DE600F',
   '#E99214',
   '#F1C01D',
@@ -92,14 +99,85 @@ const Page = (props) => {
                 <h2><b>{item.Name}</b></h2>
                 <p>{item.Title}</p>
               </div>
-              <div className="card-back" style={{ background: index < colors.length && colors[index] || 'red' }}>
+              <div className="card-back" style={{ background: index < colors.length && colors[index] || colors[0] }}>
                 <h2><b>Click here</b></h2>
               </div>
 
               <div className="all-content">
-                {/* <div className='gradient'> </div> */}
-                  <h1>{item.Description}</h1>
-               
+                <div className='moreinfo'>
+                  <div className='moreinfo_left'>
+                    <h1>{item.Name}</h1>
+                    <h1 style={{ fontSize: '30px', fontWeight: 'unset' }}>{item.Title}</h1>
+                  </div>
+                  <div className='moreinfo_right'>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <Location />
+                          Location
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.Location}
+                      </div>
+                    </p>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <Nationality />
+                          Nationality
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.Nationality}
+                      </div>
+                    </p>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <University />
+                          University
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.University}
+                      </div>
+                    </p>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <Major />
+                          Major
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.Major}
+                      </div>
+                    </p>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <Degree />
+                          Degree
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.Degree}
+                      </div>
+                    </p>
+                    <p>
+                      <div className='il'>
+                        <div className="icon">
+                          <TechStack />
+                          TechStack
+                        </div>
+                      </div>
+                      <div className='il'>
+                        {item.TechStack}
+                      </div>
+                    </p>
+                  </div>
+                </div>
               </div>
             </li>)
           }

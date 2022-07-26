@@ -2,7 +2,8 @@ import {
   getProject,
   getCategory,
   getSubCategory,
-  getTeam
+  getTeam,
+  getDocs
 } from '@/services/api';
 
 export default {
@@ -26,6 +27,10 @@ export default {
     },
     *getTeam({ payload, callback }, { call, put, select }) {
       const response = yield call(getTeam, payload);
+      callback && callback(response);
+    },
+    *getDocs({ payload, callback }, { call, put, select }) {
+      const response = yield call(getDocs, payload);
       callback && callback(response);
     },
   },

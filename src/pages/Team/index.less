@@ -97,44 +97,43 @@
       transform: perspective(1000) rotateX(0deg);
     }
 
-    .content li .card-back,
-    .content li:nth-child(1) .card-back,
-    .content li:nth-child(9) .card-back {
-      background: #6b6b6b;
-    }
+    // .content li .card-back,
+    // .content li:nth-child(1) .card-back,
+    // .content li:nth-child(9) .card-back {
+    //   background: #6b6b6b;
+    // }
 
-    .content li:nth-child(2) .card-back {
-      background: #22cfda;
-    }
+    // .content li:nth-child(2) .card-back {
+    //   background: #22cfda;
+    // }
 
-    .content li:nth-child(3) .card-back {
-      background: #162b53;
-    }
+    // .content li:nth-child(3) .card-back {
+    //   background: #162b53;
+    // }
 
-    .content li:nth-child(4) .card-back {
-      background: #ee2ca3;
-    }
+    // .content li:nth-child(4) .card-back {
+    //   background: #ee2ca3;
+    // }
 
-    .content li:nth-child(5) .card-back {
-      background: #d0ce06;
-    }
+    // .content li:nth-child(5) .card-back {
+    //   background: #d0ce06;
+    // }
 
-    .content li:nth-child(6) .card-back {
-      background: #7381a8;
-    }
+    // .content li:nth-child(6) .card-back {
+    //   background: #7381a8;
+    // }
 
-    .content li:nth-child(7) .card-back {
-      background: #da222b;
-    }
+    // .content li:nth-child(7) .card-back {
+    //   background: #da222b;
+    // }
 
-    .content li:nth-child(8) .card-back {
-      background: #f07938;
-    }
-
-    .content li:first-child,
-    .content li:last-child {
-      background-color: #151515;
-    }
+    // .content li:nth-child(8) .card-back {
+    //   background: #f07938;
+    // }
+    // .content li:first-child,
+    // .content li:last-child {
+    //   background-color: #151515;
+    // }
 
     .content .card-front,
     .content .card-back {
@@ -187,6 +186,7 @@
       width: 90%;
       float: right;
       margin-right: 20px;
+      font-size: 20px;
     }
 
     .close {
@@ -208,13 +208,15 @@
 
     .active .all-content {
       position: absolute;
-      left: 10px;
-      top: 20px;
+      overflow: auto;
+      padding: 20px;
+      height: ~'calc(100vh - 148px)' !important;
     }
 
     .active .all-content h1 {
       font-size: 80px;
-      width: 50%;
+      width: 90%;
+      word-break: break-all;
     }
 
     @media (min-width: 440px) and (max-width: 750px) {

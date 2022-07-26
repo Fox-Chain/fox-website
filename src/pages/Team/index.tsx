@@ -1,15 +1,40 @@
-import { useEffect, useLayoutEffect, useState  } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { connect } from 'umi';
 import styles from './index.less';
-
-const Page = (props ) => {
+const colors = [
+  '#D71718',
+  '#DE600F',
+  '#E99214',
+  '#F1C01D',
+  '#F4E829',
+  '#C6D11F',
+  '#89B929',
+  '#2BA23A',
+  '#169243',
+  '#119468',
+  '#12968F',
+  '#1797B5',
+  '#1E95D4',
+  '#127DC2',
+  '#0D63A9',
+  '#024391',
+  '#1D2A73',
+  '#58207C',
+  '#88167A',
+  '#B00F77',
+  '#D21577',
+  '#D41664',
+  '#D5154C',
+  '#D61533'
+]
+const Page = (props) => {
   const [teamList, setTeamList] = useState([])
   const [f, setF] = useState(false)
-  useEffect(()=>{
+  useEffect(() => {
     getTeam();
   });
   useEffect(() => {
-    
+
     var bgColor;
     var effect = 'animated bounceInLeft'; /* bounceIn, bounceInUp, bounceInDown, bounceInLeft,
 										 bounceInRight, rotateIn, rotateInUpLeft, rotateInDownLeft,
@@ -46,14 +71,14 @@ const Page = (props ) => {
     const { dispatch } = props;
     dispatch({
       type: 'global/getTeam',
-      payload:{
-        current:1,
-        pageSize:100
+      payload: {
+        current: 1,
+        pageSize: 100
       },
       callback: response => {
         if (response.code == 0)
           setTeamList(response.data);
-          setF(true)
+        setF(true)
       }
     });
   };
@@ -62,21 +87,23 @@ const Page = (props ) => {
       <div className="responsive">
         <ul className="content">
           {
-            teamList.map(item=>  <li>
+            teamList.map((item, index) => <li>
               <div className="card-front">
                 <h2><b>{item.Name}</b></h2>
-                <p>{item.TechStack}</p>
+                <p>{item.Title}</p>
               </div>
-              <div className="card-back">
+              <div className="card-back" style={{ background: index < colors.length && colors[index] || 'red' }}>
                 <h2><b>Click here</b></h2>
               </div>
-  
+
               <div className="all-content">
-                <h1>{item.Name}</h1>
+                {/* <div className='gradient'> </div> */}
+                  <h1>{item.Description}</h1>
+               
               </div>
             </li>)
           }
-        
+
 
 
         </ul>

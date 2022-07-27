@@ -253,7 +253,7 @@ const Banner = () => {
             <div className="slide__text-wrapper slide--3__text-wrapper">
               <BoxMain
                 title="Fast, Low Gas Cost, and Seamless User Experience"
-                desc="Fox securely scales Ethereum and gets the above advantages based on ZK-FOAKS,ZK-Ringer, and other cutting-edge technology."
+                desc="Fox securely scales Ethereum and gets the above advantages based on ZK-FOAKS, ZK-Ringer, and other cutting-edge technology."
                 onClick={() => setVisible(true)}
               >
                 <Box1 />

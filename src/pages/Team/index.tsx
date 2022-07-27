@@ -110,7 +110,7 @@ const Page = (props) => {
                     <h1 style={{ fontSize: '30px', fontWeight: 'unset' }}>{item.Title}</h1>
                   </div>
                   <div className='moreinfo_right'>
-                    <p>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <Location />
@@ -120,8 +120,8 @@ const Page = (props) => {
                       <div className='il'>
                         {item.Location}
                       </div>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <Nationality />
@@ -131,8 +131,8 @@ const Page = (props) => {
                       <div className='il'>
                         {item.Nationality}
                       </div>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <University />
@@ -142,8 +142,8 @@ const Page = (props) => {
                       <div className='il'>
                         {item.University}
                       </div>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <Major />
@@ -153,8 +153,8 @@ const Page = (props) => {
                       <div className='il'>
                         {item.Major}
                       </div>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <Degree />
@@ -164,8 +164,8 @@ const Page = (props) => {
                       <div className='il'>
                         {item.Degree}
                       </div>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                       <div className='il'>
                         <div className="icon">
                           <TechStack />
@@ -175,7 +175,7 @@ const Page = (props) => {
                       <div className='il'>
                         {item.TechStack}
                       </div>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,11 +1,5 @@
 import { useLayoutEffect, useState } from 'react';
-import { ReactComponent as Github } from '@/assets/github.svg';
-import { ReactComponent as Twitter } from '@/assets/twitter.svg';
-import { ReactComponent as Discord } from '@/assets/discord.svg';
-import { ReactComponent as Medium } from '@/assets/medium.svg';
-import { ReactComponent as Telegram } from '@/assets/telegram.svg';
-import { ReactComponent as Youtube } from '@/assets/youtube.svg';
-import { ReactComponent as Paper } from '@/assets/paper.svg';
+
 import { ReactComponent as Arrow } from '@/assets/arrow.svg';
 
 import Box1 from '../Box1';
@@ -232,12 +226,12 @@ const Banner = () => {
   return (
     <div className={styles.banner}>
       <div className="cont">
-        <div className="slider">
+        <div className="slider swiper-no-swiping">
           <div data-target="1" className="slide slide--1">
             <div className="slide__text-wrapper slide--1__text-wrapper">
               <BoxMain
-                title="A Fully EVM-compatible zk-Rollup Layer 2 for Ethereum"
-                desc="Fox uses ZK-EVM, which is exactly equivalent to EVM used by Ethereum L1 consensus, and is seamlessly compatible with all Ethereum DApps."
+                title="Fox is an Ethereum ZK-Rollup scaling solution based on ZK-EVM and using original ZK-FOAKS technology."
+                desc="Fox uses ZK-EVM, which is exactly equivalent to EVM used by Ethereum L1 consensus, and is seamlessly compatible with all Ethereum DApps.Zero Knowledge-Fast Objective Argument of Knowledges has come to be known simply as ZK-FOAKS."
                 onClick={() => setVisible(true)}
               >
                 <Box2 />
@@ -248,7 +242,7 @@ const Banner = () => {
             <div className="slide__text-wrapper slide--2__text-wrapper">
               <BoxMain
                 title="General Purpose, Composability, and Developer-friendly"
-                desc="The Docs can easily implement any business using Solidity smart contract, and deploy it permissionlessly on Fox."
+                desc="Fox's TPS is expected to reach 20K and Gas is reduced to the cent level. Fox Layer2 and Layer3 use parallel architecture and support Solidity and Rust for writing smart contracts."
                 onClick={() => setVisible(true)}
               >
                 <Box3 />
@@ -259,7 +253,7 @@ const Banner = () => {
             <div className="slide__text-wrapper slide--3__text-wrapper">
               <BoxMain
                 title="Fast, Low Gas Cost, and Seamless User Experience"
-                desc="Fox securely scales Ethereum and gets the above advantages based on zk-Rollup & zk-Porter, and other cutting-edge technology."
+                desc="Fox securely scales Ethereum and gets the above advantages based on ZK-FOAKS,ZK-Ringer, and other cutting-edge technology."
                 onClick={() => setVisible(true)}
               >
                 <Box1 />
@@ -268,36 +262,7 @@ const Banner = () => {
           </div>
         </div>
         <ul className="nav"></ul>
-        <ul className="social">
-          <li>
-            <a href="#" title="Github">
-              <Github />
-            </a>
-            <a href="#" title="Twitter">
-              <Twitter />
-            </a>{' '}
-          </li>
-          <li>
-            <a href="#" title="Telegram">
-              <Telegram />
-            </a>{' '}
-          </li>
-          <li>
-            <a href="#" title="Discord">
-              <Discord />
-            </a>{' '}
-          </li>
-          <li>
-            <a href="#" title="Medium">
-              <Medium />
-            </a>{' '}
-          </li>
-          <li>
-            <a href="#" title="Youtube">
-              <Youtube />
-            </a>
-          </li>
-        </ul>
+       
       </div>
       <Drawer
         title={

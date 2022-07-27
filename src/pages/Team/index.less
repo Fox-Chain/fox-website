@@ -272,7 +272,7 @@
       padding-left: 80px;
 
       .moreinfo_left {
-        min-width: unset;
+        min-width: 400px;
 
         h1 {
           font-size: 50px;
@@ -318,21 +318,25 @@
         display: block;
 
         .moreinfo_left {
-          min-width: 400px;
+          min-width: unset;
 
           h1 {
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
+            &:last-child{
+              font-size: 24px !important;
+            }
           }
+          
         }
 
         .moreinfo_right {
           padding-top: 20px;
 
           &>div {
-            margin-bottom: 36px;
+            margin-bottom: 10px;
             display: flex;
-            font-size: 24px;
+            font-size: 20px;
             align-items: center;
           }
         }

@@ -91,7 +91,7 @@ const Page = (props) => {
   };
   return (
     <div className={styles.page}>
-      <Jobs />
+      {/* <Jobs /> */}
       <div className="responsive">
         <ul className="content">
           {

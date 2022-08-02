@@ -5,7 +5,7 @@ import { ReactComponent as University } from '@/assets/location_city.svg';
 import { ReactComponent as Major } from '@/assets/history_edu.svg';
 import { ReactComponent as Degree } from '@/assets/school.svg';
 import { ReactComponent as TechStack } from '@/assets/dvr.svg';
-
+import Jobs from './Jobs2';
 import { connect } from 'umi';
 import styles from './index.less';
 const colors = [
@@ -50,9 +50,9 @@ const Page = (props) => {
 
     $('.content li').click(function () {
       $('.card-front, .card-back').hide();
-      $('.content li').removeClass('active').hide().css('border', 'none');
-      $(this).addClass('active').show();
-      bgColor = $('.active .card-back').css('background-color');
+      $('.content li').removeClass('activeT').hide().css('border', 'none');
+      $(this).addClass('activeT').show();
+      bgColor = $('.activeT .card-back').css('background-color');
       $('.content').css('background-color', bgColor);
       $('.close, .all-content').show();
       $('.responsive').append('<span class="close">close</span>').addClass(effect);
@@ -62,10 +62,10 @@ const Page = (props) => {
     $('.responsive').on('click', '.close', function () {
 
       $('.close').remove();
-      bgColor = $('.active .card-front').css('background-color');
+      bgColor = $('.activeT .card-front').css('background-color');
       $('.responsive').removeClass(effect);
       $('.all-content').hide();
-      $('.content li').removeClass('active').show().css({
+      $('.content li').removeClass('activeT').show().css({
         'border-bottom': '1px solid #2c2c2c',
         'border-left': '1px solid #2c2c2c'
       });
@@ -91,6 +91,7 @@ const Page = (props) => {
   };
   return (
     <div className={styles.page}>
+      {/* <Jobs /> */}
       <div className="responsive">
         <ul className="content">
           {

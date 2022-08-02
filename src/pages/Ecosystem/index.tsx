@@ -323,7 +323,7 @@ const Page = (props) => {
                                 <button className="search-buttons detail-button">{item.Category}</button>
                                 {/* subcategory */}
                                 {
-                                  eval(item.SubCategorles).map(item => <button className="search-buttons detail-button">{item}</button>)
+                                  eval(item.SubCategorles).map((item,index) =>index==0&& <button className="search-buttons detail-button">{item}</button>)
                                 }
                                 <div className="project-stat">
                                   <svg className="heart" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--subtitle-color)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" className="feather feather-heart">

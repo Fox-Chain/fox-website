@@ -3,7 +3,8 @@ import {
   getCategory,
   getSubCategory,
   getTeam,
-  getDocs
+  getDocs,
+  uploadFile
 } from '@/services/api';
 
 export default {
@@ -31,6 +32,10 @@ export default {
     },
     *getDocs({ payload, callback }, { call, put, select }) {
       const response = yield call(getDocs, payload);
+      callback && callback(response);
+    },
+    *uploadFile({ payload, callback }, { call, put, select }) {
+      const response = yield call(uploadFile, payload);
       callback && callback(response);
     },
   },

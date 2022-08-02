@@ -225,43 +225,19 @@
       width: 45%;
       min-width: 260px;
       position: relative;
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480286526/Roboto-slab-image_mtwren.jpg) no-repeat center center;
+      background: #777;
       background-size: cover;
     }
 
-    .roboto-card {
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480287191/robot-image_iai6lv.jpg) no-repeat center center;
-      background-size: cover;
-    }
 
-    .lobster-card {
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480349796/lobster-image_pznrao.jpg) no-repeat center center;
-      background-size: cover;
-    }
-
-    .cabin-card {
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480350297/cabin-image_dqxlwi.jpg) no-repeat center center;
-      background-size: cover;
-    }
-
-    .eczar-card {
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480522564/turtle-image_nblim1.jpg) no-repeat center center;
-      background-size: cover;
-    }
-
-    .gentium-card {
-      background: url(https://res.cloudinary.com/dqj168cdc/image/upload/v1480522983/penguin-image_dufrwg.jpg) no-repeat center center;
-      background-size: cover;
-    }
 
     .inputDnD .form-control-file {
       position: relative;
-      width: 100%;
-      height: 75px;
+      width: 89%;
+      height: 80%;
       outline: none;
       visibility: hidden;
       cursor: pointer;
-      margin-bottom: 50px;
       background-color: #c61c23;
       box-shadow: 0 0 5px solid currentColor;
     }
@@ -272,8 +248,8 @@
       top: 0.5em;
       left: 0;
       width: 100%;
-      min-height: 6em;
-      line-height: 2em;
+      min-height: 100%;
+      line-height: 17em;
       padding-top: 1.5em;
       opacity: 1;
       visibility: visible;
@@ -281,6 +257,16 @@
       border: 0.25em dashed currentColor;
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
       overflow: hidden;
+    }
+
+    .inputDnD {
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      height: 100%;
+      display: flex;
     }
 
     .inputDnD .form-control-file:hover:before {
@@ -293,15 +279,17 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
       position: absolute;
-      transition: all 0.5s;
+      transition: all 0.2s;
       transform: translateY(100%);
       display: flex;
       align-items: center;
-      padding: 10px;
+      cursor:pointer;
     }
-    .text-primary{
+
+    .text-primary {
       color: #ffc000;
     }
+
     .submit {
       display: inline-block;
       background: #ffc000;

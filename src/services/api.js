@@ -39,4 +39,11 @@ export async function getTeam(params) {
 export async function getDocs(params) {
   return request(`/api/getDocs?${stringify(params)}`);
 }
+// 上传简历
+export async function uploadFile(params) {
+  return request('/api/upload', {
+    method: 'POST',
+    body: params,
+  });
+}
 

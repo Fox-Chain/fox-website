@@ -39,7 +39,7 @@ const Page = (props) => {
   const [f, setF] = useState(false)
   useEffect(() => {
     getTeam();
-  });
+  },[]);
   useEffect(() => {
 
     var bgColor;
@@ -91,7 +91,7 @@ const Page = (props) => {
   };
   return (
     <div className={styles.page}>
-      {/* <Jobs /> */}
+      <Jobs />
       <div className="responsive">
         <ul className="content">
           {

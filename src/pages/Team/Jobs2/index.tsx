@@ -3,9 +3,11 @@ import { ReactComponent as Arrow } from '@/assets/arrow.svg';
 import { Drawer } from 'antd';
 import Jobs from '../Jobs';
 import styles from './index.less';
-
-const Banner = () => {
-  const[upload1,setUpload1]=useState(false);
+import { connect } from 'umi';
+const Banner = (props) => {
+  const { dispatch } = props;
+  const [upload1, setUpload1] = useState(false);
+  const[file,setFile]=useState(null)
   useLayoutEffect(() => {
     $(document).ready(function () {
       const $cont = $('.cont');
@@ -212,8 +214,32 @@ const Banner = () => {
       });
     });
   }, []);
-  const onHandClick=()=>{
-    setUpload1(true);
+  const onHandClick = (flag) => {
+    setUpload1(flag);
+  }
+  const readUrl = (input) => {
+    if (input) {
+      // let reader = new FileReader();
+      // reader.onload = e => {
+      //   let imgData = e.target.result;
+      //   let imgName = input.files[0].name;
+      //   input.setAttribute("data-title", imgName);
+      //   console.log(e.target.result);
+      // };
+      // reader.readAsDataURL(input.files[0]);
+      setFile(input);
+    }
+  }
+  const onSubmit=()=>{
+    const formData = new FormData();
+      formData.append('file', file);
+      dispatch({
+        type: 'global/uploadFile',
+        payload: formData,
+        callback: response => {
+          debugger
+        },
+      });
   }
   return (
     <div className={styles.banner}>
@@ -221,27 +247,30 @@ const Banner = () => {
         <div className="slider swiper-no-swiping">
           <div data-target="1" className="slide slide--1">
             <div className="slide__text-wrapper slide--1__text-wrapper">
-            <Jobs upload1={upload1} onHandClick={onHandClick}/>
+              <Jobs upload1={upload1} onHandClick={onHandClick} onChange={readUrl} onSubmit={onSubmit}/>
             </div>
           </div>
           <div data-target="2" className="slide slide--2">
             <div className="slide__text-wrapper slide--2__text-wrapper">
-            <Jobs />
-             
+              <Jobs />
+
             </div>
           </div>
           <div data-target="3" className="slide slide--3">
             <div className="slide__text-wrapper slide--3__text-wrapper">
-            <Jobs />
-              
+              <Jobs />
+
             </div>
           </div>
         </div>
         <ul className="nav"></ul>
-       
+
       </div>
     </div>
   );
 };
 
-export default Banner;
+export default connect(({ global }) => ({
+  global
+}))(Banner)
+

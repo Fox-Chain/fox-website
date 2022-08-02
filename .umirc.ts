@@ -22,8 +22,8 @@ export default defineConfig({
   ],
   proxy:{
      '/api': {
-      // target: 'http://localhost:8972',
-      target: 'https://fox.tech',
+      target: 'http://localhost:8972',
+      // target: 'https://fox.tech',
       changeOrigin: true,
       cookieDomainRewrite: 'localhost',
     },

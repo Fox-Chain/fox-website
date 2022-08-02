@@ -1,7 +1,7 @@
 import styles from './index.less';
 const Page234 = (props) => {
-  const { upload1, onHandClick } = props;
-  const readUrl = (input) => {
+  const { upload1, onHandClick,onChange,onSubmit } = props;
+  const readUrl = (input) => {debugger
     if (input.files && input.files[0]) {
       let reader = new FileReader();
       reader.onload = e => {
@@ -11,8 +11,8 @@ const Page234 = (props) => {
         console.log(e.target.result);
       };
       reader.readAsDataURL(input.files[0]);
+      onChange(input.files[0]);
     }
-
   }
   return (
     <div className={styles.page}>
@@ -21,23 +21,20 @@ const Page234 = (props) => {
 
         <div className="font-card robotoslab-card">
           <h3 className="font--robotoslab" >We're hiring</h3>
-          <div className="explore-button" onClick={() => { onHandClick(true);document.getElementById('ab1')?.focus() }}>Apply</div>
+          <div className="explore-button" onClick={() => { onHandClick(true); }}>Apply</div>
           {/* 上传 */}
-          <div id='ab1'  tabindex="1" onBlur={()=>onHandClick(false)} className='uploadP' style={{ transform: upload1 && 'translateY(0%)' || 'translateY(100%)' }}>
-            <div className="form-group inputDnD">
-              <input onChange={(e) => readUrl(e.target)} type="file" className="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" data-title="Drag and drop a file" />
-              <div>
-                <div className="submit">
+          <div className='uploadP' style={{ transform: upload1 && 'translateY(0%)' || 'translateY(100%)' }}>
+            <div style={{ height: '100%', width: '100%' }}>
+              <div className="form-group inputDnD">
+                  <input onChange={(e) => readUrl(e.target)} type="file" className="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" data-title="Drag and drop a file" />
+                <div className="explore-button" onClick={onSubmit}>
                   Upload
-                </div>
-                <div className="cancel">
-                  Cancel
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="font-description">
+        <div className="font-description" onClick={() => { onHandClick(false); }}>
           <h2 className="font--robotoslab">Front-End Engineer</h2>
           <h2>Description</h2>
           <p >As our Front-End Engineer, you will design and develop from scratch the FE of StarkNet, our blockchain scalability platform, which will be used by blockchain development teams to build their dApps.</p>

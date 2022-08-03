@@ -32,6 +32,19 @@ const Banner = (props) => {
     Deep experience and success in managing cross-functional teams to bring products and features to market;`,
     ref:useRef()
   }]
+  const readUrl = (input) => {
+    if (input) {
+      let reader = new FileReader();
+      reader.onload = e => {
+        let imgData = e.target.result;
+        let imgName = input.target.files[0].name;
+        input.target.setAttribute("data-title", imgName);
+        console.log(e.target.result);
+      };
+      reader.readAsDataURL(input.target.files[0]);
+      // setFile(input);
+    }
+  }
   return (<div className={styles.banner}>
     <div style={{height:'358px',overflow:'hidden'}}>
       <div style={{transition:'all 0.5s',transform:`translateY(-${jobIndex*357}px)`}}>
@@ -52,17 +65,18 @@ const Banner = (props) => {
               <div style={{ textAlign: 'center' }}>
                 <div className='explore-button' onClick={() => {
                   setUpload1(true);
-                  setTimeout(() => {
-                    item.ref.current.focus()
+                  // setTimeout(() => {
+                  //   item.ref.current.focus()
 
-                  }, 200);
+                  // }, 200);
                 }}>Apply</div>
               </div>
-              <div onBlur={() => setUpload1(false)} ref={item.ref} tabIndex={index} className='uploadP' style={{ transform: upload1 && 'translateY(0%)' || 'translateY(100%)' }}>
+              <div className='uploadP' style={{ transform: upload1 && 'translateY(0%)' || 'translateY(100%)' }}>
               {/* <div  className='uploadP' style={{ transform: upload1 && 'translateY(0%)' || 'translateY(100%)' }}> */}
+                <span style={{    zIndex: 11,padding: '5px',fontSize: '14px'}} className="close" onClick={() =>setUpload1(false)}>close</span>
                 <div style={{ height: '100%', width: '100%' }}>
                   <div className="form-group inputDnD">
-                    <input type="file" className="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" data-title="Drag and drop your resume " />
+                    <input onChange={readUrl} type="file" className="form-control-file text-primary font-weight-bold" id="inputFile" accept="image/*" data-title="Drag and drop your resume " />
                     <div className="explore-button" style={{ marginBottom: '20px' }}>
                       Submit
                     </div>
@@ -76,7 +90,7 @@ const Banner = (props) => {
     </div>
     <div className='tabs'>
       {
-        JobData.map((item, index) => <div onClick={() => setJobindex(index)} className='tabitemwrap'><div className='tabitem'><span>{item.job}</span></div></div>)
+        JobData.map((item, index) => <div onClick={() => {setJobindex(index);setUpload1(false);}} className='tabitemwrap'><div className='tabitem'><span>{item.job}</span></div></div>)
       }
     </div>
   </div>

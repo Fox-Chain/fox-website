@@ -1,0 +1,546 @@
+.banner {
+  :global {
+
+    input,
+    button {
+      outline: none;
+    }
+
+    body,
+    input,
+    select,
+    button {
+      font-family: Montserrat, sans-serif;
+    }
+
+    body {
+      background-color: #222;
+    }
+
+    svg * {
+      transform-origin: center;
+    }
+
+    [data-component=curve] svg {
+      overflow: visible;
+    }
+
+    #defs {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .Section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 200px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .Form {
+      width: 80vw;
+    }
+
+    .Form-fieldset {
+      position: relative;
+      border: none;
+      min-height: 3.25em;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Form-field {
+      height: 0;
+      overflow: visible;
+      opacity: 0;
+      filter: blur(5px);
+      transition: 0.4s transform ease, 0.4s opacity ease, 0.4s filter ease, 0.4s visibility step-end, 0.4s height ease;
+      will-change: transform, opacity, filter;
+      pointer-events: none;
+    }
+
+    .Form-field.is-next {
+      transform: scale(0.75) translateY(50%);
+    }
+
+    .Form-field.is-previous {
+      transform: scale(1.25) translateY(-50%);
+    }
+
+    .Form.is-expanded .Form-field,
+    .Form-field.is-active {
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1);
+      transition: 0.4s transform ease, 0.4s opacity ease, 0.4s filter ease, 0.4s visibility step-start, 0.4s height ease;
+      pointer-events: all;
+    }
+
+    .Form.is-expanded .Form-field {
+      height: 5em;
+    }
+
+    .Form-next {
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      width: 62px;
+      height: 28px;
+      padding: 0;
+      border: none;
+      background: none;
+      transform: translateY(-50%);
+      transition: 0.35s top ease, 0.35s transform ease;
+    }
+
+    .Form.is-expanded .Form-next {
+      top: 100%;
+      transform: translateY(100%) translateX(1em);
+    }
+
+    .Form>.Pagination {
+      margin-top: 2em;
+    }
+
+    .Field {
+      position: relative;
+      outline: 1px solid #666;
+      outline-offset: -1px;
+    }
+
+    .Field-label {
+      padding: 1em;
+      
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .Field-input {
+      flex-grow: 1;
+    }
+
+    .Field-note {
+      position: absolute;
+      top: -4em;
+      left: 50%;
+    }
+
+    .is-expanded .Field-note {
+      top: auto;
+      left: 0;
+      bottom: -15px;
+    }
+
+    .Notice {
+      overflow: hidden;
+      padding: 0.7em;
+      color: #03A9F3;
+      font-weight: 700;
+      
+      transform: translateX(-50%);
+    }
+
+    .is-expanded .Notice {
+      padding-bottom: 0;
+      font-size: 12px;
+      transform: none;
+    }
+
+    .Notice::before,
+    .Notice::after {
+      content: "";
+      position: absolute;
+      bottom: 6px;
+      height: 1px;
+      background-color: currentcolor;
+      transform: scaleX(0);
+      transition: 0.35s transform ease 0.15s;
+    }
+
+    .is-expanded .Notice::before,
+    .is-expanded .Notice::after {
+      top: 6px;
+      bottom: auto;
+    }
+
+    .Notice::before {
+      left: 0;
+      right: calc(50% + 5px);
+      transform-origin: right center;
+    }
+
+    .is-expanded .Notice::before {
+      right: calc(100% - 2em);
+    }
+
+    .Notice::after {
+      left: calc(50% + 5px);
+      right: 0;
+      transform-origin: left center;
+    }
+
+    .is-expanded .Notice::after {
+      left: calc(2em + 5px);
+      background-color: transparent;
+      background-image: linear-gradient(90deg, currentcolor, transparent);
+    }
+
+    .Notice.is-visible::before,
+    .Notice.is-visible::after {
+      transform: scaleX(1);
+    }
+
+    .Notice-msg {
+      display: block;
+      transform: translateY(200%);
+      transition: 0.35s transform ease 0.3s;
+    }
+
+    .is-visible>.Notice-msg {
+      transform: translateY(0);
+    }
+
+    .Notice-arrow {
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      height: 8px;
+      width: 8px;
+      margin-left: -4px;
+      border: 1px solid currentcolor;
+      border-width: 0 1px 1px 0;
+      border-right: 1px solid currentcolor;
+      border-bottom: 1px solid currentcolor;
+      background-color: #222;
+      transform: rotate(45deg) scale(0);
+      transition: 0.35s transform ease;
+    }
+
+    .is-visible>.Notice-arrow {
+      transform: rotate(45deg) scale(1);
+    }
+
+    .is-expanded .Notice-arrow {
+      top: 2px;
+      left: 2em;
+      bottom: auto;
+      border-width: 1px 0 0 1px;
+    }
+
+    .GradBorder {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: visible !important;
+    }
+
+    .Input {
+      padding: 1em;
+      border: 0;
+      background: none;
+      
+      letter-spacing: 2px;
+      color: white;
+    }
+
+    .FileUpload-input {
+      position: absolute;
+      width: 0;
+      height: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .FileUpload-label {
+      color: white;
+      
+      letter-spacing: 2px;
+      color: #757575;
+    }
+
+    .FileUpload-label::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .FileUpload.is-highlighted>.FileUpload-label::before {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .FileUpload-label.has-value {
+      color: white;
+    }
+
+    .Pagination {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .Pagination.is-disabled {
+      pointer-events: none;
+    }
+
+    .Pagination-item {
+      position: relative;
+      height: 4px;
+      width: 4em;
+      margin: 0 1em;
+      border: 0;
+      background-color: #fff;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .Pagination-item.is-active {
+      opacity: 1;
+    }
+
+    .Pagination-item:hover {
+      transform: scaleY(8);
+      opacity: 1;
+    }
+
+    .is-disabled>.Pagination-item {
+      transform: scaleX(0);
+    }
+
+    .Pagination-itemText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      line-height: 0;
+      text-transform: lowercase;
+      font-size: 0.75em;
+      letter-spacing: 1px;
+      transform: translate(-50%, -50%) scaleY(0.125);
+      transition: opacity 0.3s ease;
+      will-change: opacity;
+    }
+
+    .Pagination-item:hover>.Pagination-itemText {
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+
+    .Pagination-showAll {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      padding: 0.3em 1em;
+      border: 1px solid #eee;
+      opacity: 0.3;
+      background: none;
+      font-size: 0.7rem;
+      color: white;
+      letter-spacing: 1.5px;
+      
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: 0.35s transform ease, 0.35s opacity ease;
+    }
+
+    .Pagination-showAll:hover {
+      opacity: 1;
+    }
+
+    .is-disabled>.Pagination-showAll {
+      opacity: 0;
+      transform: translateY(-50%) scaleX(0);
+    }
+
+    .Response {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      padding: 1em 2em;
+      text-align: center;
+      color: white;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+    }
+
+    .Response.is-active {
+      visibility: visible;
+    }
+
+    .Response-content {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transition: 0.3s opacity ease;
+    }
+
+    .Response.is-active>.Response-content {
+      opacity: 1;
+    }
+
+    .Response>[data-name=mojs-shape] {
+      z-index: -1;
+    }
+
+    .Credit {
+      position: absolute;
+      right: 1em;
+      bottom: 1em;
+      color: #666;
+    }
+
+    .Credit>a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    [data-state-burst] {
+      fill: none;
+      stroke-width: 1px;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .info {
+      border: 1px solid #03A9F3;
+      max-width: 800px;
+      padding: 30px;
+      margin: 30px auto;
+      position:relative;
+      overflow: hidden;
+    }
+
+    .submit {
+      background: #353232;
+      border-radius: 5px;
+      display: inline-block;
+      color: #ffffff;
+      padding: 5px 20px;
+      margin: 30px auto 0;
+    }
+    .explore-button {
+      font-size: 0.9em;
+      text-align: center;
+      background: white;
+      width: 180px;
+      color: #000;
+      display: inline-block;
+      padding: 1em;
+      margin-top: 2em;
+      margin-bottom: 20px;
+      border-radius: 5em;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      box-shadow: 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+      transition: color 0.6s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .explore-button:hover {
+      box-shadow: 0 3px 5px -5px rgba(0, 0, 0, 0.3);
+      transform: translateY(-1px);
+      color: #6f6f6f;
+      cursor: pointer;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+      &>div{
+        height: 22px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .tabitem {
+          background: #353232;
+          border-radius: 5px;
+          display: inline-block;
+          color: transparent;
+          height: 12px;
+          padding: 0 20px;
+          margin: 10px 5px;
+          transition: all 0.2s;
+          &:hover{
+            color: #ffffff;
+            height: auto;
+            cursor: pointer;
+          }
+        }
+      }
+      
+    }
+    .inputDnD .form-control-file {
+      position: relative;
+      width: 89%;
+      height: 50%;
+      outline: none;
+      visibility: hidden;
+      cursor: pointer;
+      background-color: #c61c23;
+      box-shadow: 0 0 5px solid currentColor;
+    }
+
+    .inputDnD .form-control-file:before {
+      content: attr(data-title);
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      width: 100%;
+      min-height: 100%;
+      line-height: 6;
+      padding-top: 1.5em;
+      opacity: 1;
+      visibility: visible;
+      text-align: center;
+      border: 0.25em dashed currentColor;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+    }
+
+    .inputDnD {
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    .inputDnD .form-control-file:hover:before {
+      border-style: solid;
+      box-shadow: inset 0px 0px 0px 0.25em currentColor;
+    }
+
+    .uploadP {
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0);
+      position: absolute;
+      transition: all 0.2s;
+      transform: translateY(100%);
+      display: flex;
+      align-items: center;
+      cursor:pointer;
+    }
+    .text-primary {
+      color: #ffc000;
+    }
+
+  }
+}

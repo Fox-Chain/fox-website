@@ -5,7 +5,7 @@ import { ReactComponent as University } from '@/assets/location_city.svg';
 import { ReactComponent as Major } from '@/assets/history_edu.svg';
 import { ReactComponent as Degree } from '@/assets/school.svg';
 import { ReactComponent as TechStack } from '@/assets/dvr.svg';
-import Jobs from './Jobs2';
+import Jobs from './Jobs3';
 import { connect } from 'umi';
 import styles from './index.less';
 const colors = [
@@ -91,7 +91,7 @@ const Page = (props) => {
   };
   return (
     <div className={styles.page}>
-      {/* <Jobs /> */}
+      <Jobs />
       <div className="responsive">
         <ul className="content">
           {

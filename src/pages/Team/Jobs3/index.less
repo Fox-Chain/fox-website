@@ -113,7 +113,7 @@
 
     .Field-label {
       padding: 1em;
-      
+
       color: white;
       letter-spacing: 1px;
     }
@@ -137,9 +137,9 @@
     .Notice {
       overflow: hidden;
       padding: 0.7em;
-      color: #03A9F3;
+      color: #353232;
       font-weight: 700;
-      
+
       transform: translateX(-50%);
     }
 
@@ -244,7 +244,7 @@
       padding: 1em;
       border: 0;
       background: none;
-      
+
       letter-spacing: 2px;
       color: white;
     }
@@ -259,7 +259,7 @@
 
     .FileUpload-label {
       color: white;
-      
+
       letter-spacing: 2px;
       color: #757575;
     }
@@ -349,7 +349,7 @@
       font-size: 0.7rem;
       color: white;
       letter-spacing: 1.5px;
-      
+
       transform: translateY(-50%);
       cursor: pointer;
       transition: 0.35s transform ease, 0.35s opacity ease;
@@ -414,11 +414,12 @@
     }
 
     .info {
-      border: 1px solid #03A9F3;
-      max-width: 800px;
+      border: 1px solid #353232;
+      max-width: 1000px;
+      min-height: 300px;
       padding: 30px;
       margin: 30px auto;
-      position:relative;
+      position: relative;
       overflow: hidden;
     }
 
@@ -430,6 +431,7 @@
       padding: 5px 20px;
       margin: 30px auto 0;
     }
+
     .explore-button {
       font-size: 0.9em;
       text-align: center;
@@ -454,32 +456,49 @@
       color: #6f6f6f;
       cursor: pointer;
     }
+
     .tabs {
       display: flex;
       justify-content: center;
       margin-bottom: 30px;
-      &>div{
+      margin-top: 20px;
+      .tabitemwrap {
         height: 22px;
         position: relative;
         display: flex;
         align-items: center;
+
         .tabitem {
           background: #353232;
-          border-radius: 5px;
           display: inline-block;
           color: transparent;
-          height: 12px;
+          height: 4px;
           padding: 0 20px;
           margin: 10px 5px;
           transition: all 0.2s;
-          &:hover{
-            color: #ffffff;
-            height: auto;
-            cursor: pointer;
+          span {
+            opacity: 0;
+          }
+          &:hover {
+            color: #353232;
+          }
+        }
+
+        &:hover {
+          color: #18191c;
+          cursor: pointer;
+          .tabitem {
+            height: 32px;
+            color: #fff;
+            display: flex;
+            background: #353232;
+            align-items: center;
+            span {
+              opacity: 1;
+            }
           }
         }
       }
-      
     }
     .inputDnD .form-control-file {
       position: relative;
@@ -526,8 +545,8 @@
 
     .uploadP {
       position: absolute;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0);
@@ -536,8 +555,9 @@
       transform: translateY(100%);
       display: flex;
       align-items: center;
-      cursor:pointer;
+      cursor: pointer;
     }
+
     .text-primary {
       color: #ffc000;
     }

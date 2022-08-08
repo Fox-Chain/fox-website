@@ -117,7 +117,7 @@ const Page = (props: any) => {
             <button style={{ marginTop: '0' }} className="search-buttons detail-button">{data.Category}</button>
             {/* subcategory */}
             {
-             data&&checkStringIsJson(data)&&eval(data.SubCategorles).map(item => <button style={{ marginTop: '0' }} className="search-buttons detail-button">{item}</button>)
+              data && checkStringIsJson(data) && eval(data.SubCategorles).map(item => <button style={{ marginTop: '0' }} className="search-buttons detail-button">{item}</button>)
             }
             <div className='twitter'>
               <a target="_blank" href={data.Media}><Twitter />
@@ -127,7 +127,10 @@ const Page = (props: any) => {
           </div>
         </p>
         <h1>{data.Description}</h1>
-        <div className="button no-select"><span>Have A Try</span></div>
+        <a target='_blank' href={data.Website}>
+          <div className="button no-select"><span>Have A Try</span></div>
+
+        </a>
       </div>
 
       <div className="cursor"></div>

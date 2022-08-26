@@ -45,7 +45,7 @@ const BasicLayout = (props) => {
           <li>
             <a href="#" title="Medium">
               <Medium />
-            </a>{' '}
+            </a>
           </li>
           <li>
             <a href="#" title="Youtube">

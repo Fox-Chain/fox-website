@@ -6,6 +6,8 @@ import { ReactComponent as Discord } from '@/assets/discord.svg';
 import { ReactComponent as Medium } from '@/assets/medium.svg';
 import { ReactComponent as Telegram } from '@/assets/telegram.svg';
 import { ReactComponent as Youtube } from '@/assets/youtube.svg';
+import { ReactComponent as Mirror } from '@/assets/mirror.svg';
+
 import Menu from './Menu';
 
 import styles from './BasicLayout.less';
@@ -23,20 +25,20 @@ const BasicLayout = (props) => {
       </Content>
       <ul className="social">
           <li>
-            <a href="#" title="Github">
+            <a href="https://github.com/Fox-Chain" target="_blank" title="Github">
               <Github />
             </a>
-            <a href="#" title="Twitter">
+            <a href="https://twitter.com/foxchain_tech" target="_blank" title="Twitter">
               <Twitter />
             </a>{' '}
           </li>
           <li>
-            <a href="#" title="Telegram">
+            <a href="https://t.me/fox_tech_official" target="_blank" title="Telegram">
               <Telegram />
             </a>{' '}
           </li>
           <li>
-            <a href="#" title="Discord">
+            <a href="https://discord.gg/MKC4AQDED4" target="_blank" title="Discord">
               <Discord />
             </a>{' '}
           </li>
@@ -48,6 +50,11 @@ const BasicLayout = (props) => {
           <li>
             <a href="#" title="Youtube">
               <Youtube />
+            </a>
+          </li>
+          <li>
+            <a href="https://mirror.xyz/0x9918a0c87861D5BBAB94BBCE8c59604B3C01d2C8" target="_blank" title="Mirror">
+              <Mirror />
             </a>
           </li>
         </ul>

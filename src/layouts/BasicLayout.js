@@ -38,7 +38,7 @@ const BasicLayout = (props) => {
             </a>{' '}
           </li>
           <li>
-            <a href="https://discord.gg/MKC4AQDED4" target="_blank" title="Discord">
+            <a href="https://discord.gg/sTNh6fmT" target="_blank" title="Discord">
               <Discord />
             </a>{' '}
           </li>

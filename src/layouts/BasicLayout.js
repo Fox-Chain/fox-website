@@ -42,13 +42,13 @@ const BasicLayout = (props) => {
               <Discord />
             </a>{' '}
           </li>
-          <li>
+          {/* <li>
             <a href="#" title="Medium">
               <Medium />
             </a>
-          </li>
+          </li> */}
           <li>
-            <a href="#" title="Youtube">
+            <a href="https://www.youtube.com/channel/UCtn0P_hP0TKMFwjoYyUUAgg" target="_blank" title="Youtube">
               <Youtube />
             </a>
           </li>

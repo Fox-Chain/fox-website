@@ -47,11 +47,11 @@ const BasicLayout = (props) => {
               <Medium />
             </a>
           </li> */}
-          {/* <li>
+          <li>
             <a href="https://www.youtube.com/channel/UCtn0P_hP0TKMFwjoYyUUAgg" target="_blank" title="Youtube">
               <Youtube />
             </a>
-          </li> */}
+          </li>
           <li>
             <a href="https://mirror.xyz/0x9918a0c87861D5BBAB94BBCE8c59604B3C01d2C8" target="_blank" title="Mirror">
               <Mirror />

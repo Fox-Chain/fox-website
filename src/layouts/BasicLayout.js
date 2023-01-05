@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { ReactComponent as Logo } from '@/assets/fox_full.svg';
+import Logo  from '@/assets/fox_full.svg';
 import { ReactComponent as Github } from '@/assets/github.svg';
 import { ReactComponent as Twitter } from '@/assets/twitter.svg';
 import { ReactComponent as Discord } from '@/assets/discord.svg';
@@ -17,7 +17,9 @@ const BasicLayout = (props) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <div>
-        <a href='/#/'><Logo className={styles.logo} /></a>
+        <a href='/#/'>
+          <img src={Logo} className={styles.logo} />
+          </a>
         <Menu />
       </div>
       <Content className={styles.main}>

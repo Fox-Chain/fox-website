@@ -28,7 +28,7 @@ const BasicLayout = (props) => {
           <a
             href="https://fox-tech.gitbook.io/fox-documentation/"
             target="_blank"
-            title="Github"
+            title="Gitbook"
           >
             <Gitbook />
           </a>

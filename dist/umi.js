@@ -32504,7 +32504,7 @@
                     Object(gn['jsx'])('a', {
                       href: 'https://fox-tech.gitbook.io/fox-documentation/',
                       target: '_blank',
-                      title: 'Github',
+                      title: 'Gitbook',
                       children: Object(gn['jsx'])(se, {}),
                     }),
                     Object(gn['jsx'])('a', {

@@ -21,7 +21,7 @@ const codeMessage = {
   504: '网关超时。',
 };
 
-const checkStatus = response => {
+const checkStatus = (response) => {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -47,7 +47,7 @@ const cachedSave = (response, hashcode) => {
     response
       .clone()
       .text()
-      .then(content => {
+      .then((content) => {
         sessionStorage.setItem(hashcode, content);
         sessionStorage.setItem(`${hashcode}:timestamp`, Date.now());
       });
@@ -71,10 +71,7 @@ export default function request(url, option) {
    * Maybe url has the same parameters
    */
   const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
-  const hashcode = hash
-    .sha256()
-    .update(fingerprint)
-    .digest('hex');
+  const hashcode = hash.sha256().update(fingerprint).digest('hex');
 
   const defaultOptions = {
     credentials: 'include',
@@ -119,15 +116,16 @@ export default function request(url, option) {
   }
   return fetch(url, newOptions)
     .then(checkStatus)
-    .then(response => cachedSave(response, hashcode))
-    .then(response => {
+    .then((response) => cachedSave(response, hashcode))
+    .then((response) => {
       // DELETE and 204 do not return data by default
       // using .json will report an error.
       if (newOptions.method === 'DELETE' || response.status === 204) {
         return response.json();
       }
       return response.json();
-    }).then(response => {
+    })
+    .then((response) => {
       // DELETE and 204 do not return data by default
       // using .json will report an error.
       // if (response.code != 20000) {
@@ -135,26 +133,26 @@ export default function request(url, option) {
       // }
       return response;
     })
-    .catch(e => {
+    .catch((e) => {
       const status = e.name;
-      if (status === 401||status===302) {
-        // @HACK
-        /* eslint-disable no-underscore-dangle */
-        history.push('/user/login');
-        return {};
-      }
-      // environment should not be used
-      if (status === 403) {
-        message.error(codeMessage['403']);
-        return {};
-      }
-      if (status <= 504 && status >= 500) {
-        message.error(codeMessage['500']);
-        return {};
-      }
-      if (status >= 404 && status < 422) {
-        // history.push('/exception/404');
-        return {};
-      }
+      // if (status === 401||status===302) {
+      //   // @HACK
+      //   /* eslint-disable no-underscore-dangle */
+      //   history.push('/user/login');
+      //   return {};
+      // }
+      // // environment should not be used
+      // if (status === 403) {
+      //   message.error(codeMessage['403']);
+      //   return {};
+      // }
+      // if (status <= 504 && status >= 500) {
+      //   message.error(codeMessage['500']);
+      //   return {};
+      // }
+      // if (status >= 404 && status < 422) {
+      //   // history.push('/exception/404');
+      //   return {};
+      // }
     });
 }

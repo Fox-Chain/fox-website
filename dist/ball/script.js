@@ -1,1 +1,173 @@
-class Canvas{constructor(){this.scrollY=0,this.mouse=new THREE.Vector2(0,0),this.w=window.innerWidth,this.h=window.innerHeight,this.renderer=new THREE.WebGLRenderer({antialias:!0}),this.renderer.setSize(this.w,this.h),this.renderer.setPixelRatio(window.devicePixelRatio),this.renderer.setClearColor(0);const e=document.getElementById("myCanvas");e.appendChild(this.renderer.domElement);const t=50,s=t/2*(Math.PI/180),i=this.h/2/Math.tan(s);this.camera=new THREE.PerspectiveCamera(t,this.w/this.h,1,2*i),this.camera.position.z=i,this.scene=new THREE.Scene,this.uniforms={time:{value:1},resolution:{type:"v2",value:new THREE.Vector2(this.renderer.domElement.width,this.renderer.domElement.height)}},this.meshList=[];for(let n=0;n<36;n++)this.mesh=new Donuts(i/2,this.uniforms),this.mesh.position.set(0,0,0),this.mesh.position.normalize(),this.mesh.rotation.set(10*n*(Math.PI/180),10*n*(Math.PI/180),45*n*(Math.PI/180)),this.meshList.push(this.mesh),this.scene.add(this.mesh);this.renderer.render(this.scene,this.camera),this.render()}render(){requestAnimationFrame((()=>{this.render()}));performance.now();for(let e=0;e<this.meshList.length;e++)this.mesh=this.meshList[e];this.camera.lookAt(this.scene.position),this.camera.position.x+=.01*(this.mouse.x-this.camera.position.x),this.camera.position.y+=.01*(-this.mouse.y-this.camera.position.y),this.uniforms.time.value+=.05,this.renderer.render(this.scene,this.camera)}mouseMoved(e,t){this.mouse.x=e-this.w/2,this.mouse.y=-t+this.h/2}scrolled(e){this.scrollY=e}resized(){this.w=window.innerWidth,this.h=window.innerHeight,this.renderer.setSize(this.w,this.h),this.renderer.setPixelRatio(window.devicePixelRatio),this.camera.aspect=this.w/this.h,this.camera.updateProjectionMatrix(),this.uniforms.resolution.value.x=this.renderer.domElement.width,this.uniforms.resolution.value.y=this.renderer.domElement.height}}class Donuts extends THREE.Mesh{constructor(e,t){const s=new THREE.TorusGeometry(e,10,32,100),i=new THREE.ShaderMaterial({uniforms:t,vertexShader:document.getElementById("vertexShader").textContent,fragmentShader:document.getElementById("fragmentShader").textContent});super(s,i)}}function getRandom(e,t){return Math.random()*(t-e)+e}window.addEventListener("load",(function(){const e=new Canvas;e.scrolled(window.scrollY),window.addEventListener("mousemove",(t=>{e.mouseMoved(t.clientX,t.clientY)})),window.addEventListener("scroll",(t=>{e.scrolled(window.scrollY)})),window.addEventListener("resize",(t=>{e.resized()}))}));
+// このクラス内に three.js のコードを書いていきます
+class Canvas {
+  constructor() {
+    /************************/
+    /*インタラクション用*/
+    /************************/
+
+    //スクロール量
+    this.scrollY = 0;
+    //マウス座標
+    this.mouse = new THREE.Vector2(0, 0);
+    //ウィンドウサイズ
+    this.w = window.innerWidth;
+    this.h = window.innerHeight;
+
+    /************************/
+    /*シーン設定*/
+    /************************/
+
+    // レンダラー
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+    });
+    this.renderer.setSize(this.w, this.h); // 描画サイズ
+    this.renderer.setPixelRatio(window.devicePixelRatio); // ピクセル比
+    this.renderer.setClearColor(0x000000);
+
+    //#myCanvasにレンダラーのcanvasを追加
+    const container = document.getElementById('myCanvas');
+    container.appendChild(this.renderer.domElement);
+
+    // カメラ
+    /*js上の数値をpixelに変換する処理*/
+    const fov = 50;
+    const fovRad = (fov / 2) * (Math.PI / 180); // 視野角をラジアンに変換
+    const dist = this.h / 2 / Math.tan(fovRad); // ウィンドウぴったりのカメラ距離
+    /* */
+    this.camera = new THREE.PerspectiveCamera(
+      fov,
+      this.w / this.h,
+      1,
+      dist * 2,
+    );
+    this.camera.position.z = dist; // カメラを遠ざける
+
+    // シーン
+    this.scene = new THREE.Scene();
+
+    //uniform
+    this.uniforms = {
+      time: { value: 1.0 },
+      resolution: {
+        type: 'v2',
+        value: new THREE.Vector2(
+          this.renderer.domElement.width,
+          this.renderer.domElement.height,
+        ),
+      },
+    };
+
+    /************************/
+    /*オブジェクト*/
+    /************************/
+
+    this.meshList = [];
+    for (let i = 0; i < 36; i++) {
+      this.mesh = new Donuts(dist / 2, this.uniforms); //引数:size,uniforms
+      this.mesh.position.set(0, 0, 0);
+      this.mesh.position.normalize();
+
+      this.mesh.rotation.set(
+        i * 10 * (Math.PI / 180),
+        i * 10 * (Math.PI / 180),
+        i * 45 * (Math.PI / 180),
+      );
+
+      this.meshList.push(this.mesh);
+      this.scene.add(this.mesh);
+    }
+
+    /************************/
+    /*画面更新*/
+    /************************/
+
+    this.renderer.render(this.scene, this.camera);
+    this.render();
+  }
+
+  render() {
+    requestAnimationFrame(() => {
+      this.render();
+    });
+    // ミリ秒から秒に変換
+    const sec = performance.now() / 1000;
+
+    for (let i = 0; i < this.meshList.length; i++) {
+      this.mesh = this.meshList[i];
+    }
+
+    this.camera.lookAt(this.scene.position); // 画面に表示
+    this.camera.position.x += (this.mouse.x - this.camera.position.x) * 0.01;
+    this.camera.position.y += (-this.mouse.y - this.camera.position.y) * 0.01;
+
+    this.uniforms.time.value += 0.05;
+
+    // 画面に表示
+    this.renderer.render(this.scene, this.camera);
+  }
+
+  mouseMoved(x, y) {
+    this.mouse.x = x - this.w / 2; // 原点を中心に持ってくる
+    this.mouse.y = -y + this.h / 2; // 軸を反転して原点を中心に持ってくる
+  }
+
+  scrolled(y) {
+    this.scrollY = y;
+  }
+
+  resized() {
+    this.w = window.innerWidth;
+    this.h = window.innerHeight;
+    this.renderer.setSize(this.w, this.h);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.camera.aspect = this.w / this.h;
+    this.camera.updateProjectionMatrix();
+    this.uniforms.resolution.value.x = this.renderer.domElement.width;
+    this.uniforms.resolution.value.y = this.renderer.domElement.height;
+  }
+}
+
+/** メッシュを継承したドーナツクラスです。 */
+class Donuts extends THREE.Mesh {
+  /** コンストラクターです。 */
+  constructor(size, uniform) {
+    // ジオメトリを作成
+    const geometry = new THREE.TorusGeometry(size, 10, 32, 100);
+    const material = new THREE.ShaderMaterial({
+      uniforms: uniform,
+      vertexShader: document.getElementById('vertexShader').textContent,
+      fragmentShader: document.getElementById('fragmentShader').textContent,
+    });
+    //const material = new THREE.MeshBasicMaterial({color: 0x6699FF});
+
+    // 継承元のコンストラクターを実行
+    super(geometry, material);
+  }
+}
+
+function getRandom(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+//このクラス内に ページごとのcanvas外の処理を書いていきます
+window.addEventListener('load', function () {
+  const canvas = new Canvas();
+  canvas.scrolled(window.scrollY);
+
+  /************************/
+  /*addEventListener*/
+  /************************/
+
+  window.addEventListener('mousemove', (e) => {
+    canvas.mouseMoved(e.clientX, e.clientY);
+  });
+
+  window.addEventListener('scroll', (e) => {
+    canvas.scrolled(window.scrollY);
+  });
+
+  window.addEventListener('resize', (e) => {
+    canvas.resized();
+  });
+});

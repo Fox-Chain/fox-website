@@ -12,7 +12,12 @@ const Page = () => {
       <nav id="menu">
         <div className="menu-item">
           <div className="menu-text">
-            <a href="#/docs">Docs</a>
+            <a
+              target="_blank"
+              href="https://fox-tech.gitbook.io/fox-documentation/"
+            >
+              Docs
+            </a>
           </div>
           {/* <div className="sub-menu triple" style={{ height: '20em' }}>
             <div
@@ -83,97 +88,7 @@ const Page = () => {
             </div>
           </div> */}
         </div>
-        <div className="menu-item">
-          <div className="menu-text">
-            {/* <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="/#/ecosystem">Ecosystem</a> */}
-            <a style={{color:`${location.pathname=='/ecosystem'&&'#ffffff'}`}} href="#">Ecosystem</a>
-          </div>
-          {/* <div className="sub-menu double" style={{ height: '20em' }}>
-            <div
-              className="top-container gb c icon-box"
-              style={{ height: '4.5em' }}
-            >
-              <div className="icon big">
-                <i className="far fa-book"></i>
-              </div>
-              <div className="text">
-                <div className="title">Where to start</div>
-                <div className="sub-text">Get started to find projects</div>
-              </div>
-            </div>
-            <div className="icon-box gb a">
-              <div className="icon">
-                <i className="far fa-question-circle"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  DeFi <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">
-                  {' '}
-                  DEX, Lending, Stablecoin, Derivatives, Payment
-                </div>
-              </div>
-            </div>
-            <div className="icon-box gb b">
-              <div className="icon">
-                <i className="far fa-users-class"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  DEX <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">AMM, Orderbook</div>
-              </div>
-            </div>
-            <div className="icon-box gb c">
-              <div className="icon">
-                <i className="far fa-school"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  NFT <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">
-                  Art, Collectibles, Virtual Worlds
-                </div>
-              </div>
-            </div>
-            <div className="icon-box gb d">
-              <div className="icon">
-                <i className="far fa-chess-rook"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Game <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">P2E, GameFi, Metaverse</div>
-              </div>
-            </div>
-            <div className="icon-box gb e">
-              <div className="icon">
-                <i className="far fa-video-plus"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Web3.0 <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">Social Media, Music, Sports</div>
-              </div>
-            </div>
-            <div className="icon-box gb f">
-              <div className="icon">
-                <i className="far fa-cat"></i>
-              </div>
-              <div className="text">
-                <div className="title">
-                  Infrastructure <i className="far fa-arrow-right"></i>
-                </div>
-                <div className="sub-text">DAO, Bridge, Oracle, Tools</div>
-              </div>
-            </div>
-          </div> */}
-        </div>
+
         <div className="menu-item">
           <div className="menu-text">
             <a href="#/team">Team</a>

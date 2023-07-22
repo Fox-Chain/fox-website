@@ -220,6 +220,21 @@ const Page = () => {
             </div>
           </div>
         </div>
+        <div className="menu-item">
+          <div className="menu-text">
+            <a href="portal">Testnet</a>
+          </div>
+        </div>
+        <div className="menu-item">
+          <div className="menu-text">
+            <a href="bridge">Bridge</a>
+          </div>
+        </div>
+        <div className="menu-item">
+          <div className="menu-text">
+            <a href="javascript:void(0);">User Guide</a>
+          </div>
+        </div>
       </nav>
     </div>
   );

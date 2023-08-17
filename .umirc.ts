@@ -5,7 +5,6 @@ export default defineConfig({
     type: 'none',
   },
   routes: [
-
     {
       path: '/',
       component: '../layouts/BasicLayout',
@@ -18,10 +17,9 @@ export default defineConfig({
         { path: '/team', component: '@/pages/Team' },
       ],
     },
-
   ],
-  proxy:{
-     '/api': {
+  proxy: {
+    '/api': {
       target: 'http://localhost:8972',
       // target: 'https://fox.tech',
       changeOrigin: true,
@@ -29,8 +27,8 @@ export default defineConfig({
     },
   },
   fastRefresh: {},
-  title: 'Fox Tech',
+  title: 'Fox Lab',
   history: {
-    type: 'hash'
-  }
+    type: 'hash',
+  },
 });

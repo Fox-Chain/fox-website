@@ -37306,7 +37306,7 @@
                 history: Object(C['a'])(e.hot),
                 isServer: Object({ NODE_ENV: 'production' }).__IS_SERVER,
                 rootElement: 'root',
-                defaultTitle: 'Fox Tech',
+                defaultTitle: 'Fox Lab',
               },
             });
             return Object(F['renderClient'])(t);
